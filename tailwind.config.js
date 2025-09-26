@@ -1,4 +1,4 @@
-/** @type {import('tailwindcss').Config} */
+// tailwind.config.js
 export default {
   content: [
     "./index.html",
@@ -6,8 +6,14 @@ export default {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sora: ['Sora', 'sans-serif'],
+      keyframes: {
+        shine: {
+          "0%": { left: "-150%" },
+          "100%": { left: "150%" },
+        },
+      },
+      animation: {
+        shine: "shine 0.8s linear forwards",
       },
     },
   },
