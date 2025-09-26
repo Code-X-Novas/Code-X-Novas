@@ -159,17 +159,18 @@ export default function HeroWithNavbar() {
           <a href="#career" className="font-sora text-[16px] text-black">
             Career
           </a>
-          <Link
-            to="/contact"
-            className="relative overflow-hidden ml-6 px-6 py-2 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]
-              before:content-[''] before:absolute before:top-0 before:left-[-150%]
-              before:w-[150%] before:h-full before:bg-gradient-to-r
-              before:from-transparent before:via-white/60 before:to-transparent
-              before:skew-x-[-20deg]
-              hover:before:animate-shine"
-          >
-            Contact us
-          </Link>
+          <a
+  href="#contact"
+  className="relative overflow-hidden ml-6 px-6 py-2 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]
+    before:content-[''] before:absolute before:top-0 before:left-[-150%]
+    before:w-[150%] before:h-full before:bg-gradient-to-r
+    before:from-transparent before:via-white/60 before:to-transparent
+    before:skew-x-[-20deg]
+    hover:before:animate-shine"
+>
+  Contact us
+</a>
+
         </div>
 
        {/*Mobile version of the navbar with Hamburger menu*/}
