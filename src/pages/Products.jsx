@@ -1,3 +1,8 @@
+//I have fixed the buttons for making it responsive across all the screen sizes For tablet/ipads, mobiles and desktop 
+//For desktop it appears like the figma prototype.(Big arrow buttons)
+//For tablet/ipads & mobiles it appears small and closer to the picture animation
+// It is totally responsive on all!
+
 {/* Few Imports */}
 import React, { useState } from "react";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
@@ -15,12 +20,13 @@ const Products = () => {
   const [index, setIndex] = useState(0);
   const [direction, setDirection] = useState(1);
 
-  // Button functions
+  // Button functions(This is for Prev)
   const handlePrev = () => {
     setDirection(-1);
     setIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
+ // (This is for next)
   const handleNext = () => {
     setDirection(1);
     setIndex((prev) => (prev + 1) % testimonials.length);
@@ -38,17 +44,20 @@ const Products = () => {
       </h2>
   
       <div className="relative flex items-center justify-center max-w-6xl mx-auto">
+    
         <button
           onClick={handlePrev}
-          className="absolute -left-10 z-20 w-9 h-9 flex items-center justify-center 
+          className="absolute -left-5 sm:-left-6 lg:-left-10 z-20 
+                     w-4 h-4 sm:w-8 sm:h-8 lg:w-10 lg:h-10 flex items-center justify-center 
                      border border-blue-800 rounded-full text-blue-800 
                      hover:bg-blue-800 hover:text-white transition"
         >
-          <FiChevronLeft size={18} />
+          <FiChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
         </button>
 
+      
         <div className="relative w-full max-w-4xl h-[600px] flex items-center justify-center perspective-[2000px]">
-    <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[100%] h-7 bg-black/60 rounded-xl blur-lg"></div>
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 w-[100%] h-7 bg-black/60 rounded-xl blur-lg"></div>
 
           <img
             src={testimonials[(index + 2) % testimonials.length]}
@@ -67,20 +76,8 @@ const Products = () => {
               key={index}
               src={testimonials[index]}
               alt="Client"
-              initial={{
-                opacity: 1,
-                scale: 1,
-                rotateX: 0,
-                y: 0,
-                zIndex: 30,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                rotateX: 0,
-                y: 0,
-                zIndex: 30,
-              }}
+              initial={{ opacity: 1, scale: 1, y: 0, zIndex: 30 }}
+              animate={{ opacity: 1, scale: 1, y: 0, zIndex: 30 }}
               exit={{
                 opacity: 1,
                 scale: 0.85,
@@ -95,13 +92,15 @@ const Products = () => {
           </AnimatePresence>
         </div>
 
+    
         <button
           onClick={handleNext}
-          className="absolute -right-10 z-20 w-9 h-9 flex items-center justify-center 
+          className="absolute -right-5 sm:-right-6 lg:-right-10 z-20 
+                     w-4 h-4 sm:w-8 sm:h-8 lg:w-10 lg:h-10 flex items-center justify-center 
                      border border-blue-800 rounded-full text-blue-800 
                      hover:bg-blue-800 hover:text-white transition"
         >
-          <FiChevronRight size={18} />
+          <FiChevronRight className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" />
         </button>
       </div>
     </section>

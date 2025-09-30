@@ -197,7 +197,8 @@ export default function HeroWithNavbar() {
           </div>
         </div>
 
-        <motion.div className="absolute inset-0 mt-10 z-10 hidden md:block">
+        {/* Desktop Interface- separted for clarity*/}
+        <motion.div className="absolute inset-0 mt-10 z-10 hidden lg:block">
           {current.rectangles.map((rect, i) => (
             <img key={i} src={rect.src} alt={`Rectangle ${i + 1}`} className="absolute" style={rect.style} />
           ))}
@@ -258,15 +259,61 @@ export default function HeroWithNavbar() {
           </div>
         </motion.div>
 
+{/* Tablet or iPad Interface- For separted clarity */}
+
+<div className="hidden md:flex lg:hidden flex-col items-center gap-6 mt-4 w-full">
+  <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+    {current.rectangles.map((rect, i) => (
+      <img
+        key={i}
+        src={rect.src}
+        alt={`Rectangle ${i + 1}`}
+        className="w-[220px] sm:w-[110px] h-auto rounded shadow"
+      />
+    ))}
+  </div>
+
+
+  <motion.div
+    animate={{ y: offset }}
+    transition={{ duration: 0.5, ease: "easeInOut" }}
+    className="flex flex-col items-center gap-3 mt-6 ml-3"
+  >
+    {topics.map((topic, i) => {
+      const isActive = i === activeIndex;
+      return (
+        <div
+          key={i}
+          className="relative flex items-start bg-white shadow px-6 py-3 rounded"
+        >
+          <span
+            style={{
+              fontFamily: "Sora",
+              fontWeight: 200,
+              fontSize: "16px",
+              color: isActive ? "#2352A5" : "#000000",
+            }}
+          >
+            {topic}
+          </span>
+        </div>
+      );
+    })}
+  </motion.div>
+</div>
+
+
+{/*Mobile Interface -Seperated for clarity*/}
+
 <div className="flex md:hidden w-full flex-col items-center mt-6">
-  <div className="relative w-[85%] sm:w-[70%] max-w-[200px] flex flex-col items-center">
-    
+  <div className="relative w-[85%] sm:w-[70%] max-w-[220px] flex flex-col items-center">
     <img
       src={current.rectangles[0].src}
       alt="Big Rectangle"
       className="w-full rounded shadow"
     />
 
+  
     <img
       src={current.rectangles[1].src}
       alt="Small Rectangle"
@@ -276,30 +323,28 @@ export default function HeroWithNavbar() {
     <motion.div
       animate={{ y: offset }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
-      className="absolute inset-0 flex flex-col justify-center items-center space-y-1 sm:space-y-2"
+      className="absolute inset-0 flex flex-col justify-center items-center gap-[-12px]"
     >
       {topics.map((topic, i) => {
         const isActive = i === activeIndex;
         return (
           <div
             key={i}
-            className="relative flex items-start bg-white shadow"
+            className="relative flex items-center justify-center bg-white shadow rounded"
             style={{
-              transform: "scale(0.45) sm:scale(0.6)", 
-              padding: "16px 32px",
+              transform: "scale(0.55)",  
+              padding: "12px 24px",
               minHeight: "40px",
               whiteSpace: "nowrap",
-              boxSizing: "border-box",
             }}
           >
             <span
               style={{
                 fontFamily: "Sora",
                 fontWeight: 500,
-                fontSize: "10px", 
+                fontSize: "12px",
                 color: isActive ? "#2352A5" : "#000000",
               }}
-              className="sm:text-[12px] md:text-[14px]" 
             >
               {topic}
             </span>
@@ -310,7 +355,7 @@ export default function HeroWithNavbar() {
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="absolute top-1 right-1 sm:top-2 sm:right-2 transform rotate-90"
+              className="absolute top-1 right-1 transform rotate-90"
             >
               <path
                 d="M20 4H8V16"
@@ -322,10 +367,10 @@ export default function HeroWithNavbar() {
         );
       })}
     </motion.div>
-
   </div>
 </div>
- </div>
- </section>
+
+      </div>
+    </section>
   );
 }

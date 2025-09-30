@@ -3,6 +3,9 @@
 // The cards mouse enter animation has been made more smooth by enacting on the duration and ease-in-out addition.
 // Also,Changed the Why choose us sections's line's colour along with making minimal changes.
 //Enhanced the readability of the code by adding comments.
+//The map & it's pulsing dots is totally responsive now on all screen sizes.
+//The why choose us that waas visible on desktop is now also visible on mobile and small screen sizes .
+//Fixed the inset of pulsing dots for both desktop and mobile seperately
 
 {/*Few Imports*/}
 import React from "react";
@@ -49,11 +52,18 @@ const servicesData = [
 const PulseDot = ({ left, top }) => (
   <div
     className="absolute"
-    style={{ left: `${left}px`, top: `${top}px`, width: "20px", height: "20px" }}
+    style={{
+      left: `${left}%`,
+      top: `${top}%`,
+      width: "20px",
+      height: "20px",
+    }}
   >
     <span className="absolute inset-0 rounded-full bg-sky-500 opacity-60 animate-ping"></span>
-    <span className="absolute inset-[6px] rounded-full bg-sky-500"></span>
-  </div>
+  
+   
+    <span className="absolute rounded-full bg-sky-500 inset-[8px] sm:hidden"></span>
+    <span className="absolute rounded-full bg-sky-500 hidden sm:block inset-[6px]"></span>  </div>
 );
 
 // Map with 12 pulsing dots
@@ -61,18 +71,18 @@ const MapWithDots = () => {
   return (
     <div className="relative w-full max-w-[638px] aspect-[638/614] -ml-0 lg:-ml-24">
       <img src={MapImage} alt="World map" className="w-full h-full object-contain" />
-      <PulseDot left={305} top={209} />
-      <PulseDot left={355} top={217} />
-      <PulseDot left={361} top={235} />
-      <PulseDot left={374} top={248} />
-      <PulseDot left={377} top={217} />
-      <PulseDot left={406} top={248} />
-      <PulseDot left={526} top={369} />
-      <PulseDot left={365} top={201} />
-      <PulseDot left={189} top={160} />
-      <PulseDot left={74} top={354} />
-      <PulseDot left={4} top={218} />
-      <PulseDot left={4} top={168} />
+      <PulseDot left={48} top={34} />
+      <PulseDot left={55} top={35} />
+      <PulseDot left={56} top={38} />
+      <PulseDot left={59} top={40} />
+      <PulseDot left={59} top={35} />
+      <PulseDot left={63} top={40} />
+      <PulseDot left={82} top={60} />
+      <PulseDot left={57} top={33} />
+      <PulseDot left={30} top={26} />
+      <PulseDot left={9} top={58} />
+      <PulseDot left={1} top={36} />
+      <PulseDot left={1} top={27} />
     </div>
   );
 };
@@ -116,7 +126,6 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Services Cards */}
         <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-7xl mx-auto z-10 pr-0 md:pr-20 lg:pr-20">
           {servicesData.map((service, index) => {
             const Icon = service.icon;
@@ -171,7 +180,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* "Why Choose Us" Section */}
+    
       <section className="relative w-full bg-white py-16 md:py-20 px-4 md:px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
           <motion.div
@@ -195,7 +204,17 @@ const Services = () => {
               Why choose us
             </span>
           </div>
-
+          <div className="flex lg:hidden items-center justify-center mb-6 relative">
+  <div
+    className="absolute top-full mt-2 w-[120px] sm:w-[160px]"
+    style={{
+      borderTop: "2px solid #999999",
+    }}
+  ></div>
+  <span className="text-black font-semibold text-3xl sm:text-2xl whitespace-nowrap">
+    Why choose us
+  </span>
+</div>
           <motion.div
             initial={{ x: 150, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
