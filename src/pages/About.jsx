@@ -17,20 +17,23 @@ const About = () => {
   return (
     <div className="w-full overflow-x-hidden relative">
       
-      {/* Section with Mobile Mockup Image (Right now , made it with image soon will replace with the exact interface)*/}
-
+     
       <section className="flex flex-col md:flex-row items-center justify-between min-h-screen w-full px-6 md:px-10 lg:px-20 overflow-hidden">
-        <div className="w-full md:w-[50%] flex justify-center items-start bg-white">
+
+      
+        <div className="hidden md:flex w-full md:w-[50%] justify-center items-start bg-white">
           <img
             src={mobileFrame}
             alt="Mobile mockup"
-            className="h-[60vh] md:h-[75vh] lg:h-[80vh] w-auto object-contain mt-6 md:mt-10 md:ml-[60px] lg:ml-[120px]"
+            className="h-[75vh] lg:h-[80vh] w-auto object-contain mt-6 md:mt-10 md:ml-[60px] lg:ml-[120px]"
           />
         </div>
 
         <div className="w-full md:w-[50%] flex flex-col justify-center px-4 md:px-10 lg:pl-20 xl:pl-80 py-12 md:py-16 lg:py-20 text-center md:text-left">
+          
+    
           <h2
-            className="mb-8 md:mb-10 lg:mb-14 text-[42px] md:text-[48px] lg:text-[56px] leading-[110%]"
+            className="mb-1 md:mb-10 lg:mb-14 text-[36px] sm:text-[40px] md:text-[48px] lg:text-[56px] leading-[110%]"
             style={{
               fontFamily: "Sora",
               fontWeight: 600,
@@ -40,34 +43,33 @@ const About = () => {
             <span style={{ color: "#0368FF" }}>Us</span>
           </h2>
 
+          <div className="flex justify-center md:hidden mb-2">
+            <img
+              src={mobileFrame}
+              alt="Mobile mockup"
+              className="h-[45vh] w-auto object-contain"
+            />
+          </div>
+
           <p
             style={{
               fontFamily: "Sora",
-              fontWeight: 100,
-              fontSize: "22px",
-              lineHeight: "120%",
+              fontWeight: 300,
               maxWidth: "500px",
               margin: "0 auto",
             }}
-            className="md:text-[23px] lg:text-[25px] md:leading-[130%]"
+            className="text-[16px] sm:text-[18px] md:text-[22px] leading-relaxed md:leading-[130%] text-gray-800 text-center md:text-left"
           >
-            We're not an agency. We're a product-
-            <br />
-            driven innovation studio.
-            <br />
-            Code-X-Novas is a team of
-            <br />
-            full-stack engineers, designers, and strategists
-            <br />
-            building impactful digital platforms
-            <br />
+            We're not an agency. We're a product-driven innovation studio.  
+            Code-X-Novas is a team of full-stack engineers, designers,  
+            and strategists building impactful digital platforms  
             like SyncroTask and more.
           </p>
         </div>
       </section>
 
 
-         {/* The Parallex Section */}
+      {/* The Parallex Section */}
       <section className="relative min-h-[100vh] w-screen overflow-hidden">
         
         <div
@@ -115,10 +117,6 @@ const About = () => {
           </div>
         </div>
       </section>
-
-
-
-      {/*The brands section- A small card of trusted brands as mentioned in figma prototype */}
 
       <section className="relative flex flex-col items-center justify-center w-full bg-white py-12 md:py-16 lg:py-20 overflow-hidden">
         <h2
