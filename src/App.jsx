@@ -1,36 +1,54 @@
+{/**Few Imports**/}
+
 import { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Lenis from "@studio-freight/lenis";
 
 import Home from "./pages/Home";
+import AboutPage from "./pages/Internal Pages/AboutPage";
+import ServicesPage from "./pages/Internal Pages/ServicesPage";
+import ProductsPage from "./pages/Internal Pages/ProductsPage";
+import BlogsPage from "./pages/Internal Pages/BlogsPage";
+import CareerPage from "./pages/Internal Pages/CareerPage";
 
-function App() {
+function SmoothScrollProvider({ children }) {
+  const location = useLocation();
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
+      smoothWheel: true,
+      smoothTouch: true,
     });
 
     function raf(time) {
       lenis.raf(time);
       requestAnimationFrame(raf);
     }
-
     requestAnimationFrame(raf);
 
-    return () => {
-      lenis.destroy();
-    };
-  }, []);
+    lenis.scrollTo(0, { immediate: true });
 
+    return () => lenis.destroy();
+  }, [location.pathname]); 
+
+  return children;
+}
+
+function App() {
   return (
     <Router>
-      <Routes>
-        {/* All sections (Hero, About, Services, Works, etc.) are inside Home.
-            Here we are just making it a route */}
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <SmoothScrollProvider>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/career" element={<CareerPage />} />
+        </Routes>
+      </SmoothScrollProvider>
     </Router>
   );
 }

@@ -13,6 +13,7 @@ export default function Home() {
   return (
     <div>
 
+
       <HeroWithNavbar />
       <section id="about"><About /></section>
       <section id="services"><Services /></section>

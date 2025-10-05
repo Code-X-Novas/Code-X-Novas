@@ -16,7 +16,7 @@
 
 /* Few Imports */
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -61,6 +61,27 @@ export default function HeroWithNavbar() {
 
   const boxRef = useRef(null);
   const measureRefs = useRef({});
+  const location = useLocation();
+const navigate = useNavigate();
+
+//Used handleNavClick to make the navbar functional in different aspects
+const handleNavClick = (id, path) => {
+  // If you're on the homepage , Only scroll for landing pages
+  if (location.pathname === "/") {
+    if (id === "contact") {
+      const section = document.getElementById("contact");
+      if (section) section.scrollIntoView({ behavior: "smooth" });
+      return;
+    }
+    // Otherwise navigate to new internal pages
+    navigate(path);
+  } else {
+    // If you're already on some other page, navigate normally
+    navigate(path);
+  }
+};
+
+
 
   useEffect(() => {
     if (boxRef.current) setBoxHeight(boxRef.current.offsetHeight + 18);
@@ -103,64 +124,73 @@ export default function HeroWithNavbar() {
         backgroundAttachment: "fixed",
       }}
     >
-      <nav
-        className="flex items-center justify-between px-6 h-[65px] md:h-[80px] lg:h-[90px] absolute top-0 left-0 z-50"
-        style={{
-          width: "100%",
-          background: "#FFFFFFB5",
-          boxShadow: "0px 4px 62.9px 0px #00000026",
-          backdropFilter: "blur(10px)",
-        }}
-      >
-        <Link to="/" className="flex items-center pl-2">
-          <img src={logo} alt="Code X Novas" className="h-[80px] md:h-[150px] lg:h-[200px] w-auto" />
-        </Link>
+<nav
+  className="flex items-center justify-between px-6 h-[65px] md:h-[80px] lg:h-[90px] absolute top-0 left-0 z-50"
+  style={{
+    width: "100%",
+    background: "#FFFFFFB5",
+    boxShadow: "0px 4px 62.9px 0px #00000026",
+    backdropFilter: "blur(10px)",
+  }}
+>
+  <Link to="/" className="flex items-center pl-2">
+    <img src={logo} alt="Code X Novas" className="h-[80px] md:h-[150px] lg:h-[200px] w-auto" />
+  </Link>
 
-        <div className="hidden md:flex items-center">
-          <div className="flex items-center mr-80 space-x-6 lg:space-x-6 xl:space-x-8">
-            {["services", "works", "products", "blogs", "about", "career"].map((link) => (
-              <a
-                key={link}
-                href={`#${link}`}
-                className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4"
-              >
-                {link.charAt(0).toUpperCase() + link.slice(1)}
-              </a>
-            ))}
-          </div>
-          <a
-            href="#contact"
-            className="relative overflow-hidden ml-auto px-6 py-2 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]
-              before:content-[''] before:absolute before:top-0 before:left-[-150%]
-              before:w-[150%] before:h-full before:bg-gradient-to-r
-              before:from-transparent before:via-white/60 before:to-transparent
-              before:skew-x-[-20deg] hover:before:animate-shine"
-          >
-            Contact us
-          </a>
-        </div>
+  <div className="hidden md:flex items-center">
+    <div className="flex items-center mr-80 space-x-6 lg:space-x-6 xl:space-x-8">
+      <button onClick={() => handleNavClick("services", "/services")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Services</button>
+      <button onClick={() => handleNavClick("works", "/works")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Works</button>
+      <button onClick={() => handleNavClick("products", "/products")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Products</button>
+      <button onClick={() => handleNavClick("blogs", "/blogs")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Blogs</button>
+      <button onClick={() => handleNavClick("about", "/about")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">About</button>
+      <button onClick={() => handleNavClick("career", "/career")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Career</button>
+    </div>
+    <button
+  onClick={() => handleNavClick("contact", "/contact")}
+  className="relative overflow-hidden ml-auto px-6 py-2 rounded-md font-poppins text-[16px] text-white"
+  style={{
+    background: `
+      linear-gradient(
+        90deg,
+        #2352A5 0%,
+        #137DD1 11%,
+        #02A7FD 26%,
+        #7DE2FF 44%,
+        #42ACEF 72%,
+        #127CD1 83%,
+        #2352A5 99%
+      )
+    `,
+    boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
+  }}
+>
+  Contact us
+</button>
 
-        <button className="md:hidden text-gray-700 ml-3" onClick={() => setOpen(!open)}>
-          {open ? <X size={26} /> : <Menu size={26} />}
-        </button>
-      </nav>
+  </div>
 
-      {open && (
-        <div className="absolute top-[90px] left-0 w-full bg-white shadow-md z-40 flex flex-col p-6 space-y-6 md:hidden">
-          {["services", "works", "products", "blogs", "about", "career"].map((link) => (
-            <a key={link} href={`#${link}`} className="font-sora text-[16px] text-black">
-              {link.charAt(0).toUpperCase() + link.slice(1)}
-            </a>
-          ))}
-          <Link
-            to="/contact"
-            className="w-full text-center px-6 py-3 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]"
-          >
-            Contact us
-          </Link>
-        </div>
-      )}
+  <button className="md:hidden text-gray-700 ml-3" onClick={() => setOpen(!open)}>
+    {open ? <X size={26} /> : <Menu size={26} />}
+  </button>
+</nav>
 
+{open && (
+  <div className="absolute top-[90px] left-0 w-full bg-white shadow-md z-40 flex flex-col p-6 space-y-6 md:hidden">
+    <button onClick={() => handleNavClick("services", "/services")}>Services</button>
+    <button onClick={() => handleNavClick("works", "/works")}>Works</button>
+    <button onClick={() => handleNavClick("products", "/products")}>Products</button>
+    <button onClick={() => handleNavClick("blogs", "/blogs")}>Blogs</button>
+    <button onClick={() => handleNavClick("about", "/about")}>About</button>
+    <button onClick={() => handleNavClick("career", "/career")}>Career</button>
+    <button
+      onClick={() => handleNavClick("contact", "/contact")}
+      className="w-full text-center px-6 py-3 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]"
+    >
+      Contact us
+    </button>
+  </div>
+)}
       <div className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pr-6 md:pr-28 z-10 h-screen">
         <img
           src={ellipse}
@@ -179,15 +209,32 @@ export default function HeroWithNavbar() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center md:justify-start">
-            <button
-              onClick={() => {
-                const section = document.getElementById("products");
-                if (section) section.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-md font-semibold text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]"
-            >
-              Explore Our Products
-            </button>
+          <button
+  onClick={() => {
+    const section = document.getElementById("products");
+    if (section) section.scrollIntoView({ behavior: "smooth" });
+  }}
+  className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-md font-semibold text-white"
+  style={{
+    background: `
+      linear-gradient(
+        90deg,
+        #2352A5 0%,
+        #137DD1 20%,
+        #02A7FD 45%,
+        #42ACEF 70%,
+        #7DE2FF 92%,
+        #B7F1FF 100%
+      )
+    `,
+    boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
+  }}
+  
+  
+>
+  Explore Our Products
+</button>
+
             <button
               className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-md text-black font-normal hover:bg-sky-50"
               style={{ border: "3px solid #1E5FB3" }}
