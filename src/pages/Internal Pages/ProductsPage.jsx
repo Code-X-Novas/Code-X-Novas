@@ -14,7 +14,7 @@ import frame10 from "../../assets/InternalPages/ProductsPage/Frames/Frame10.png"
 import frame11 from "../../assets/InternalPages/ProductsPage/Frames/Frame11.png";
 import frame12 from "../../assets/InternalPages/ProductsPage/Frames/Frame12.png";
 
-import Picture from "../../assets/InternalPages/ProductsPage/Picture.png";
+import BackgroundPicture from "../../assets/InternalPages/ProductsPage/BackgroundPicture.png";
 import Contact from "../Contact";
 
 export default function ProductsPage() {
@@ -39,7 +39,7 @@ export default function ProductsPage() {
       ([entry]) => {
         setShowBlur(!entry.isIntersecting);
       },
-      { threshold: 0.15 } 
+      { threshold: 0.15 }
     );
   
     if (contactRef.current) observer.observe(contactRef.current);
@@ -47,7 +47,6 @@ export default function ProductsPage() {
     return () => observer.disconnect();
   }, []);
   
-
   const blurLevel = Math.min(scrollY / 200, 3);
   const opacityLevel = Math.max(0.3, 1 - scrollY / 700);
   const nextFrame = (currentFrame + 1) % frames.length;
@@ -57,15 +56,17 @@ export default function ProductsPage() {
       <Navbar />
 
       <div className="relative w-full bg-white overflow-hidden">
-        {showBlur && (
-          <div
-            className="fixed top-0 right-0 w-full h-full pointer-events-none overflow-hidden z-[1]"
-            style={{
-              opacity: opacityLevel,
-              filter: `blur(${blurLevel}px)`,
-              transition: "opacity 1s ease-out",
-            }}
-          >
+      {showBlur && (
+  <div
+    className="fixed top-0 right-0 w-full h-full pointer-events-none overflow-hidden z-[1]"
+    style={{
+      opacity: opacityLevel,
+      filter: `blur(${blurLevel}px)`,
+      transition: "opacity 1s ease-out",
+      display: showBlur ? "block" : "none",
+    }}
+  >
+
             <div
               className="absolute inset-0"
               style={{
@@ -98,74 +99,176 @@ export default function ProductsPage() {
           </div>
         )}
 
-<section className="relative z-10 pt-[140px] px-6 md:px-[2%] lg:px-[1.5%] max-w-[1300px] mx-auto">
-  <h3
-    className="uppercase mb-3 text-[#2352A5] font-[600]"
-    style={{ fontFamily: "Sora", fontSize: "16px" }}
-  >
-    Products
-  </h3>
-  <h1
-    className="text-[30px] sm:text-[40px] md:text-[48px] lg:text-[56px] font-[600] text-black leading-[1.25]"
-    style={{ fontFamily: "Sora" }}
-  >
-    SyncroTask – All-in-One <br /> Productivity Platform
-  </h1>
-  <p
-    className="text-[#555] text-[16px] md:text-[17px] max-w-[550px] mb-[60px]"
-    style={{ fontFamily: "Sora", fontWeight: 400 }}
-  >
-    AI + Human Expertise, at a fraction of the cost.
-  </p>
-</section>
+        <section className="relative z-10 pt-[140px] px-6 md:px-[2%] lg:px-[1.5%] max-w-[1300px] mx-auto">
+          <h3
+            className="uppercase mb-3 text-[#2352A5] font-[600]"
+            style={{ fontFamily: "Sora", fontSize: "16px" }}
+          >
+            Products
+          </h3>
+          <h1
+            className="text-[30px] sm:text-[40px] md:text-[48px] lg:text-[65px] font-[600] text-black leading-[1.25]"
+            style={{ fontFamily: "Sora" }}
+          >
+            <span style={{ color: "#2352A5" ,letterSpacing: "2px",  }}>SyncroTask</span> – All-in-One <br /> Productivity Platform
+          </h1>
+          <p
+            className="text-[#555] text-[16px] md:text-[17px] max-w-[550px] mb-[80px] leading-[2]"
+            style={{ fontFamily: "Sora", fontWeight: 400 }}
+          >
+            AI + Human Expertise, at a fraction of the cost.
+          </p>
+        </section>
       
-<section className="relative z-10 w-full flex justify-center mt-[-40px] mb-[60px]">
-  <div
-    className="rounded-2xl shadow-lg p-6 md:p-10 flex flex-col md:flex-row items-center justify-between"
-    style={{
-      background: "rgba(255,255,255,0.7)",
+        <section
+          className="relative z-10 w-full flex justify-center items-end overflow-hidden"
+          style={{
+            backgroundImage: `url(${BackgroundPicture})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+            backgroundRepeat: "no-repeat",
+            height: "100vh",
+            marginTop: "80px",
+          }}
+        >
+          <div
+            className="shadow-lg p-6 md:p-4 flex items-center justify-center"
+            style={{
+              background: "rgba(255,255,255,0.75)",
+              WebkitBackdropFilter: "blur(14px)",
+              backdropFilter: "blur(14px)",
+              border: "1px solid rgba(255,255,255,0.25)",
+              width: "85%",
+              maxWidth: "1100px",
+              borderRadius: "12px",
+              minHeight: "270px",
+              marginBottom: "390px",
+            }}
+          >
+            <p
+              className="text-[#222] text-[19px] md:text-[24px] leading-[1.3] text-start "
+              style={{ fontFamily: "Sora", fontWeight: 50 , marginTop: "40px", }}
+            >
+              SyncroTask is your ultimate productivity
+              companion — combining cutting-edge <br /> AI tools with skilled human expertise to help you
+              achieve more in less time, <br /> without breaking the bank.
+            </p>
+          </div>
+          </section>
 
-      WebkitBackdropFilter: "blur(14px)", border: "1px solid rgba(255,255,255,0.25)",
-      width: "92%",         
-      maxWidth: "1300px",   
-      marginLeft: "-30px",    
-      marginRight: "0",
-      minHeight: "360px",  
-    }}
-  >
-    <div className="w-full md:w-[42%] flex justify-start mb-8 md:mb-0 ">
-      <img
-        src={Picture}
-        alt="SyncroTask Preview"
-        className="w-[92%] rounded-xl object-cover"
-      />
-    </div>
-
-    <div className="w-full md:w-[52%] text-left md:pl-0">
-      <p
-        className="text-[#333] text-[17px] leading-[1.8]"
-        style={{ fontFamily: "Sora", fontWeight: 400 }}
-      >
-        <span className="font-[500] text-[#000]">SyncroTask</span> is your ultimate productivity
-        companion — combining cutting-edge AI tools with skilled human expertise to help you
-        achieve more in less time, without breaking the bank.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-<div
-  ref={contactRef}
-  className="relative z-20 bg-white w-full"
+          <div
+  className="shadow-lg p-6 md:p-8 flex flex-col justify-center mx-auto"
   style={{
-    boxShadow: "0 -10px 30px rgba(0,0,0,0.05)", 
+    position: "relative",
+    background: "rgba(255,255,255,0.75)",
+    WebkitBackdropFilter: "blur(14px)",
+    backdropFilter: "blur(14px)",
+    border: "1px solid rgba(255,255,255,0.25)",
+    width: "90%",
+    maxWidth: "1100px",
+    borderRadius: "12px",
+    minHeight: "400px",
+    marginTop: "-200px",
+    marginBottom: "50px",
+    zIndex: 20,
   }}
 >
-  <Contact />
-</div>
+  <h2
+    className="text-[#2352A5] text-[32px] md:text-[35px] font-[600] mb-[20px]"
+    style={{ fontFamily: "Sora" }}
+  >
+    Key Features
+  </h2>
 
+  <ul
+    className="text-[#111] text-[18px] md:text-[20px] leading-[2.2] list-disc pl-5"
+    style={{
+      fontFamily: "Sora",
+      fontWeight: 400,
+      fontStyle: "light",
+      listStyleType: "disc",
+    }}
+  >
+    <li>
+      <b>Resume Creation</b> – Professional, ATS-friendly resumes in minutes.
+    </li>
+    <li>
+      <b>Blog Writing</b> – SEO-friendly articles that engage and convert.
+    </li>
+    <li>
+      <b>Pitch Deck Design</b> – Investor-ready presentations that impress.
+    </li>
+    <li>
+      <b>Website & App Development</b> – Custom solutions for any business
+      need.
+    </li>
+    <li>
+      <b>AI + Human Collaboration</b> – Get the speed of AI with the precision
+      of expert review.
+    </li>
+  </ul>
+            <h3
+              className="text-[#2352A5] text-[35px] font-[600] mt-[40px] mb-[10px]"
+              style={{ fontFamily: "Sora" }}
+            >
+              USP
+            </h3>
+            <p
+              className="text-[#222] text-[18px] md:text-[20px]"
+              style={{ fontFamily: "Sora", fontWeight: 400 , whiteSpace: "nowrap", }}
+            >
+              All services at unbelievably affordable rates — making professional-quality work accessible to everyone.
+            </p>
+
+            <button
+              style={{
+                background: `
+                linear-gradient(
+                  90deg,
+                #2352A5 0%,
+                  #137DD1 20%,
+                  #02A7FD 45%,
+                  #42ACEF 70%,
+                  #7DE2FF 92%,
+                  #B7F1FF 100%
+                )
+              `,
+                color: "#fff",
+                fontFamily: "Sora",
+                fontWeight: 500,
+                fontSize: "16px",
+                padding: "10px 24px",
+                borderRadius: "6px",
+                marginTop: "70px",
+                alignSelf: "flex-start",
+              }}
+            >
+              Try SyncroTask Now
+            </button>
+          </div>
+          <div className="px-6 md:px-[2%] lg:px-[1.5%] max-w-[1300px] mx-auto">
+  <h2
+    className="text-[#2352A5] text-[28px] md:text-[30px] font-[600] text-start tracking-wide mb-[60px]"
+    style={{
+      fontFamily: "Sora",
+      marginLeft: "10px", 
+    }}
+  >
+    COMING&nbsp;SOON<span style={{ color: "#2352A5" }}>...</span>
+  </h2>
+</div>
+        <div
+          ref={contactRef}
+          className="relative z-20 bg-white w-full"
+          style={{
+            boxShadow: "0 -10px 30px rgba(0,0,0,0.05)", 
+            paddingTop: "50px",
+          }}
+        >
+          <Contact />
+        </div>
       </div>
+      
     </>
   );
 }
