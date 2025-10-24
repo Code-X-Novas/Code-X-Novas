@@ -8,7 +8,7 @@
 //Fixed the inset of pulsing dots for both desktop and mobile seperately
 
 {/*Few Imports*/}
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FiMonitor, FiSmartphone } from "react-icons/fi";
 import { motion } from "framer-motion";
 import RightElement from "../assets/Services/RightElement.png";
@@ -104,13 +104,30 @@ const GradientHeading = ({ children }) => (
 );
 
 const Services = () => {
+  // Track mobile state so we can show less text (truncate) on small screens only.
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  const truncate = (s, n) => {
+    if (!s) return s;
+    return s.length <= n ? s : s.slice(0, n).trimEnd() + "...";
+  };
+
   return (
     <>
       <section className="relative w-full bg-black text-white py-16 md:py-20 px-4 md:px-12 overflow-hidden">
         <img
           src={RightElement}
           alt="Decorative element"
-          className="absolute top-0 right-0 h-full object-contain pointer-events-none select-none opacity-100 md:opacity-100"
+          // Push the blue decorative element further up on mobile so it visually begins at the
+          // "Our Services" heading on small screens. Desktop (md+) remains exactly the same.
+          className="absolute right-0 top-[-910px] md:top-0 h-[150%] md:h-full object-contain pointer-events-none select-none opacity-100 md:opacity-100"
         />
 
         <div className="relative text-center max-w-6xl mx-auto mb-12 md:mb-16 z-10">
@@ -121,7 +138,21 @@ const Services = () => {
             <span className="text-white">Our </span>
             <span style={{ color: "#1D58F6" }}>Services</span>
           </h2>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed">
+          {/* Intro paragraph: on mobile make it slightly larger, centered and constrained to 3 lines.
+              On md+ keep original larger sizing and full width. */}
+          <p
+            className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mx-auto md:mx-0 max-w-[340px] md:max-w-none"
+            style={
+              isMobile
+                ? {
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }
+                : undefined
+            }
+          >
             Our service range fits together cohesively, so we can provide end-to-end service, from Startup to Scaleup.
           </p>
         </div>
@@ -132,13 +163,17 @@ const Services = () => {
             return (
               <div
                 key={index}
-                className="group relative h-auto min-h-[300px] sm:min-h-[340px] md:h-[400px] 
-                  w-full sm:w-[90%] md:w-[360px] lg:w-[380px] 
-                  flex flex-col justify-between
-                  bg-black/90 backdrop-blur-lg p-6 rounded-md shadow-md 
-                  transition-all duration-[1200ms] ease-in-out mx-auto overflow-hidden
-                  hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
+                // Make mobile cards slightly narrower and centered; keep md+ sizes exactly the same.
+                className={
+                  `group relative h-auto min-h-[300px] sm:min-h-[340px] md:h-[400px] ` +
+                  `w-[72%] sm:w-[90%] md:w-[360px] lg:w-[380px] ` +
+                  // zinc background only on mobile, preserve original dark background on md+
+                  `flex flex-col justify-between bg-zinc-800 md:bg-black/90 backdrop-blur-lg p-6 rounded-md shadow-md ` +
+                  `transition-all duration-[1200ms] ease-in-out mx-auto overflow-hidden ` +
+                  `hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]`
+                }
               >
+                {/* Icon size: keep same as before on mobile (text-4xl) and md exact. */}
                 <div className="relative text-4xl md:text-5xl mb-4 transition-colors duration-500">
                   <svg width="1em" height="1em" viewBox="0 0 24 24">
                     <defs>
@@ -157,11 +192,13 @@ const Services = () => {
                   </svg>
                 </div>
 
+                {/* Keep title size consistent with desktop design on mobile (text-lg) */}
                 <h3 className="relative text-lg md:text-xl font-semibold mt-2 mb-2">
                   {service.title}
                 </h3>
+                {/* Show less text on mobile (truncate) but don't change font-size. */}
                 <p className="relative text-gray-300 text-sm md:text-base group-hover:text-gray-100 transition-colors duration-500 flex-grow leading-relaxed">
-                  {service.desc}
+                  {isMobile ? truncate(service.desc, 140) : service.desc}
                 </p>
                 <button
                   className="self-start inline-flex items-center justify-center
