@@ -88,18 +88,16 @@ export default function AboutPage() {
       )}
     
 <section
-className="relative w-full overflow-hidden min-h-[500px] flex flex-col justify-center pt-[90px] pb-[70px] bg-transparent"
-
-        style={{
-          paddingLeft: "5%",
-          paddingRight: "0",
-          paddingTop: "120px",
-          paddingBottom: "250px",
-        }}
-      >
+  className="relative w-full overflow-hidden min-h-[500px] flex flex-col justify-center pt-6 pb-8 md:pt-[120px] md:pb-[250px] bg-transparent"
+  style={{
+    // keep left/right paddings exactly as before for all sizes
+    paddingLeft: "5%",
+    paddingRight: "0",
+  }}
+>
         <div className="w-full text-left text-black">
           <h3
-            className="uppercase font-semibold mb-2 text-[13px] sm:text-[14px] md:text-[15px]"
+            className="uppercase font-semibold mb-2 text-[13px] sm:text-[14px] md:text-[15px] text-center md:text-left"
             style={{
               letterSpacing: "1px",
               color: "#2352A5",
@@ -110,8 +108,7 @@ className="relative w-full overflow-hidden min-h-[500px] flex flex-col justify-c
           </h3>
 
           <h1
-  className="font-[600] leading-tight mb-3 text-[32px] sm:text-[32px] md:text-[40px] lg:text-[65px]"
-
+            className="font-[600] leading-tight mb-3 text-[28px] sm:text-[32px] md:text-[40px] lg:text-[65px] text-center md:text-left"
             style={{
               color: "#000",
               fontFamily: "Sora",

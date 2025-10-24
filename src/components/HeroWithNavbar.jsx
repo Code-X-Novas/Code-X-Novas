@@ -106,7 +106,9 @@ const handleNavClick = (id, path) => {
     width: "100%",
     // Base is white. The visible blue-to-white top layer is rendered by the element below
     background: "#ffffff",
-    minHeight: window.innerWidth <= 768 ? "120vh" : "100vh",
+    // Reduce the mobile min-height (was 120vh) to avoid excessive vertical space
+    // on small phones. Desktop remains unchanged.
+    minHeight: window.innerWidth <= 768 ? "1vh" : "100vh",
   }}
 >
   {/* Top gradient layer to create a smooth blue-to-white upper section (not a hard rectangle) */}
@@ -114,7 +116,8 @@ const handleNavClick = (id, path) => {
     aria-hidden
     className="absolute top-0 left-0 w-full z-0"
     style={{
-      height: window.innerWidth <= 768 ? "48vh" : "60vh",
+      // smaller gradient band on very small phones to match Figma spacing
+      height: window.innerWidth <= 640 ? "36vh" : window.innerWidth <= 768 ? "48vh" : "60vh",
       background: "linear-gradient(180deg, #e6f6ff 0%, #d7f0ff 35%, rgba(255,255,255,0.95) 100%)",
       // rounded bottom to avoid a sharp rectangular cut
       borderBottomLeftRadius: window.innerWidth <= 768 ? "40% 20%" : "28% 12%",
@@ -219,7 +222,7 @@ const handleNavClick = (id, path) => {
     </button>
   </div>
 )}
-      <div className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pr-6 md:pr-28 z-10 h-screen">
+  <div className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pr-6 md:pr-28 z-10 h-auto md:h-screen">
         <img
           src={ellipse}
           alt="background ellipse"
@@ -227,10 +230,11 @@ const handleNavClick = (id, path) => {
         />
 
         {/* Mobile: top gradient band that contains heading + CTAs only; below this is white (so white starts after CTAs) */}
-        <div className="w-full md:hidden mt-20">
+  {/* reduce top gap on phones so CTAs and logos sit higher (mobile-only) */}
+  <div className="w-full md:hidden mt-28">
           <div className="w-full px-6 py-10">
             <div className="max-w-5xl mx-auto text-center">
-              <h1 className="font-sora font-semibold text-black mb-6 text-[28px] sm:text-[32px] leading-[120%]">
+              <h1 className="font-sora font-semibold text-black mb-10 sm:mb-6 text-[28px] sm:text-[32px] leading-[120%]">
                 We Build <span className="text-[#2352A5]">Products</span> <br /> that Work – <span className="text-[#2352A5]">Fast.</span>
               </h1>
               <p className="font-sora text-gray-600 mb-8 text-[14px] sm:text-[16px] leading-[140%] font-normal tracking-tight">
@@ -239,7 +243,7 @@ const handleNavClick = (id, path) => {
                 redefine productivity
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center mb-6 sm:mb-0">
                 <button
                   onClick={() => {
                     const section = document.getElementById("products");
@@ -264,11 +268,11 @@ const handleNavClick = (id, path) => {
           </div>
 
           {/* Mobile logos sit on the white section below the gradient band */}
-          <div className="w-full bg-white py-6 flex flex-col items-center">
-            <h3 className="text-center text-[#2352A5] font-semibold tracking-wide text-[14px] sm:text-[15px] mb-4 px-4">
+          <div className="w-full bg-white py-4 flex flex-col items-center mb-6 sm:mb-0">
+            <h3 className="text-center text-[#2352A5] font-semibold tracking-wide text-[14px] sm:text-[15px] mb-6 sm:mb-4 px-4">
               TRUSTED BY CURRENT AND SOON TO BE <br /><span className="">WORLD-CLASS BRANDS</span>
             </h3>
-            <div className="flex items-center justify-center gap-6 px-4">
+            <div className="flex items-center justify-center gap-6 px-4 mb-6 sm:mb-0">
               <img src={brand1} alt="brand1" className="h-10 object-contain" />
               <img src={brand2} alt="brand2" className="h-10 object-contain" />
               <img src={brand3} alt="brand3" className="h-10 object-contain" />
@@ -425,7 +429,12 @@ const handleNavClick = (id, path) => {
 
 {/*Mobile Interface -Seperated for clarity*/}
 
-<div className="flex md:hidden w-full flex-col items-center mt-6">
+{/* Hide the heavy rectangle/topic visual on very small phones so the About
+  section (which is rendered right after this hero) appears immediately
+  after the brand logos. This is a mobile-only adjustment — desktop/tablet
+  behavior is unchanged. */}
+
+<div className="hidden sm:flex md:hidden w-full flex-col items-center mt-6">
   <div className="relative w-[85%] sm:w-[70%] max-w-[220px] flex flex-col items-center">
     <img
       src={current.rectangles[0].src}
