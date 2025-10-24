@@ -117,9 +117,10 @@ const handleNavClick = (id, path) => {
   className="relative overflow-hidden"
   style={{
     width: "100%",
+    // Mobile-first bluish background to match Figma; md+ retains the existing horizontal gradient
     background:
       window.innerWidth <= 768
-        ? "linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #75C5EB 80%, #44A1E2 100%)"
+        ? "linear-gradient(180deg, #f0fbff 0%, #e6f6ff 50%, #d6eefc 80%, #c9e9fb 100%)"
         : "linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #75C5EB 75%, #44A1E2 100%)",
     backgroundAttachment: window.innerWidth <= 768 ? "scroll" : "fixed",
     minHeight: window.innerWidth <= 768 ? "120vh" : "100vh",
@@ -172,29 +173,11 @@ const handleNavClick = (id, path) => {
   </div>
 
 <div className="flex items-center gap-3 md:hidden">
-  <button
-    onClick={() => handleNavClick("contact", "/contact")}
-    className="px-4 py-[6px] rounded-md font-poppins text-[14px] text-white whitespace-nowrap"
-    style={{
-      background: `
-        linear-gradient(
-          90deg,
-          #2352A5 0%,
-          #137DD1 20%,
-          #02A7FD 45%,
-          #42ACEF 70%,
-          #7DE2FF 92%,
-          #B7F1FF 100%
-        )
-      `,
-      boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
-    }}
-  >
-    Contact us
-  </button>
+  {/* Mobile-only Contact button removed so only hamburger is visible on small screens */}
   <button
     className="text-gray-700"
     onClick={() => setOpen(!open)}
+    aria-label={open ? "Close menu" : "Open menu"}
   >
     {open ? <X size={26} /> : <Menu size={26} />}
   </button>
@@ -225,11 +208,11 @@ const handleNavClick = (id, path) => {
           className="absolute left-[-2px] top-20 w-[600px] opacity-90 z-0 hidden md:block"
         />
 
-        <div className="max-w-5xl z-10 flex-shrink-0 mt-[80px] md:ml-30 text-center md:text-left">
+        <div className="max-w-5xl z-10 flex-shrink-0 mt-28 md:mt-[80px] md:ml-30 text-center md:text-left">
           <h1 className="font-sora font-semibold text-black mb-6 text-[24px] sm:text-[28px] md:text-[56px] lg:text-[64px] leading-[120%]">
-            We Build Products <br /> that Work – Fast.
+            We Build <span className="text-[#2352A5] md:text-black">Products</span> <br /> that Work – <span className="text-[#2352A5] md:text-black">Fast.</span>
           </h1>
-          <p className="font-sora text-black mb-8 text-[13px] sm:text-[15px] md:text-[20px] leading-[140%] font-normal">
+          <p className="font-sora text-gray-600 md:text-black mb-8 text-[12px] sm:text-[15px] md:text-[20px] leading-[140%] font-normal tracking-tight">
             From startup tools to enterprise systems – Code-X- <br />
             Novas crafts scalable, AI-powered solutions that <br />
             redefine productivity
@@ -241,7 +224,9 @@ const handleNavClick = (id, path) => {
     const section = document.getElementById("products");
     if (section) section.scrollIntoView({ behavior: "smooth" });
   }}
-  className="relative overflow-hidden px-4 py-2 sm:px-6 sm:py-3 rounded-md font-semibold text-white"
+  /* Make primary CTA larger on mobile; sm: keeps tablet/desktop unchanged */
+  /* Mobile: slightly narrower fixed width, sm+ keeps original auto width */
+  className="w-[220px] sm:w-auto mx-auto sm:mx-0 relative overflow-hidden px-6 py-3 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[15px] sm:text-[16px]"
   style={{
     background: `
       linear-gradient(
@@ -261,8 +246,8 @@ const handleNavClick = (id, path) => {
 </button>
 
             <button
-              className="px-4 py-2 sm:px-6 sm:py-2.5 rounded-md text-black font-normal hover:bg-sky-50"
-              style={{ border: "3px solid #1E5FB3" }}
+              /* Increased partner width slightly on mobile but still smaller than primary; restore auto on sm+ */
+              className="w-[190px] sm:w-auto mx-auto sm:mx-0 px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-md sm:rounded-md text-[#1E5FB3] font-medium text-[14px] sm:text-[16px] hover:bg-sky-50 border-[#1E5FB3] border-[1.5px] sm:border-[3px] text-center bg-transparent"
             >
               Partner With Us
             </button>
