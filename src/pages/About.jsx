@@ -117,7 +117,9 @@ const About = () => {
         </div>
       </section>
 
-      <section className="relative flex flex-col items-center justify-center w-full bg-white py-12 md:py-16 lg:py-20 overflow-hidden">
+    {/* Hide this full-width trusted-brands section on small screens because a mobile-only
+      trusted block is rendered in the hero component to preserve desired order on mobile */}
+    <section className="hidden md:flex relative flex-col items-center justify-center w-full bg-white py-12 md:py-16 lg:py-20 overflow-hidden">
         <h2
           className="text-center text-lg md:text-xl lg:text-2xl font-bold mb-8 md:mb-10"
           style={{

@@ -1,20 +1,3 @@
-// To make it pixel-perfect like the figma prototype, 
-// I have used the pictures in the assets folder with named categories to which folder it belongs
-// I have also used framer-motion to animate the pictures in the hero section, I have used react icons to make it exactly like the figma prototype
-// I have also used react router dom to make the navbar functional 
-// I have also used lucide-react to make the navbar functional on different aspects like menu and icons.
-// Used tailwind css which has a major role in shaping this pixel perfect assigmnent. 
-//To make it more readable and understanable , I have used comments. Kindly refer to the readme for better reference.
-
-{/*New Changes*/}
-//Now, The Hero section is made responsive by adjusting the frame size and overlapping of the inages and animation. 
-//The navbar has a subtle hover effect . 
-//The buttons and text have been resized to fit the screen size.
-//Contact us button to be placed exactly like the prototype.
-//Pictures and animation boxes have been aligned properly .
-
-
-/* Few Imports */
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
@@ -22,8 +5,12 @@ import { motion } from "framer-motion";
 
 import logo from "../assets/logo.png";
 
-
 import ellipse from "../assets/Home/Ellipse.png";
+
+import brand1 from "../assets/About/brand1.png";
+import brand2 from "../assets/About/brand2.png";
+import brand3 from "../assets/About/brand3.png";
+import brand4 from "../assets/About/brand4.png";
 
 import R1_1 from "../assets/Home/Rectangles2/Rectangle1big.png";
 import R1_2 from "../assets/Home/Rectangles2/Rectangle2small.png";
@@ -114,19 +101,45 @@ const handleNavClick = (id, path) => {
   return (
 <section
   id="hero"
-  className="relative overflow-hidden"
+  className="relative overflow-hidden mb-6"
   style={{
     width: "100%",
-    // Mobile-first bluish background to match Figma; md+ retains the existing horizontal gradient
-    background:
-      window.innerWidth <= 768
-        ? "linear-gradient(180deg, #f0fbff 0%, #e6f6ff 50%, #d6eefc 80%, #c9e9fb 100%)"
-        : "linear-gradient(90deg, #ffffff 0%, #ffffff 50%, #75C5EB 75%, #44A1E2 100%)",
-    backgroundAttachment: window.innerWidth <= 768 ? "scroll" : "fixed",
+    // Base is white. The visible blue-to-white top layer is rendered by the element below
+    background: "#ffffff",
     minHeight: window.innerWidth <= 768 ? "120vh" : "100vh",
   }}
 >
+  {/* Top gradient layer to create a smooth blue-to-white upper section (not a hard rectangle) */}
+  <div
+    aria-hidden
+    className="absolute top-0 left-0 w-full z-0"
+    style={{
+      height: window.innerWidth <= 768 ? "48vh" : "60vh",
+      background: "linear-gradient(180deg, #e6f6ff 0%, #d7f0ff 35%, rgba(255,255,255,0.95) 100%)",
+      // rounded bottom to avoid a sharp rectangular cut
+      borderBottomLeftRadius: window.innerWidth <= 768 ? "40% 20%" : "28% 12%",
+      borderBottomRightRadius: window.innerWidth <= 768 ? "40% 20%" : "28% 12%",
+      pointerEvents: "none",
+    }}
+  />
 
+  {/* Right-side atmospheric gradient (desktop lg+): stronger, blurred radial glow */}
+  <div
+    aria-hidden
+    className="absolute top-0 right-0 h-full z-0 hidden lg:block"
+    style={{
+      width: '48%',
+      // Smooth right-side color wash (less clustered, more uniform)
+      // Use a wide linear gradient from subtle transparency into the brand blues
+      background: 'linear-gradient(90deg, rgba(230,246,255,0) 0%, rgba(213,238,255,0.6) 25%, rgba(135,195,235,0.6) 55%, rgba(52,138,217,0.9) 100%)',
+      opacity: 1,
+      // small blur to soften transition edges without producing a concentrated "spot"
+      filter: 'blur(18px)',
+      transform: 'translateX(2%)',
+      pointerEvents: 'none',
+    }}
+  />
+{/* The rest of the code remains unchanged */}
 <nav
   className="flex items-center justify-between px-6 h-[65px] md:h-[80px] lg:h-[90px] absolute top-0 left-0 z-50"
   style={{
@@ -137,7 +150,12 @@ const handleNavClick = (id, path) => {
   }}
 >
   <Link to="/" className="flex items-center pl-2">
-    <img src={logo} alt="Code X Novas" className="h-[25px] sm:h-[-10px] md:h-[60px] lg:h-[55px] w-auto transition-all duration-300" />
+    <img
+      src={logo}
+      alt="Code X Novas"
+      className="w-auto transition-all duration-300"
+      style={{ height: window.innerWidth <= 640 ? 36 : window.innerWidth <= 768 ? 48 : 64 }}
+    />
   </Link>
 
   <div className="hidden md:flex items-center">
@@ -208,45 +226,85 @@ const handleNavClick = (id, path) => {
           className="absolute left-[-2px] top-20 w-[600px] opacity-90 z-0 hidden md:block"
         />
 
-        <div className="max-w-5xl z-10 flex-shrink-0 mt-28 md:mt-[80px] md:ml-30 text-center md:text-left">
+        {/* Mobile: top gradient band that contains heading + CTAs only; below this is white (so white starts after CTAs) */}
+        <div className="w-full md:hidden mt-20">
+          <div className="w-full px-6 py-10">
+            <div className="max-w-5xl mx-auto text-center">
+              <h1 className="font-sora font-semibold text-black mb-6 text-[28px] sm:text-[32px] leading-[120%]">
+                We Build <span className="text-[#2352A5]">Products</span> <br /> that Work – <span className="text-[#2352A5]">Fast.</span>
+              </h1>
+              <p className="font-sora text-gray-600 mb-8 text-[14px] sm:text-[16px] leading-[140%] font-normal tracking-tight">
+                From startup tools to enterprise systems – <br className="md:hidden" />Code-X- 
+                Novas crafts scalable, AI-powered <br className="md:hidden" /> solutions that 
+                redefine productivity
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center">
+                <button
+                  onClick={() => {
+                    const section = document.getElementById("products");
+                    if (section) section.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="w-[230px] sm:w-auto mx-auto sm:mx-0 relative overflow-hidden px-6 py-3 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[16px] sm:text-[18px]"
+                  style={{
+                    background: `linear-gradient(90deg,#2352A5 0%,#137DD1 20%,#02A7FD 45%,#42ACEF 70%,#7DE2FF 92%,#B7F1FF 100%)`,
+                    boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
+                  }}
+                >
+                  Explore Our Products
+                </button>
+
+                <button
+                  className="w-[190px] sm:w-auto mx-auto sm:mx-0 px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-md sm:rounded-md text-[#1E5FB3] font-medium text-[15px] sm:text-[17px] hover:bg-sky-50 border-[#1E5FB3] border-[1.5px] sm:border-[3px] text-center bg-transparent"
+                >
+                  Partner With Us
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile logos sit on the white section below the gradient band */}
+          <div className="w-full bg-white py-6 flex flex-col items-center">
+            <h3 className="text-center text-[#2352A5] font-semibold tracking-wide text-[14px] sm:text-[15px] mb-4 px-4">
+              TRUSTED BY CURRENT AND SOON TO BE <br /><span className="">WORLD-CLASS BRANDS</span>
+            </h3>
+            <div className="flex items-center justify-center gap-6 px-4">
+              <img src={brand1} alt="brand1" className="h-10 object-contain" />
+              <img src={brand2} alt="brand2" className="h-10 object-contain" />
+              <img src={brand3} alt="brand3" className="h-10 object-contain" />
+              <img src={brand4} alt="brand4" className="h-10 object-contain" />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Desktop / tablet: original hero content (kept for md+) */}
+        <div className="max-w-5xl z-10 flex-shrink-0 mt-28 md:mt-[80px] md:ml-30 text-center md:text-left hidden md:block">
           <h1 className="font-sora font-semibold text-black mb-6 text-[24px] sm:text-[28px] md:text-[56px] lg:text-[64px] leading-[120%]">
             We Build <span className="text-[#2352A5] md:text-black">Products</span> <br /> that Work – <span className="text-[#2352A5] md:text-black">Fast.</span>
           </h1>
-          <p className="font-sora text-gray-600 md:text-black mb-8 text-[12px] sm:text-[15px] md:text-[20px] leading-[140%] font-normal tracking-tight">
+          <p className="font-sora text-gray-600 md:text-black mb-8 text-[12px] sm:text-[15px] md:text-[20.5px] leading-[140%] font-normal tracking-tight">
             From startup tools to enterprise systems – Code-X- <br />
             Novas crafts scalable, AI-powered solutions that <br />
             redefine productivity
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center md:justify-start">
-          <button
-  onClick={() => {
-    const section = document.getElementById("products");
-    if (section) section.scrollIntoView({ behavior: "smooth" });
-  }}
-  /* Make primary CTA larger on mobile; sm: keeps tablet/desktop unchanged */
-  /* Mobile: slightly narrower fixed width, sm+ keeps original auto width */
-  className="w-[220px] sm:w-auto mx-auto sm:mx-0 relative overflow-hidden px-6 py-3 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[15px] sm:text-[16px]"
-  style={{
-    background: `
-      linear-gradient(
-        90deg,
-        #2352A5 0%,
-        #137DD1 20%,
-        #02A7FD 45%,
-        #42ACEF 70%,
-        #7DE2FF 92%,
-        #B7F1FF 100%
-      )
-    `,
-    boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
-  }} 
->
-  Explore Our Products
-</button>
+            <button
+              onClick={() => {
+                const section = document.getElementById("products");
+                if (section) section.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="w-[220px] sm:w-auto mx-auto sm:mx-0 relative overflow-hidden px-6 py-3 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[15px] sm:text-[16px]"
+              style={{
+                background: `linear-gradient(90deg,#2352A5 0%,#137DD1 20%,#02A7FD 45%,#42ACEF 70%,#7DE2FF 92%,#B7F1FF 100%)`,
+                boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
+              }}
+            >
+              Explore Our Products
+            </button>
 
             <button
-              /* Increased partner width slightly on mobile but still smaller than primary; restore auto on sm+ */
               className="w-[190px] sm:w-auto mx-auto sm:mx-0 px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-md sm:rounded-md text-[#1E5FB3] font-medium text-[14px] sm:text-[16px] hover:bg-sky-50 border-[#1E5FB3] border-[1.5px] sm:border-[3px] text-center bg-transparent"
             >
               Partner With Us
@@ -271,7 +329,12 @@ const handleNavClick = (id, path) => {
                 if (group.includes(topic) && groupWidth) widthStyle = `${groupWidth - 40}px`;
                 if (topic === "Custom Website Development" && measureRefs.current[topic]) {
                   const cWidth = measureRefs.current[topic]?.offsetWidth || 0;
-                  widthStyle = `${cWidth}px`;
+                  // For this specific long label we want it to wrap into two lines
+                  // (matching the first screenshot). Cap the rendered width so the
+                  // text naturally breaks. Use measured text width + small padding,
+                  // but don't exceed 180px to force wrapping.
+                  const capped = Math.min(cWidth + 40, 340);
+                  widthStyle = `${capped}px`;
                 }
                 return (
                   <div
@@ -395,11 +458,11 @@ const handleNavClick = (id, path) => {
               whiteSpace: "nowrap",
             }}
           >
-            <span
+              <span
               style={{
                 fontFamily: "Sora",
                 fontWeight: 500,
-                fontSize: "12px",
+                fontSize: "14px",
                 color: isActive ? "#2352A5" : "#000000",
               }}
             >
