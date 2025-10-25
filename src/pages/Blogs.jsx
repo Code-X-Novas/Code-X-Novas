@@ -54,16 +54,16 @@ const Blogs = () => {
       </div>
 
       <div className="block lg:hidden mb-12">
-        <div className="relative mb-6">
-          <div className="absolute -top-6 -right-6 w-full h-full bg-gray-200"></div>
+        <div className="mr-6 relative mb-6">
+          <div className="absolute -top-6 -right-6 left-5 w-full h-full bg-gray-200"></div>
           <img
             src={posts.find((p) => p.id === selectedId).img}
             alt="Featured blog mobile"
-            className="relative w-full h-[350px] object-cover z-10"
+            className="relative w-full h-[230px] object-cover z-10"
           />
         </div>
 
-        <h3 className="text-2xl font-bold text-black mb-4 leading-snug">
+        <h3 className="text-xl font-bold text-black mb-4 leading-snug">
           {posts
             .find((p) => p.id === selectedId)
             .title.split("\n")
@@ -78,7 +78,7 @@ const Blogs = () => {
               </React.Fragment>
             ))}
         </h3>
-        <p className="text-gray-600 text-lg leading-relaxed mb-6">
+        <p className="text-gray-600 text-md leading-relaxed mb-6">
           {posts.find((p) => p.id === selectedId).desc}
         </p>
       </div>

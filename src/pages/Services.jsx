@@ -139,7 +139,7 @@ const Services = () => {
               return (
                 <div
                   key={index}
-                  className="group relative min-h-[300px] w-[72%] flex flex-col justify-between bg-zinc-800 p-6 rounded-md shadow-md transition-all duration-[1200ms] ease-in-out mx-auto overflow-hidden hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
+                  className="group relative min-h-[300px] w-[88%] flex flex-col justify-between bg-zinc-800 p-6 rounded-md shadow-md transition-all duration-[1200ms] ease-in-out mx-auto overflow-hidden hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
                 >
                   <div className="text-4xl mb-4">
                     <svg width="1em" height="1em" viewBox="0 0 24 24">
@@ -170,7 +170,7 @@ const Services = () => {
         <section className="relative w-full bg-white py-10 px-4 overflow-hidden">
           <div className="flex flex-col items-center">
               <div className="relative w-full mb-2">
-                <h2 className="text-black font-semibold text-3xl whitespace-nowrap text-right pr-6">
+                <h2 className="text-black font-semibold text-3xl whitespace-nowrap text-center">
                   Why choose us
                 </h2>
                 {/* full-width underline with small horizontal padding */}

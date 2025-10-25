@@ -35,12 +35,12 @@ const Careers = () => {
         {careers.map((career, idx) => (
           <div
             key={idx}
-            className="relative group overflow-hidden cursor-pointer rounded-md"
+            className="relative group overflow-hidden cursor-pointer rounded-none md:rounded-md"
           >
             <img
               src={career.img}
               alt={career.title}
-              className="w-full aspect-square object-cover transition-transform duration-500 group-hover:scale-105 rounded-md"
+              className="w-full h-54 md:h-auto md:aspect-square object-cover transition-transform duration-500 group-hover:scale-105 rounded-none md:rounded-md"
             />
 
             <div
