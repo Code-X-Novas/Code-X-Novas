@@ -11,7 +11,6 @@ export default function Home() {
   return (
     <div>
 
-
       <HeroWithNavbar />
       <section id="about"><About /></section>
       <section id="services"><Services /></section>
@@ -20,7 +19,6 @@ export default function Home() {
       <section id="blogs"><Blogs /></section>
       <section id="products"><Products /></section>
       <section id="contact"><ContactUs /></section>
-    
     
     </div>
   );

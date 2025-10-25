@@ -110,7 +110,7 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Your Email address"
-                className="flex-1 min-w-0 px-4 py-2 text-black bg-transparent focus:outline-none placeholder:text-sm"
+                className="flex-1 min-w-0 px-4 py-2 text-black bg-transparent focus:outline-none placeholder:text-xs"
               />
              
               <button className="bg-blue-500 text-white px-3 py-2 rounded-full hover:bg-blue-700 transition m-1">
