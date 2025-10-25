@@ -41,7 +41,7 @@ const Blogs = () => {
   return (
     <section
       id="blogs"
-      className="w-full py-8 lg:py-20 px-6 md:px-12 bg-gradient-to-b from-[#fdfdfd] to-[#f5f9ff]"
+      className="w-full lg:py-20 px-6 md:px-12 bg-gradient-to-b from-[#fdfdfd] to-[#f5f9ff]"
     >
       <div className="text-center mb-12">
         <h2

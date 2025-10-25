@@ -232,18 +232,18 @@ const handleNavClick = (id, path) => {
         {/* Mobile: top gradient band that contains heading + CTAs only; below this is white (so white starts after CTAs) */}
   {/* reduce top gap on phones so CTAs and logos sit higher (mobile-only) */}
   <div className="w-full md:hidden mt-28">
-          <div className="w-full px-6 py-10">
+          <div className="w-full px-6 py-6">
             <div className="max-w-5xl mx-auto text-center">
               <h1 className="font-sora font-semibold text-black mb-10 sm:mb-6 text-[28px] sm:text-[32px] leading-[120%]">
                 We Build <span className="text-[#2352A5]">Products</span> <br /> that Work – <span className="text-[#2352A5]">Fast.</span>
               </h1>
               <p className="font-sora text-gray-600 mb-8 text-[14px] sm:text-[16px] leading-[140%] font-normal tracking-tight">
-                From startup tools to enterprise systems – <br className="md:hidden" />Code-X- 
-                Novas crafts scalable, AI-powered <br className="md:hidden" /> solutions that 
+                From startup tools to enterprise systems – Code-X- 
+                Novas crafts scalable, AI-powered solutions that 
                 redefine productivity
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center mb-6 sm:mb-0">
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-10 sm:mt-10 justify-center mb-6 sm:mb-0">
                 <button
                   onClick={() => {
                     const section = document.getElementById("products");
@@ -268,9 +268,9 @@ const handleNavClick = (id, path) => {
           </div>
 
           {/* Mobile logos sit on the white section below the gradient band */}
-          <div className="w-full bg-white py-4 flex flex-col items-center mb-6 sm:mb-0">
-            <h3 className="text-center text-[#2352A5] font-semibold tracking-wide text-[14px] sm:text-[15px] mb-6 sm:mb-4 px-4">
-              TRUSTED BY CURRENT AND SOON TO BE <br /><span className="">WORLD-CLASS BRANDS</span>
+          <div className="w-full bg-white py-2 sm:py-4 flex flex-col items-center -mb-2 sm:mb-0">
+            <h3 className="text-center text-[#2352A5] font-semibold tracking-wide text-[14px] sm:text-[15px] mb-10 sm:mb-4 px-4">
+              TRUSTED BY CURRENT AND SOON TO BE <span className="">WORLD-CLASS BRANDS</span>
             </h3>
             <div className="flex items-center justify-center gap-6 px-4 mb-6 sm:mb-0">
               <img src={brand1} alt="brand1" className="h-10 object-contain" />

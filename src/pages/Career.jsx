@@ -15,7 +15,7 @@ const careers = [
 
 const Careers = () => {
   return (
-    <section className="relative w-full py-14 md:py-20 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-[#fdfdfd] to-[#f5f9ff] text-center overflow-hidden">
+    <section className="relative w-full py-10 md:py-20 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-[#fdfdfd] to-[#f5f9ff] text-center overflow-hidden">
       <span className="absolute top-0 left-0 w-60 h-60 bg-gradient-to-br from-blue-200 to-transparent opacity-5 rounded-full blur-2xl pointer-events-none"></span>
 
       <span className="absolute top-0 right-0 w-60 h-60 bg-gradient-to-bl from-blue-200 to-transparent opacity-5 rounded-full blur-2xl pointer-events-none"></span>
