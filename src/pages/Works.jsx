@@ -92,9 +92,9 @@ const Works = () => {
         
         {/* MOBILE: show limited number of project cards (single column), expand by 3 on Load More */}
         <div className="md:hidden">
-          <div className="flex flex-col gap-6 mb-6">
+          <div className="flex flex-col gap-6 mb-6 items-center">
             {filteredProjects.slice(0, mobileVisibleCount).map((project, index) => (
-              <div key={index} className="flex flex-col w-full">
+              <div key={index} className="flex flex-col w-[92%] max-w-[440px] mx-auto">
                 <div className="border border-gray-800 hover:border-[#016FAE] transition aspect-[4/3] overflow-hidden rounded-lg">
                   <img
                     src={project.img}
