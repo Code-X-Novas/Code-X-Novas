@@ -10,3 +10,13 @@ body {
   font-family: 'Sora', sans-serif;
 }
 
+/* Multiline clamp utility for truncating text with ellipsis */
+.multi-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
