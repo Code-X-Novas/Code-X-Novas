@@ -39,7 +39,7 @@ const Works = () => {
   const glassEffectClassMobile = "bg-white/5 border border-white/10 backdrop-blur-sm";
 
   return (
-    <section className="relative w-full py-20 px-6 md:px-12 bg-black overflow-hidden">
+    <section className="relative w-full py-8 px-6 md:px-12 bg-black overflow-hidden">
      
       <img
         src={CornerGlow}
@@ -65,7 +65,7 @@ const Works = () => {
           </h2>
         </div>
       
-        <div className="flex justify-center mb-10">
+        <div className="flex justify-center mb-8">
           {/* 1. Mobile: horizontal scroll showing only a few category chips; Updated with Glass effect for mobile */}
           {/* Note: The desktop styling (md:bg-black border border-white/10) is now inside the md: flex-wrap to keep it separate */}
           <div 

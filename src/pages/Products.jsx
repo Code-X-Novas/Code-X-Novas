@@ -23,7 +23,7 @@ const Products = () => {
   };
 
   return (
-    <section className="relative w-full py-4 sm:py-6 px-6 md:px-12 bg-white text-center overflow-hidden">
+    <section className="relative w-full py-11 sm:py-6 px-6 md:px-12 bg-white text-center overflow-hidden">
       <h2
         className="relative z-10 text-3xl sm:text-4xl md:text-5xl font-bold -mb-12 md:mb-12"
         style={{ fontFamily: "Sora" }}
@@ -119,8 +119,8 @@ const DesktopProducts = ({ index, direction, handlePrev, handleNext }) => {
 const MobileProducts = ({ index, direction, handlePrev, handleNext }) => {
   return (
     <div className="relative w-full flex flex-col items-center justify-center">
-      <div className="relative w-full max-w-sm h-[450px] flex items-center justify-center perspective-[2000px]">
-        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 w-[90%] h-5 bg-black/60 rounded-xl blur-lg"></div>
+      <div className="relative w-full max-w-sm h-[400px] flex items-center justify-center perspective-[2000px]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90%] h-5 bg-black/60 rounded-xl blur-lg"></div>
 
         <img
           src={testimonials[(index + 2) % testimonials.length]}
@@ -155,7 +155,7 @@ const MobileProducts = ({ index, direction, handlePrev, handleNext }) => {
         </AnimatePresence>
       </div>
 
-      <div className="absolute bottom-[40px] left-1/2 -translate-x-1/2 flex gap-4 z-30">
+      <div className="absolute bottom-[50px] left-1/2 -translate-x-1/2 flex gap-4 z-30">
         <button
           onClick={handlePrev}
           className="w-8 h-8 flex items-center justify-center border border-blue-800 rounded-full text-blue-800 hover:bg-blue-800 hover:text-white transition"

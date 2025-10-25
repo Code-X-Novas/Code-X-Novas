@@ -102,10 +102,10 @@ const Contact = () => {
           </div>
         </div>
       </section>
-      <footer className="bg-[#0B1221] text-white py-16 px-3 md:px-20">
+      <footer className="bg-[#0B1221] text-white py-12 px-3 md:px-20">
         <div className="max-w-7xl mx-auto block md:hidden px-6">
-          <div className="pt-6">
-            <img src={Logo} alt="CodeX Novas" className="h-8 mb-4" />
+          <div className="pt-2 sm:pt-6">
+            <img src={Logo} alt="CodeX Novas" className="h-8 mb-4 -mt-8" />
             <div className="flex items-center justify-start bg-white rounded-full overflow-hidden w-full max-w-[240px] border border-gray-300">
               <input
                 type="email"
