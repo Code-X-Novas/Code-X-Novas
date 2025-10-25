@@ -1,20 +1,9 @@
-// Made the Changes in the Services Section by changing the colour and gradient of "Services" heading.
-// Changed the gradient for React icons to make it exactly like the prototype.
-// The cards mouse enter animation has been made more smooth by enacting on the duration and ease-in-out addition.
-// Also,Changed the Why choose us sections's line's colour along with making minimal changes.
-//Enhanced the readability of the code by adding comments.
-//The map & it's pulsing dots is totally responsive now on all screen sizes.
-//The why choose us that waas visible on desktop is now also visible on mobile and small screen sizes .
-//Fixed the inset of pulsing dots for both desktop and mobile seperately
-
-{/*Few Imports*/}
 import React, { useEffect, useState } from "react";
 import { FiMonitor, FiSmartphone } from "react-icons/fi";
 import { motion } from "framer-motion";
 import RightElement from "../assets/Services/RightElement.png";
 import MapImage from "../assets/Services/Map.png";
 
-// Services Section- Having a list of services Provided by Code-X-Novas
 const servicesData = [
   {
     icon: FiMonitor,
@@ -48,7 +37,6 @@ const servicesData = [
   },
 ];
 
-// Small helper component for pulsing dot for the map provided
 const PulseDot = ({ left, top }) => (
   <div
     className="absolute"
@@ -60,32 +48,28 @@ const PulseDot = ({ left, top }) => (
     }}
   >
     <span className="absolute inset-0 rounded-full bg-sky-500 opacity-60 animate-ping"></span>
-  
-   
     <span className="absolute rounded-full bg-sky-500 inset-[8px] sm:hidden"></span>
-    <span className="absolute rounded-full bg-sky-500 hidden sm:block inset-[6px]"></span>  </div>
+    <span className="absolute rounded-full bg-sky-500 hidden sm:block inset-[6px]"></span>
+  </div>
 );
 
-// Map with 12 pulsing dots
-const MapWithDots = () => {
-  return (
-    <div className="relative w-full max-w-[638px] aspect-[638/614] -ml-0 lg:-ml-24">
-      <img src={MapImage} alt="World map" className="w-full h-full object-contain" />
-      <PulseDot left={48} top={34} />
-      <PulseDot left={55} top={35} />
-      <PulseDot left={56} top={38} />
-      <PulseDot left={59} top={40} />
-      <PulseDot left={59} top={35} />
-      <PulseDot left={63} top={40} />
-      <PulseDot left={82} top={60} />
-      <PulseDot left={57} top={33} />
-      <PulseDot left={30} top={26} />
-      <PulseDot left={9} top={58} />
-      <PulseDot left={1} top={36} />
-      <PulseDot left={1} top={27} />
-    </div>
-  );
-};
+const MapWithDots = () => (
+  <div className="relative w-full max-w-[638px] aspect-[638/614] -ml-0 lg:-ml-24">
+    <img src={MapImage} alt="World map" className="w-full h-full object-contain" />
+    <PulseDot left={48} top={34} />
+    <PulseDot left={55} top={35} />
+    <PulseDot left={56} top={38} />
+    <PulseDot left={59} top={40} />
+    <PulseDot left={59} top={35} />
+    <PulseDot left={63} top={40} />
+    <PulseDot left={82} top={60} />
+    <PulseDot left={57} top={33} />
+    <PulseDot left={30} top={26} />
+    <PulseDot left={9} top={58} />
+    <PulseDot left={1} top={36} />
+    <PulseDot left={1} top={27} />
+  </div>
+);
 
 const GradientHeading = ({ children }) => (
   <h3
@@ -104,7 +88,6 @@ const GradientHeading = ({ children }) => (
 );
 
 const Services = () => {
-  // Track mobile state so we can show less text (truncate) on small screens only.
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -114,196 +97,238 @@ const Services = () => {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  const truncate = (s, n) => {
-    if (!s) return s;
-    return s.length <= n ? s : s.slice(0, n).trimEnd() + "...";
-  };
+  const truncate = (s, n) => (s?.length <= n ? s : s.slice(0, n).trimEnd() + "...");
 
   return (
     <>
-      <section className="relative w-full bg-black text-white py-16 md:py-20 px-4 md:px-12 overflow-hidden">
-        <img
-          src={RightElement}
-          alt="Decorative element"
-          // Push the blue decorative element further up on mobile so it visually begins at the
-          // "Our Services" heading on small screens. Desktop (md+) remains exactly the same.
-          className="absolute right-0 top-[-910px] md:top-0 h-[150%] md:h-full object-contain pointer-events-none select-none opacity-100 md:opacity-100"
-        />
+      {/* -------- MOBILE VERSION -------- */}
+      <div className="block md:hidden">
+        <section className="relative w-full bg-black text-white py-16 px-4 overflow-hidden">
+          <img
+            src={RightElement}
+            alt="Decorative element"
+            className="absolute right-0 top-[-910px] h-[150%] object-contain pointer-events-none select-none opacity-100"
+          />
 
-        <div className="relative text-center max-w-6xl mx-auto mb-12 md:mb-16 z-10">
-          <h2
-            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6"
-            style={{ fontFamily: "Sora" }}
-          >
-            <span className="text-white">Our </span>
-            <span style={{ color: "#1D58F6" }}>Services</span>
-          </h2>
-          {/* Intro paragraph: on mobile make it slightly larger, centered and constrained to 3 lines.
-              On md+ keep original larger sizing and full width. */}
-          <p
-            className="text-base md:text-lg lg:text-xl text-gray-300 leading-relaxed mx-auto md:mx-0 max-w-[340px] md:max-w-none"
-            style={
-              isMobile
-                ? {
-                    display: "-webkit-box",
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }
-                : undefined
-            }
-          >
-            Our service range fits together cohesively, so we can provide end-to-end service, from Startup to Scaleup.
-          </p>
-        </div>
-
-        <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 max-w-7xl mx-auto z-10 pr-0 md:pr-20 lg:pr-20">
-          {servicesData.map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={index}
-                // Make mobile cards slightly narrower and centered; keep md+ sizes exactly the same.
-                className={
-                  `group relative h-auto min-h-[300px] sm:min-h-[340px] md:h-[400px] ` +
-                  `w-[72%] sm:w-[90%] md:w-[360px] lg:w-[380px] ` +
-                  // zinc background only on mobile, preserve original dark background on md+
-                  `flex flex-col justify-between bg-zinc-800 md:bg-black/90 backdrop-blur-lg p-6 rounded-md shadow-md ` +
-                  `transition-all duration-[1200ms] ease-in-out mx-auto overflow-hidden ` +
-                  `hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]`
-                }
-              >
-                {/* Icon size: keep same as before on mobile (text-4xl) and md exact. */}
-                <div className="relative text-4xl md:text-5xl mb-4 transition-colors duration-500">
-                  <svg width="1em" height="1em" viewBox="0 0 24 24">
-                    <defs>
-                      <linearGradient id={`grad-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="9.29%" stopColor="#7DE2FF" />
-                        <stop offset="51.58%" stopColor="#54A1DE" />
-                        <stop offset="93.07%" stopColor="#08367F" />
-                      </linearGradient>
-                    </defs>
-                    <Icon
-                      stroke={`url(#grad-${index})`}
-                      fill="none"
-                      size="100%"
-                      className="transition-colors duration-500 group-hover:stroke-white"
-                    />
-                  </svg>
-                </div>
-
-                {/* Keep title size consistent with desktop design on mobile (text-lg) */}
-                <h3 className="relative text-lg md:text-xl font-semibold mt-2 mb-2">
-                  {service.title}
-                </h3>
-                {/* Show less text on mobile (truncate) but don't change font-size. */}
-                <p className="relative text-gray-300 text-sm md:text-base group-hover:text-gray-100 transition-colors duration-500 flex-grow leading-relaxed">
-                  {isMobile ? truncate(service.desc, 140) : service.desc}
-                </p>
-                <button
-                  className="self-start inline-flex items-center justify-center
-                             px-6 py-2 mt-6 rounded-md
-                             border border-white/30
-                             text-sm font-medium text-white
-                             bg-transparent
-                             transition-all duration-300
-                             hover:bg-white hover:text-black hover:border-white"
-                >
-                  Learn More
-                </button>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-
-    
-      <section className="relative w-full bg-white py-16 md:py-20 px-4 md:px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
-          <motion.div
-            initial={{ x: -150, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="w-full lg:w-1/2 flex justify-center lg:justify-start"
-          >
-            <MapWithDots />
-          </motion.div>
-
-          <div className="hidden lg:flex flex-col items-center justify-center px-4 relative h-full">
-          <div
-  className="absolute left-[-35px] top-[50px] h-[320px]"
-  style={{
-    borderLeft: "2px solid #999999",
-  }}
-></div>
-            <span className="absolute -left-[230px] top-[-190px] text-black font-semibold text-5xl tracking-wide -rotate-90 whitespace-nowrap">
-              Why choose us
-            </span>
+          {/* Header */}
+          <div className="text-center mb-12 relative z-10">
+            <h2
+              className="text-3xl font-bold mb-4"
+              style={{ fontFamily: "Sora" }}
+            >
+              <span className="text-white">Our </span>
+              <span style={{ color: "#1D58F6" }}>Services</span>
+            </h2>
+            <p
+              className="text-base text-gray-300 leading-relaxed mx-auto max-w-[340px]"
+              style={{
+                display: "-webkit-box",
+                WebkitLineClamp: 3,
+                WebkitBoxOrient: "vertical",
+                overflow: "hidden",
+              }}
+            >
+              Our service range fits together cohesively, so we can provide end-to-end service, from Startup to Scaleup.
+            </p>
           </div>
-          <div className="flex lg:hidden items-center justify-center mb-6 relative">
-  <div
-    className="absolute top-full mt-2 w-[120px] sm:w-[160px]"
-    style={{
-      borderTop: "2px solid #999999",
-    }}
-  ></div>
-  <span className="text-black font-semibold text-3xl sm:text-2xl whitespace-nowrap">
-    Why choose us
-  </span>
-</div>
-          <motion.div
-            initial={{ x: 150, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            viewport={{ once: true }}
-            className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-10 px-0 md:px-0"
-          >
-            <div>
-              <GradientHeading>Proven Track Record</GradientHeading>
-              <p className="text-gray-700">
-                We’ve successfully delivered 40+ real-world projects across web, app,
-                AI, and custom software solutions — trusted by startups, brands, and institutions.
-              </p>
+
+          {/* Services cards */}
+          <div className="grid grid-cols-1 gap-6 max-w-7xl mx-auto">
+            {servicesData.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative min-h-[300px] w-[72%] flex flex-col justify-between bg-zinc-800 p-6 rounded-md shadow-md transition-all duration-[1200ms] ease-in-out mx-auto overflow-hidden hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
+                >
+                  <div className="text-4xl mb-4">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24">
+                      <defs>
+                        <linearGradient id={`grad-mobile-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="9.29%" stopColor="#7DE2FF" />
+                          <stop offset="51.58%" stopColor="#54A1DE" />
+                          <stop offset="93.07%" stopColor="#08367F" />
+                        </linearGradient>
+                      </defs>
+                      <Icon stroke={`url(#grad-mobile-${index})`} fill="none" size="100%" />
+                    </svg>
+                  </div>
+                  <h3 className="text-lg font-semibold mt-2 mb-2">{service.title}</h3>
+                  <p className="text-gray-300 text-sm leading-relaxed">
+                    {truncate(service.desc, 140)}
+                  </p>
+                  <button className="px-6 py-2 mt-6 rounded-md border border-white/30 text-sm text-white transition-all hover:bg-white hover:text-black">
+                    Learn More
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Why Choose Us for Mobile */}
+        <section className="relative w-full bg-white py-10 px-4 overflow-hidden">
+          <div className="flex flex-col items-center">
+              <div className="relative w-full mb-2">
+                <h2 className="text-black font-semibold text-3xl whitespace-nowrap text-right pr-6">
+                  Why choose us
+                </h2>
+                {/* full-width underline with small horizontal padding */}
+                <div
+                  className="absolute left-4 right-4"
+                  style={{ top: "48px", borderTop: "2px solid #999999" }}
+                />
+              </div>
+
+            {/* Map (mobile) - full-width */}
+            <div className="w-full">
+              <MapWithDots />
             </div>
-            <div>
-              <GradientHeading>Recognized & Credible</GradientHeading>
-              <p className="text-gray-700">
-                Selected among India’s Top 75 Emerging Startups and proudly
-                represented India at the Dubai AI Festival, showcasing our credibility and innovation.
-              </p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 gap-6 max-w-[340px] w-full"
+            >
+              {[
+                "Proven Track Record",
+                "Recognized & Credible",
+                "Innovation-Driven Team",
+                "End-to-End Services",
+                "Agile & Transparent Process",
+                "Long-Term Partnership",
+              ].map((title, i) => (
+                <div key={i} className="pb-2">
+                  <GradientHeading>{title}</GradientHeading>
+                  <p className="text-gray-700 text-sm leading-relaxed">
+                    {
+                      [
+                        "We’ve successfully delivered 40+ real-world projects across web, app, AI, and custom software solutions — trusted by startups, brands, and institutions.",
+                        "Selected among India’s Top 75 Emerging Startups and proudly represented India at the Dubai AI Festival, showcasing our credibility and innovation.",
+                        "We specialize in building intelligent, scalable systems using cutting-edge tech — from AI agents to custom platforms — tailored to your needs.",
+                        "From idea to execution, we offer complete digital solutions: design, development, deployment, maintenance, and growth strategy — all under one roof.",
+                        "We follow a client-first approach with regular updates, live previews, flexible iterations, and transparent communication throughout the project.",
+                        "We believe in building lasting relationships by offering post-delivery support, affordable maintenance plans, and reliable upgrades as your business grows.",
+                      ][i]
+                    }
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+      </div>
+
+      {/* -------- DESKTOP/TABLET VERSION -------- */}
+      <div className="hidden md:block">
+        <section className="relative w-full bg-black text-white py-20 px-12 overflow-hidden">
+          <img
+            src={RightElement}
+            alt="Decorative element"
+            className="absolute right-0 top-0 h-full object-contain pointer-events-none select-none opacity-100"
+          />
+          <div className="text-center max-w-6xl mx-auto mb-16 z-10 relative">
+            <h2 className="text-5xl font-bold mb-6" style={{ fontFamily: "Sora" }}>
+              <span className="text-white">Our </span>
+              <span style={{ color: "#1D58F6" }}>Services</span>
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed mx-auto max-w-[600px]">
+              Our service range fits together cohesively, so we can provide end-to-end service, from Startup to Scaleup.
+            </p>
+          </div>
+          <div className="grid grid-cols-3 gap-10 max-w-7xl mx-auto pr-20">
+            {servicesData.map((service, index) => {
+              const Icon = service.icon;
+              return (
+                <div
+                  key={index}
+                  className="group relative h-[400px] w-[360px] flex flex-col justify-between bg-black/90 backdrop-blur-lg p-6 rounded-md shadow-md transition-all duration-[1200ms] ease-in-out overflow-hidden hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
+                >
+                  <div className="text-5xl mb-4 transition-colors duration-500">
+                    <svg width="1em" height="1em" viewBox="0 0 24 24">
+                      <defs>
+                        <linearGradient id={`grad-desktop-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="9.29%" stopColor="#7DE2FF" />
+                          <stop offset="51.58%" stopColor="#54A1DE" />
+                          <stop offset="93.07%" stopColor="#08367F" />
+                        </linearGradient>
+                      </defs>
+                      <Icon stroke={`url(#grad-desktop-${index})`} fill="none" size="100%" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold mt-2 mb-2">{service.title}</h3>
+                  <p className="text-gray-300 text-base leading-relaxed">
+                    {service.desc}
+                  </p>
+                  <button className="px-6 py-2 mt-6 rounded-md border border-white/30 text-sm font-medium text-white bg-transparent transition-all duration-300 hover:bg-white hover:text-black">
+                    Learn More
+                  </button>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* Why Choose Us - Desktop */}
+        <section className="relative w-full bg-white py-20 px-6 overflow-hidden">
+          <div className="max-w-7xl mx-auto flex flex-row items-center gap-0">
+            <motion.div
+              initial={{ x: -150, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true }}
+              className="w-1/2 flex justify-start"
+            >
+              <MapWithDots />
+            </motion.div>
+
+            <div className="flex flex-col items-center justify-center px-4 relative h-full w-1/2">
+              <div
+                className="absolute left-[-35px] top-[400px] h-[320px]"
+                style={{ borderLeft: "2px solid #999999" }}
+              ></div>
+              <span className="absolute -left-[230px] top-[150px] text-black font-semibold text-5xl tracking-wide -rotate-90 whitespace-nowrap">
+                Why choose us
+              </span>
+
+              <motion.div
+                initial={{ x: 150, opacity: 0 }}
+                whileInView={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="grid grid-cols-2 gap-10"
+              >
+                {[
+                  "Proven Track Record",
+                  "Recognized & Credible",
+                  "Innovation-Driven Team",
+                  "End-to-End Services",
+                  "Agile & Transparent Process",
+                  "Long-Term Partnership",
+                ].map((title, i) => (
+                  <div key={i}>
+                    <GradientHeading>{title}</GradientHeading>
+                    <p className="text-gray-700">
+                      {
+                        [
+                          "We’ve successfully delivered 40+ real-world projects across web, app, AI, and custom software solutions — trusted by startups, brands, and institutions.",
+                          "Selected among India’s Top 75 Emerging Startups and proudly represented India at the Dubai AI Festival, showcasing our credibility and innovation.",
+                          "We specialize in building intelligent, scalable systems using cutting-edge tech — from AI agents to custom platforms — tailored to your needs.",
+                          "From idea to execution, we offer complete digital solutions: design, development, deployment, maintenance, and growth strategy — all under one roof.",
+                          "We follow a client-first approach with regular updates, live previews, flexible iterations, and transparent communication throughout the project.",
+                          "We believe in building lasting relationships by offering post-delivery support, affordable maintenance plans, and reliable upgrades as your business grows.",
+                        ][i]
+                      }
+                    </p>
+                  </div>
+                ))}
+              </motion.div>
             </div>
-            <div>
-              <GradientHeading>Innovation-Driven Team</GradientHeading>
-              <p className="text-gray-700">
-                We specialize in building intelligent, scalable systems using
-                cutting-edge tech — from AI agents to custom platforms — tailored to your needs.
-              </p>
-            </div>
-            <div>
-              <GradientHeading>End-to-End Services</GradientHeading>
-              <p className="text-gray-700">
-                From idea to execution, we offer complete digital solutions:
-                design, development, deployment, maintenance, and growth strategy — all under one roof.
-              </p>
-            </div>
-            <div>
-              <GradientHeading>Agile & Transparent Process</GradientHeading>
-              <p className="text-gray-700">
-                We follow a client-first approach with regular updates, live
-                previews, flexible iterations, and transparent communication throughout the project.
-              </p>
-            </div>
-            <div>
-              <GradientHeading>Long-Term Partnership</GradientHeading>
-              <p className="text-gray-700">
-                We believe in building lasting relationships by offering
-                post-delivery support, affordable maintenance plans, and reliable upgrades as your business grows.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+      </div>
     </>
   );
 };
