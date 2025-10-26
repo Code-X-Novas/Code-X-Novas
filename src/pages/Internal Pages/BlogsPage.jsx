@@ -198,7 +198,7 @@ export default function BlogsPage() {
       </section>
 
 <section className="relative z-10 px-6 md:px-12 pb-[40px] sm:pb-[80px] max-w-[1300px] mx-auto text-left -mt-[45px] sm:-mt-[25px]">
-  <div className="flex pl-4 justify-between items-center mb-5 px-[1%]">
+  <div className="flex md:pl-4 justify-between items-center mb-5 px-6 md:px-[1%]">
     <h2
       className="text-[18px] sm:text-[20px] md:text-[22px] font-[600] text-black"
       style={{ fontFamily: "Sora" }}
@@ -225,7 +225,7 @@ export default function BlogsPage() {
     sm:grid-cols-2 
     lg:grid-cols-3 
     gap-3 sm:gap-8 md:gap-12 
-    px-[2%] md:px-[1%] 
+  px-6 md:px-[1%] 
     max-w-[1300px] mx-auto">
     {[1, 2, 3].map((idx) => (
       <div
@@ -272,7 +272,7 @@ export default function BlogsPage() {
 
           <div className="flex flex-col items-center gap-4 mb-10 md:flex-row md:items-center md:justify-between">
             <div
-  className="flex items-center gap-3 rounded-xl px-2 py-2 overflow-x-auto whitespace-nowrap md:flex-wrap md:justify-start 
+  className="flex items-center gap-3 rounded-xl px-6 py-2 overflow-x-auto whitespace-nowrap md:flex-wrap md:justify-start 
              border border-[#ccc] 
              md:rounded-full 
              sm:px-6 md:px-8 sm:py-2.5 
@@ -314,7 +314,7 @@ export default function BlogsPage() {
               ))}
             </div>
 
-            <div className="flex items-center border border-[#ccc] rounded-full px-4 py-2 md:py-4 w-full sm:w-[240px] md:w-[280px] bg-white/80 backdrop-blur-sm">
+            <div className="flex items-center border border-[#ccc] rounded-full px-6 md:px-4 py-2 md:py-4 w-full sm:w-[240px] md:w-[280px] bg-white/80 backdrop-blur-sm">
               <input
                 type="text"
                 placeholder="Search Blogs"
@@ -337,7 +337,7 @@ export default function BlogsPage() {
               </svg>
             </div>
           </div>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 px-[0.2%] max-w-[1220px] mx-auto mt-[30px]">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 px-6 md:px-[0.2%] max-w-[1220px] mx-auto mt-[30px]">
   {[
     {
       category: "Artificial Intelligence",
