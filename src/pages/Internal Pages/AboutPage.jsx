@@ -60,7 +60,7 @@ export default function AboutPage() {
 
       {showAnimation && (
         <div
-          className="fixed top-0 right-0 pointer-events-none z-[0]"
+          className="fixed top-0 right-0 pointer-events-none z-[-1]"
           style={{
             width: "100vw",
             height: "100vh",
@@ -88,7 +88,7 @@ export default function AboutPage() {
       )}
     
 <section
-  className="relative w-full overflow-hidden min-h-[500px] flex flex-col justify-center pt-6 pb-8 md:pt-[120px] md:pb-[250px] bg-transparent"
+  className="relative w-full overflow-hidden min-h-[500px] flex flex-col justify-center -pt-2 pb-8 md:pt-[120px] md:pb-[250px] bg-transparent"
   style={{
     // keep left/right paddings exactly as before for all sizes
     paddingLeft: "5%",
@@ -202,9 +202,10 @@ export default function AboutPage() {
 
              <section
   className="relative w-full flex justify-center px-[6%] flex-col md:hidden"
-  style={{
+             style={{
     zIndex: 2,
-    marginTop: "-180px", 
+    // reduce negative margin on mobile so the card doesn't overlap the hero text
+    marginTop: "-90px",
     marginBottom: "60px",
   }}
 >
@@ -218,8 +219,8 @@ export default function AboutPage() {
       boxShadow: "0 10px 25px rgba(0,0,0,0.05)",
     }}
   >
-    <h2
-      className="text-[30px] font-[600] mb-4 text-center"
+            <h2
+      className="text-[24px] sm:text-[30px] font-[600] mb-3 text-center"
       style={{ color: "#002C6C", fontFamily: "Sora" }}
     >
       Proven Track Record
@@ -228,10 +229,10 @@ export default function AboutPage() {
     <img
       src={Picture1}
       alt="Proven Track Record"
-      className="w-[90%] h-auto object-contain rounded-[15px] mb-5"
+      className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
     />
 
-    <ul className="space-y-3 text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
+    <ul className="space-y-2 text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
       {[
         "Successfully delivered 40+ projects in web, app, AI, and custom solutions.",
         "Trusted by leading brands and startups across India, Dubai, USA, and beyond.",
@@ -316,7 +317,7 @@ export default function AboutPage() {
     }}
   >
     <h2
-      className="text-[30px] font-[600] mb-4 text-center"
+      className="text-[24px] sm:text-[30px] font-[600] mb-3 text-center"
       style={{ color: "#002C6C", fontFamily: "Sora" }}
     >
       Recognized Excellence
@@ -325,10 +326,10 @@ export default function AboutPage() {
     <img
       src={Picture2}
       alt="Recognized Excellence"
-      className="w-[90%] h-auto object-contain rounded-[15px] mb-5"
+      className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
     />
 
-    <div className="text-[15px] text-[#333] leading-[1.6] text-center font-[400]">
+    <div className="text-[14px] sm:text-[15px] text-[#333] leading-[1.6] text-center font-[400]">
       <p>Represented India at the Dubai AI Festival.</p>
       <p>Invited to India’s biggest tech conference at Jio World Convention Centre, Mumbai.</p>
     </div>
@@ -388,7 +389,7 @@ export default function AboutPage() {
     }}
   >
     <h2
-      className="text-[30px] font-[600] mb-4 text-center"
+      className="text-[24px] sm:text-[30px] font-[600] mb-3 text-center"
       style={{ color: "#002C6C", fontFamily: "Sora" }}
     >
       What Sets Us Apart
@@ -397,10 +398,10 @@ export default function AboutPage() {
     <img
       src={Picture3}
       alt="What Sets Us Apart"
-      className="w-[90%] h-auto object-contain rounded-[15px] mb-5"
+      className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
     />
 
-    <ul className="space-y-3 text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
+    <ul className="space-y-2 text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
       {[
         "Agile & transparent development process.",
         "UX-first design philosophy for seamless user experiences.",
@@ -463,7 +464,7 @@ export default function AboutPage() {
     }}
   >
     <h2
-      className="text-[30px] font-[600] mb-4 text-center"
+      className="text-[24px] sm:text-[30px] font-[600] mb-3 text-center"
       style={{ color: "#002C6C", fontFamily: "Sora" }}
     >
       Our Expertise
@@ -472,10 +473,10 @@ export default function AboutPage() {
     <img
       src={Picture4}
       alt="Our Expertise"
-      className="w-[90%] h-auto object-contain rounded-[15px] mb-5"
+      className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
     />
 
-    <div className="text-[15px] text-[#333] leading-[1.6] font-[400] text-center">
+    <div className="text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-center">
       <p>Represented India at the Dubai AI Festival.</p>
       <p>Invited to India’s biggest tech conference at Jio World Convention Centre, Mumbai.</p>
     </div>
@@ -483,7 +484,7 @@ export default function AboutPage() {
 </section>
 
 <section
-  className="relative w-full flex justify-center"
+  className="-mt-6 sm:mt-0 relative w-full flex justify-center"
   style={{
     background: "rgba(255, 255, 255, 0.98)",
     backdropFilter: "blur(8px)",
@@ -492,12 +493,12 @@ export default function AboutPage() {
   }}
 >
   <div
-    className="w-full max-w-[1500px] text-center md:text-left"
+    className="w-full max-w-[1500px] -mt-6 sm:mt-0 text-center md:text-left -mb-8 sm:mb-0"
     style={{ fontFamily: "Sora" }}
   >
     <h2
       className="font-[600] leading-[1.2] mb-3 
-                 text-[30px] sm:text-[36px] md:text-[48px] lg:text-[55px]"
+                 text-[28px] sm:text-[36px] md:text-[48px] lg:text-[55px]"
       style={{ color: "#002C6C", whiteSpace: "nowrap" }}
     >
       Our Commitment
@@ -513,8 +514,9 @@ export default function AboutPage() {
     </p>
   </div>
 </section>
-
+      
       <Contact />
+      
     </div>
   );
 }

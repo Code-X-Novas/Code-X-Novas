@@ -110,7 +110,7 @@ export default function CareerPage() {
           </div>
         )}
 
-<section className="relative z-10 pt-[100px] pb-[20px] px-[5%] max-w-[1400px] mx-auto text-left">
+<section className="relative z-10 pt-[95px] sm:pt-[140px] md:pt-[100px] lg:pt-[100px] pb-[20px] px-6 md:px-[5%] max-w-[1400px] mx-auto text-left">
   <h3
     className="uppercase mb-[10px] text-[#2352A5] font-[600] text-[13px] sm:text-[14px] md:text-[16px]"
     style={{ fontFamily: "Sora", letterSpacing: "1px" }}
@@ -120,11 +120,11 @@ export default function CareerPage() {
 
   <h1
     className="
-      font-[600] 
-      text-black 
+      font-[600]
+      text-black
       leading-[1.2]
-      mb-3 
-      text-[32px] sm:text-[42px] md:text-[52px] lg:text-[62px]
+      mb-3
+      text-[30px] sm:text-[42px] md:text-[52px] lg:text-[62px]
     "
     style={{ fontFamily: "Sora" }}
   >
@@ -133,9 +133,9 @@ export default function CareerPage() {
 
   <p
     className="
-      text-[#333] 
+      text-[#333]
       font-[400]
-      text-[15px] sm:text-[16px] md:text-[17px]
+      text-[14px] sm:text-[16px] md:text-[17px]
       leading-[1.6]
       max-w-[750px]
       text-left
@@ -207,7 +207,7 @@ export default function CareerPage() {
                 <img
                   src={career.img}
                   alt={career.title}
-                  className="w-full h-[330px] object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-[220px] sm:h-[330px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div
                   className="absolute w-full flex flex-col items-center justify-center text-center 
@@ -230,7 +230,7 @@ export default function CareerPage() {
         </section>
 
         <div ref={contactRef}>
-          <div className="w-full border-t border-gray-300 opacity-70 mt-[40px] relative z-[5]" />
+          <div className="w-full border-t border-gray-300 opacity-70 sm:mt-[40px] relative z-[5]" />
           <Contact />
         </div>
       </div>

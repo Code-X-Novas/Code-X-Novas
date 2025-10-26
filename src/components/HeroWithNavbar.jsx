@@ -144,7 +144,7 @@ const handleNavClick = (id, path) => {
   />
 {/* The rest of the code remains unchanged */}
 <nav
-  className="flex items-center justify-between px-6 h-[65px] md:h-[80px] lg:h-[90px] absolute top-0 left-0 z-50"
+  className="flex items-center justify-between px-6 h-[65px] md:h-[80px] lg:h-[90px] fixed top-0 left-0 z-50"
   style={{
     width: "100%",
     background: "#FFFFFFB5",
