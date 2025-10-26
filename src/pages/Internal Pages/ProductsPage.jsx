@@ -118,18 +118,17 @@ export default function ProductsPage() {
         </section>
 
         <section
-          className="relative z-10 w-full flex justify-center items-end overflow-hidden mt-[40px] sm:mt-[80px]"
+          className="relative z-10 w-full flex justify-center items-end overflow-hidden mt-[40px] sm:mt-[80px] h-[55vh] sm:h-[100vh]"
           style={{
             backgroundImage: `url(${BackgroundPicture})`,
             backgroundSize: "cover",
             backgroundPosition: "center top",
             backgroundRepeat: "no-repeat",
-            height: "100vh",
           }}
         >
-          <div className="absolute top-5 sm:relative flex justify-center w-full">
+          <div className="absolute top-2 sm:top-5 sm:relative flex justify-center w-full">
             <div
-              className="shadow-lg p-2 md:p-4 flex items-center justify-center w-[90%] sm:w-[85%] max-w-[1100px] min-h-[200px] sm:min-h-[270px] mb-[250px] sm:mb-[390px]"
+              className="shadow-lg px-8 py-2 sm:px-4 sm:py-4 flex items-center justify-center w-[90%] sm:w-[85%] max-w-[1100px] min-h-[140px] sm:min-h-[270px] mb-[80px] sm:mb-[390px]"
               style={{
                 background: "rgba(255,255,255,0.75)",
                 WebkitBackdropFilter: "blur(14px)",
@@ -139,7 +138,7 @@ export default function ProductsPage() {
               }}
             >
               <p
-                className="text-[#222] text-[16px] sm:text-[17px] md:text-[24px] leading-[1.2] sm:leading-[1.3] text-start mt-[20px] sm:mt-[40px]"
+                className="text-[#222] text-[14px] sm:text-[17px] md:text-[24px] leading-[1.15] sm:leading-[1.3] text-start mt-[10px] sm:mt-[40px]"
                 style={{ fontFamily: "Sora", fontWeight: 500 }}
               >
                 SyncroTask is your ultimate productivity companion — combining cutting-edge
@@ -152,7 +151,7 @@ export default function ProductsPage() {
         </section>
 
         <div
-          className="shadow-lg p-6 md:p-8 flex flex-col justify-center mx-auto"
+          className="shadow-lg px-6 py-6 md:px-8 md:py-8 flex flex-col justify-center mx-auto -mt-[120px] md:-mt-[200px]"
           style={{
             position: "relative",
             background: "rgba(255,255,255,0.75)",
@@ -163,7 +162,6 @@ export default function ProductsPage() {
             maxWidth: "1100px",
             borderRadius: "12px",
             minHeight: "400px",
-            marginTop: "-200px",
             marginBottom: "50px",
             zIndex: 20,
           }}

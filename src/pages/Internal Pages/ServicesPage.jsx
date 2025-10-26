@@ -238,20 +238,21 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col md:hidden px-6 mt-6">
+              <div className="flex flex-col md:hidden px-6 mt-10">
                 <div className="w-full text-left mb-6">
-                  {/* Mobile heading: match main H1 mobile size (base/mobile = 30px). Desktop is untouched because this block is hidden on md+. */}
-                  <h2 className="mb-2 text-[30px] font-[600] text-black" style={{ fontFamily: "Sora", lineHeight: "1.15" }}>
+                  <h2 className="mb-2 text-[24px] font-[600] text-black" style={{ fontFamily: "Sora", lineHeight: "1.15" }}>
                     {s.title}
                   </h2>
-                  {/* Mobile paragraph: match main paragraph mobile size (base/mobile = text-sm). Keep line-height and font family. */}
                   <p className="text-[#555] text-sm" style={{ fontFamily: "Sora", lineHeight: "1.5" }}>
                     {s.description}
                   </p>
                 </div>
                 <div className="w-full mb-6 flex justify-center">
-                  {/* Mobile image: constrain width to match Home hero mobile rectangles (centered, capped width) */}
-                  <img src={picture} alt={s.title} className="w-[85%] max-w-[300px] h-auto object-cover rounded-lg" />
+                  <img
+                    src={picture}
+                    alt={s.title}
+                    className="w-full h-[220px] max-h-[220px] object-cover rounded-lg"
+                  />
                 </div>
               </div>
             </section>

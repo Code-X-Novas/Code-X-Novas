@@ -103,9 +103,9 @@ export default function BlogsPage() {
           </div>
         )}
 
-=        <section
+                <section
           ref={sectionRef}
-          className="relative z-10 pt-[95px] sm:pt-[130px] pb-[40px] text-left px-[3%] max-w-[1400px] mx-auto"
+          className="relative z-10 pt-[95px] sm:pt-[130px] pb-[40px] text-left px-6 md:px-12 max-w-[1400px] mx-auto"
         >
           <h3
             className="uppercase mb-2 text-[#2352A5] font-[600]"
@@ -197,7 +197,7 @@ export default function BlogsPage() {
 </div>
       </section>
 
-<section className="relative z-10 px-[0%] pb-[40px] sm:pb-[80px] max-w-[1300px] mx-auto text-left -mt-[45px] sm:-mt-[25px]">
+<section className="relative z-10 px-6 md:px-12 pb-[40px] sm:pb-[80px] max-w-[1300px] mx-auto text-left -mt-[45px] sm:-mt-[25px]">
   <div className="flex pl-4 justify-between items-center mb-5 px-[1%]">
     <h2
       className="text-[18px] sm:text-[20px] md:text-[22px] font-[600] text-black"
@@ -261,7 +261,7 @@ export default function BlogsPage() {
   </div>
 </section>
    <section
-          className="relative z-10 w-full pt-[15px] pb-[50px] sm:pt-[70px] sm:pb-[70px] px-[6%] mt-[0px] overflow-hidden"
+          className="relative z-10 w-full pt-[15px] pb-[50px] sm:pt-[70px] sm:pb-[70px] px-6 md:px-12 mt-[0px] overflow-hidden"
         >
           <h2
             className="text-[18px] sm:text-[22px] md:text-[24px] font-[600] text-black mb-8"
@@ -292,23 +292,21 @@ export default function BlogsPage() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`inline-block px-4 sm:px-6 py-[8px] rounded-full border text-[14px] sm:text-[15px] font-[500] transition-all duration-300 whitespace-nowrap md:whitespace-normal ${
+                  className={`inline-block px-4 sm:px-6 py-[8px] rounded-full text-[14px] sm:text-[15px] font-[500] transition-all duration-300 whitespace-nowrap md:whitespace-normal ${
                     activeCategory === cat
                       ? "text-black"
                       : "text-black hover:border-[#2352A5]"
-                  }`}
+                  } ${activeCategory === cat ? 'border-0' : 'border'}`}
                   style={{
                     fontFamily: "Sora",
+                    // Use a full-fill linear gradient and remove inset box-shadow so
+                    // there's no white ring around the active pill.
                     background:
                       activeCategory === cat
-                        ? "radial-gradient(circle at top, #D7FFFE 10%, #3EB9FF 100%)"
+                        ? "linear-gradient(90deg, #D7FFFE 0%, #3EB9FF 100%)"
                         : "transparent",
-                    borderColor:
-                      activeCategory === cat ? "transparent" : "transparent",
-                    boxShadow:
-                      activeCategory === cat
-                        ? "0 0 0 1px #ccc inset"
-                        : "none",
+                    borderColor: "transparent",
+                    boxShadow: activeCategory === cat ? "none" : "none",
                   }}
                 >
                   {cat}
