@@ -105,7 +105,7 @@ export default function BlogsPage() {
 
 =        <section
           ref={sectionRef}
-          className="relative z-10 pt-[130px] pb-[40px] text-left px-[3%] max-w-[1400px] mx-auto"
+          className="relative z-10 pt-[95px] sm:pt-[130px] pb-[40px] text-left px-[3%] max-w-[1400px] mx-auto"
         >
           <h3
             className="uppercase mb-2 text-[#2352A5] font-[600]"
@@ -114,26 +114,26 @@ export default function BlogsPage() {
             Blogs
           </h3>
           <h1
-            className="text-[52px] md:text-[62px] font-[600] text-black leading-[1.1] mb-[8px]"
+            className="text-[28px] sm:text-[52px] md:text-[62px] font-[600] text-black leading-[1.12] mb-[6px]"
             style={{ fontFamily: "Sora" }}
           >
-            Insights, Trends & Tips
+            Insights, <br className="block sm:hidden" /> Trends & Tips
           </h1>
           <p
-            className="text-[#333] text-[17px] md:text-[17px] max-w-[750px] mb-[40px]"
+            className="text-[#333] text-[13px] sm:text-[17px] max-w-[750px] mb-[32px] sm:mb-[40px]"
             style={{ fontFamily: "Sora", fontWeight: 400 }}
           >
             Stay updated with the latest in tech, AI, and business growth strategies.
           </p>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-[40px]">
-  <div className="w-full flex justify-start">
-    <img
-      src={Picture}
-      alt="Featured Blog"
-      className="rounded-lg shadow-md w-[85%] h-[300px] object-cover md:h-[260px] lg:h-[300px]"
-    />
-  </div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-[24px] sm:mb-[40px]">
+    <div className="w-full flex justify-center sm:justify-start">
+        <img
+          src={Picture}
+          alt="Featured Blog"
+            className="rounded-lg shadow-md w-[92%] max-w-[640px] sm:w-[85%] h-[200px] sm:h-[300px] object-cover"
+        />
+      </div>
 
 <div className="flex flex-col justify-start mt-0 md:ml-[-30px] md:mt-[8px]"> 
 <span
@@ -150,10 +150,10 @@ export default function BlogsPage() {
 
 <h2
   className="
-    text-[26px] sm:text-[30px] md:text-[34px] lg:text-[36px]
+    text-[20px] sm:text-[30px] md:text-[34px] lg:text-[36px]
     font-[600] text-[#111]
-    leading-[1.25]
-    mb-3
+    leading-[1.2]
+    mb-2
     max-w-[600px]
   "
   style={{ fontFamily: 'Sora' }}
@@ -165,28 +165,28 @@ export default function BlogsPage() {
   </span>
 
   <span className="inline lg:hidden">
-    Mastering ChatGPT Blog Creation: Dos and Don'ts for SaaS Marketing Managers
+    Mastering ChatGPT Blog Creation: Do's and Don'ts for SaaS Marketing Managers
   </span>
 </h2>
 
 
   <p
-    className="text-[#444] text-[15.5px] max-w-[520px] mb-4"
+    className="text-[#444] text-[13px] sm:text-[15.5px] max-w-[520px] mb-2 sm:mb-4"
     style={{ fontFamily: "Sora", fontWeight: 400 }}
   >
-    Mastering ChatGPT Blog Creation: Dos and Don'ts for SaaS <br />
+    Mastering ChatGPT Blog Creation: Do's and Don'ts for SaaS <br />
     Marketing Managers
   </p>
 
   <p
-  className="text-gray-500 text-[14px] mb-1"
+  className="text-gray-500 text-[12px] sm:text-[14px] mb-1"
   style={{ fontFamily: "Sora" }}
 >
   Oct 19 · 10 min read
 </p>
 
 <p
-  className="text-[#2352A5] text-[15px] font-[600] hover:underline cursor-pointer"
+  className="text-[#2352A5] text-[14px] sm:text-[15px] font-[600] hover:underline cursor-pointer"
   style={{ fontFamily: "Sora" }}
 >
   Read more →
@@ -197,10 +197,10 @@ export default function BlogsPage() {
 </div>
       </section>
 
-<section className="relative z-10 px-[0%] pb-[80px] max-w-[1300px] mx-auto text-left -mt-[25px]">
-  <div className="flex justify-between items-center mb-5 px-[1%]">
+<section className="relative z-10 px-[0%] pb-[40px] sm:pb-[80px] max-w-[1300px] mx-auto text-left -mt-[45px] sm:-mt-[25px]">
+  <div className="flex pl-4 justify-between items-center mb-5 px-[1%]">
     <h2
-      className="text-[20px] md:text-[22px] font-[600] text-black"
+      className="text-[18px] sm:text-[20px] md:text-[22px] font-[600] text-black"
       style={{ fontFamily: "Sora" }}
     >
       Top Reads
@@ -224,7 +224,7 @@ export default function BlogsPage() {
     grid-cols-1 
     sm:grid-cols-2 
     lg:grid-cols-3 
-    gap-8 sm:gap-10 md:gap-12 
+    gap-3 sm:gap-8 md:gap-12 
     px-[2%] md:px-[1%] 
     max-w-[1300px] mx-auto">
     {[1, 2, 3].map((idx) => (
@@ -235,7 +235,7 @@ export default function BlogsPage() {
         <img
           src={Picture}
           alt={`Blog ${idx}`}
-          className="w-full h-[200px] object-cover rounded-lg"
+          className="w-full h-[160px] sm:h-[200px] object-cover rounded-lg"
         />
 
         <div className="absolute bottom-0 left-0 right-0 h-[70%] bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[8px] rounded-b-xl transition-opacity duration-300 group-hover:opacity-90" />
@@ -250,7 +250,7 @@ export default function BlogsPage() {
           </span>
 
           <h3
-            className="text-[22px] font-[600] leading-[1.2] mb-[-15px]"
+            className="text-[18px] sm:text-[22px] font-[600] leading-[1.2] mb-[-12px]"
             style={{ fontFamily: "Sora" }}
           >
             Mastering ChatGPT Blog Creation: Dos and Don'ts for SaaS Marketing Managers
@@ -261,24 +261,25 @@ export default function BlogsPage() {
   </div>
 </section>
    <section
-          className="relative z-10 w-full py-[70px] px-[6%] mt-[0px] overflow-hidden"
+          className="relative z-10 w-full pt-[15px] pb-[50px] sm:pt-[70px] sm:pb-[70px] px-[6%] mt-[0px] overflow-hidden"
         >
           <h2
-            className="text-[22px] md:text-[24px] font-[600] text-black mb-8"
+            className="text-[18px] sm:text-[22px] md:text-[24px] font-[600] text-black mb-8"
             style={{ fontFamily: "Sora" }}
           >
             Browse By Categories
           </h2>
 
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-10">
+          <div className="flex flex-col items-center gap-4 mb-10 md:flex-row md:items-center md:justify-between">
             <div
-  className="flex flex-wrap gap-3 justify-center md:justify-start 
+  className="flex items-center gap-3 rounded-xl px-2 py-2 overflow-x-auto whitespace-nowrap md:flex-wrap md:justify-start 
              border border-[#ccc] 
-             rounded-2xl md:rounded-full 
-             px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 
+             md:rounded-full 
+             sm:px-6 md:px-8 sm:py-2.5 
              w-full md:w-auto bg-white/80 backdrop-blur-sm"
   style={{
     transition: "all 0.3s ease-in-out",
+    WebkitOverflowScrolling: 'touch'
   }}
 >
               {[
@@ -291,7 +292,7 @@ export default function BlogsPage() {
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-6 py-[10px] rounded-full border text-[15px] font-[500] transition-all duration-300 ${
+                  className={`inline-block px-4 sm:px-6 py-[8px] rounded-full border text-[14px] sm:text-[15px] font-[500] transition-all duration-300 whitespace-nowrap md:whitespace-normal ${
                     activeCategory === cat
                       ? "text-black"
                       : "text-black hover:border-[#2352A5]"
@@ -315,11 +316,11 @@ export default function BlogsPage() {
               ))}
             </div>
 
-            <div className="flex items-center border border-[#ccc] rounded-full px-4 py-[16px] w-[240px] md:w-[280px] bg-white/80 backdrop-blur-sm">
+            <div className="flex items-center border border-[#ccc] rounded-full px-4 py-2 md:py-4 w-full sm:w-[240px] md:w-[280px] bg-white/80 backdrop-blur-sm">
               <input
                 type="text"
                 placeholder="Search Blogs"
-                className="flex-1 bg-transparent outline-none text-[15.5px] text-gray-700 placeholder-black"
+                className="flex-1 bg-transparent outline-none text-[13px] sm:text-[15px] text-gray-700 placeholder-black"
                 style={{ fontFamily: "Sora" }}
               />
               <svg
@@ -338,7 +339,7 @@ export default function BlogsPage() {
               </svg>
             </div>
           </div>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 px-[0.2%] max-w-[1220px] mx-auto mt-[30px]">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 px-[0.2%] max-w-[1220px] mx-auto mt-[30px]">
   {[
     {
       category: "Artificial Intelligence",
@@ -393,7 +394,7 @@ export default function BlogsPage() {
       <img
         src={blog.image}
         alt={`Blog ${idx}`}
-        className="w-full h-[230px] object-cover rounded-lg"
+        className="w-full h-[180px] sm:h-[230px] object-cover rounded-lg"
       />
 
       <div className="absolute bottom-0 left-0 right-0 h-[70%] bg-gradient-to-t from-black/80 via-black/40 to-transparent backdrop-blur-[8px] rounded-b-xl transition-opacity duration-300 group-hover:opacity-90" />
@@ -411,14 +412,14 @@ export default function BlogsPage() {
         </span>
 
         <p
-          className="text-gray-300 text-[13px] mb-[3px]"
+          className="text-gray-300 text-[12px] sm:text-[13px] mb-[3px]"
           style={{ fontFamily: "Sora" }}
         >
           {blog.date}
         </p>
 
         <h3
-          className="text-[16px] font-[600] leading-[1.3]"
+          className="text-[14px] sm:text-[16px] font-[600] leading-[1.3]"
           style={{ fontFamily: "Sora" }}
         >
           {blog.title}
@@ -429,7 +430,7 @@ export default function BlogsPage() {
 </div>
 
 
-<div className="flex justify-center items-center mt-12 space-x-3">
+<div className="flex justify-center items-center mt-6 sm:mt-12 space-x-2 sm:space-x-3">
   {[1, 2, 3, "...", 5].map((num, i) => (
     <button
       key={i}
@@ -459,7 +460,10 @@ export default function BlogsPage() {
     boxShadow: "0 -10px 30px rgba(0,0,0,0.05)", 
   }}
 >
-  <Contact />
+  <div className="-mt-[20px] sm:mt-0">
+    <Contact />
+  </div>
+  
 </div>
 
 </>
