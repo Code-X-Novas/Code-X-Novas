@@ -127,20 +127,19 @@ export default function ServicesPage() {
     ))}
   </div>
 )}
-        <div className="relative z-10 flex flex-col items-start justify-center px-6 md:px-16 lg:px-28 pt-[130px] max-w-[1000px]">
+        <div className="relative z-10 flex flex-col items-start justify-center px-6 md:px-16 lg:px-28 pt-[95px] sm:pt-[130px] max-w-[1000px]">
           <h3 className="uppercase mb-2 text-[#2352A5] font-[600]" style={{ fontFamily: "Sora", fontSize: "16px" }}>
             Services
           </h3>
-          <h1 className="mb-5 font-[600] text-[40px] sm:text-[50px] md:text-[56px] lg:text-[62px] text-black leading-[1.25]" style={{ fontFamily: "Sora" }}>
+          <h1 className="mb-5 font-[600] text-[30px] sm:text-[50px] md:text-[56px] lg:text-[62px] text-black leading-[1.25]" style={{ fontFamily: "Sora" }}>
             Our Expertise, <br /> Your Growth
           </h1>
           <p
-            className="mb-3 max-w-[520px] text-[#555]"
-            style={{ fontFamily: "Sora", fontWeight: 400, fontSize: "16px" }}
+            className="mb-3 max-w-[520px] text-[#555] font-sora font-normal text-sm sm:text-lg md:text-[16px]"
           >
-            At Code-X-Novas, we blend creativity, technology, and strategy to deliver tailor-made
-            solutions for startups, brands, and individuals.
+            At Code-X-Novas, we blend creativity, technology, and strategy to deliver tailor-made solutions for startups, brands, and individuals.
           </p>
+
           <button
             className="relative overflow-hidden mt-1 px-6 py-3 rounded-md font-poppins text-[15px] text-white shadow-md group"
             style={{
@@ -158,7 +157,7 @@ export default function ServicesPage() {
 
         {services.map((s, i) => (
           <React.Fragment key={i}>
-            <section className="relative z-10 mt-[80px]">
+            <section className="relative z-10 -mt-[10px] sm:mt-[80px]">
               <div
                 ref={sectionRef}
                 className={`hidden md:flex px-6 md:px-16 lg:px-28 items-start justify-between ${
@@ -239,22 +238,25 @@ export default function ServicesPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col md:hidden px-6 mt-[60px]">
+              <div className="flex flex-col md:hidden px-6 mt-6">
                 <div className="w-full text-left mb-6">
-                  <h2 className="mb-2 text-[32px] font-[600] text-black" style={{ fontFamily: "Sora" }}>
+                  {/* Mobile heading: match main H1 mobile size (base/mobile = 30px). Desktop is untouched because this block is hidden on md+. */}
+                  <h2 className="mb-2 text-[30px] font-[600] text-black" style={{ fontFamily: "Sora", lineHeight: "1.15" }}>
                     {s.title}
                   </h2>
-                  <p className="text-[#555]" style={{ fontFamily: "Sora", fontSize: "15px", lineHeight: "1.6" }}>
+                  {/* Mobile paragraph: match main paragraph mobile size (base/mobile = text-sm). Keep line-height and font family. */}
+                  <p className="text-[#555] text-sm" style={{ fontFamily: "Sora", lineHeight: "1.5" }}>
                     {s.description}
                   </p>
                 </div>
-                <div className="w-full mb-6">
-                  <img src={picture} alt={s.title} className="w-full h-auto object-cover rounded-lg" />
+                <div className="w-full mb-6 flex justify-center">
+                  {/* Mobile image: constrain width to match Home hero mobile rectangles (centered, capped width) */}
+                  <img src={picture} alt={s.title} className="w-[85%] max-w-[300px] h-auto object-cover rounded-lg" />
                 </div>
               </div>
             </section>
 
-            <div className="w-full border-t border-gray-300 opacity-70 mt-[60px] relative z-[5]" />
+            <div className="w-full border-t border-gray-300 opacity-70 mt-6 md:mt-[60px] relative z-[5]" />
           </React.Fragment>
         ))}
 
