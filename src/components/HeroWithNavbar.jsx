@@ -207,7 +207,14 @@ const handleNavClick = (id, path) => {
 </nav>
 
 {open && (
-  <div className="absolute top-[90px] left-0 w-full bg-white shadow-md z-40 flex flex-col p-6 space-y-6 md:hidden">
+  <div
+    className="fixed left-0 w-full bg-white shadow-md flex flex-col p-6 space-y-6 md:hidden"
+    style={{
+      // place the menu right under the fixed navbar and force it above all content
+      top: window?.innerWidth <= 640 ? 65 : 80,
+      zIndex: 9999,
+    }}
+  >
     <button onClick={() => handleNavClick("services", "/services")}>Services</button>
     <button onClick={() => handleNavClick("works", "/works")}>Works</button>
     <button onClick={() => handleNavClick("products", "/products")}>Products</button>
