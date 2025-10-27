@@ -10,6 +10,7 @@ import ServicesPage from "./pages/Internal Pages/ServicesPage";
 import ProductsPage from "./pages/Internal Pages/ProductsPage";
 import BlogsPage from "./pages/Internal Pages/BlogsPage";
 import CareerPage from "./pages/Internal Pages/CareerPage";
+import WorkPage from "./pages/Internal Pages/WorkPage";
 
 function SmoothScrollProvider({ children }) {
   const location = useLocation();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/services" element={<ServicesPage />} />
+          <Route path="/works" element={<WorkPage />} />
           <Route path="/products" element={<ProductsPage />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/career" element={<CareerPage />} />
