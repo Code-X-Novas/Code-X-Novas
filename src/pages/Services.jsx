@@ -12,7 +12,7 @@ const servicesData = [
   },
   {
     icon: FiSmartphone,
-    title: "⁠App Development",
+    title: "App Development",
     desc: "We build cross-platform apps with React Native, Flutter, and Kotlin — combining sleek UI, powerful performance, and real-time backend integration for smooth, high-quality user experiences across devices.",
   },
   {
