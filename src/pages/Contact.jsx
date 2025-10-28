@@ -5,7 +5,7 @@ import Logo from "../assets/logo.png";
 const Contact = () => {
   return (
     <>
-  <section className="relative w-full py-6 sm:py-12 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100">
+  <section id="contact" className="relative w-full py-6 sm:py-12 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100">
         <div className="text-center mb-6 sm:mb-16">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold"
@@ -106,7 +106,8 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto block md:hidden px-6">
           <div className="pt-2 sm:pt-6">
             <img src={Logo} alt="CodeX Novas" className="h-8 mb-4 -mt-8" />
-            <div className="flex items-center justify-start bg-white rounded-full overflow-hidden w-full max-w-[240px] border border-gray-300">
+            {/* Hidden on mobile as requested by user: hide this email submit control only for mobile view. No desktop change. */}
+            <div className="hidden bg-white rounded-full overflow-hidden w-full max-w-[240px] border border-gray-300">
               <input
                 type="email"
                 placeholder="Your Email address"

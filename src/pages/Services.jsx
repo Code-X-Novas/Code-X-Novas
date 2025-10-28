@@ -7,33 +7,33 @@ import MapImage from "../assets/Services/Map.png";
 const servicesData = [
   {
     icon: FiMonitor,
-    title: "Web Design",
-    desc: "Our team of techie talents have decades of combined experience in creating completely bespoke websites using WordPress, Shopify & HubSpot. Whether you’re a startup or an established enterprise, we can sprinkle our digital magic to conjure you up a beautiful website.",
+    title: "Web Development",
+    desc: "We design fast, scalable, and secure websites using Next.js, React, and Spring Boot — ensuring SEO optimization, responsive layouts, and a smooth user experience tailored to your business goals",
   },
   {
     icon: FiSmartphone,
-    title: "App Design",
-    desc: "We design sleek, intuitive apps for iOS, Android & web—tailored to your brand and users. From startups to enterprises, we turn ideas into powerful digital experiences. Let’s build something amazing together.",
+    title: "⁠App Development",
+    desc: "We build cross-platform apps with React Native, Flutter, and Kotlin — combining sleek UI, powerful performance, and real-time backend integration for smooth, high-quality user experiences across devices.",
   },
   {
     icon: FiMonitor,
-    title: "Web Design",
-    desc: "Our team of techie talents have decades of combined experience in creating completely bespoke websites using WordPress, Shopify & HubSpot. Whether you’re a startup or an established enterprise, we can sprinkle our digital magic to conjure you up a beautiful website.",
+    title: "AI & Machine Learning Solutions",
+    desc: "We create AI-driven automation, predictive analytics, and intelligent assistants that improve efficiency, personalize user experiences, and enable data-driven decision-making for businesses across industries.",
   },
   {
     icon: FiMonitor,
-    title: "Web Design",
-    desc: "Our team of techie talents have decades of combined experience in creating completely bespoke websites using WordPress, Shopify & HubSpot. Whether you’re a startup or an established enterprise, we can sprinkle our digital magic to conjure you up a beautiful website.",
+    title: "UI/UX Design",
+    desc: "We design intuitive, visually engaging interfaces that enhance usability, accessibility, and engagement — delivering prototypes and final designs that ensure every user interaction feels effortless.",
   },
   {
     icon: FiMonitor,
-    title: "Web Design",
-    desc: "Our team of techie talents have decades of combined experience in creating completely bespoke websites using WordPress, Shopify & HubSpot. Whether you’re a startup or an established enterprise, we can sprinkle our digital magic to conjure you up a beautiful website.",
+    title: "Custom LMS & E-Learning Platforms",
+    desc: "We develop scalable, interactive LMS platforms with live sessions, analytics, and digital certificates — using React, Firebase, and Node.js for seamless education experiences across web and mobile.",
   },
   {
     icon: FiMonitor,
-    title: "Web Design",
-    desc: "Our team of techie talents have decades of combined experience in creating completely bespoke websites using WordPress, Shopify & HubSpot. Whether you’re a startup or an established enterprise, we can sprinkle our digital magic to conjure you up a beautiful website.",
+    title: "E-Commerce Solutions",
+    desc: "We build custom, secure, and high-performance e-commerce platforms using Next.js, Stripe, and Firebase — enabling smooth shopping, payment, and inventory management experiences for your customers.",
   },
 ];
 

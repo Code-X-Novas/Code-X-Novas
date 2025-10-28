@@ -124,7 +124,7 @@ export default function WorkPage() {
             Our Works
           </h3>
           <h1
-            className="font-[700] text-black leading-relaxed sm:leading-[1.05] mb-3 text-[30px] sm:text-[42px] md:text-[48px] lg:text-[56px]"
+            className="font-[700] text-black leading-[1.15] sm:leading-[1.05] mb-3 text-[30px] sm:text-[42px] md:text-[48px] lg:text-[56px]"
             style={{ fontFamily: "Sora" }}
           >
             Designed. Developed.

@@ -17,6 +17,21 @@ export default function Navbar() {
 
   const handleNavClick = (id, path) => {
     setActive(path);
+    // If the target is the Contact route, try to scroll to an on-page contact section
+    if (path === "/contact") {
+      // If a contact element exists on the current page, scroll to it smoothly
+      const contactEl = typeof document !== "undefined" && document.getElementById("contact");
+      if (contactEl) {
+        contactEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        // close mobile menu if open
+        setOpen(false);
+        return;
+      }
+      // otherwise fall back to navigating to the dedicated contact page
+      navigate(path);
+      return;
+    }
+
     navigate(path);
   };
 
