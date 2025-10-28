@@ -258,7 +258,10 @@ export default function ProductsPage() {
             paddingTop: "50px",
           }}
         >
-          <Contact />
+          <div className="-mt-16 sm:mt-0">
+            <Contact />
+          </div>
+          
         </div>
       </div>
     </>

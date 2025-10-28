@@ -244,7 +244,7 @@ const Services = () => {
               return (
                 <div
                   key={index}
-                  className="group relative h-[400px] w-[360px] flex flex-col justify-between bg-black/90 backdrop-blur-lg p-6 rounded-md shadow-md transition-all duration-[1200ms] ease-in-out overflow-hidden hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
+                  className="group relative min-h-[400px] w-[360px] flex flex-col justify-between bg-black/90 backdrop-blur-lg p-6 rounded-md shadow-md transition-all duration-[1200ms] ease-in-out overflow-hidden hover:bg-gradient-to-tr hover:from-[#001F4D] hover:via-[#2352A5] hover:to-[#4FA3FF]"
                 >
                   <div className="text-5xl mb-4 transition-colors duration-500">
                     <svg width="1em" height="1em" viewBox="0 0 24 24">

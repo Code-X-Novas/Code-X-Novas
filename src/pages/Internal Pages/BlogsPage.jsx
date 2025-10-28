@@ -108,30 +108,30 @@ export default function BlogsPage() {
           className="relative z-10 pt-[95px] sm:pt-[130px] pb-[40px] text-left px-6 md:px-12 max-w-[1400px] mx-auto"
         >
           <h3
-            className="uppercase mb-2 text-[#2352A5] font-[600]"
+            className="px-0 sm:px-6 uppercase mb-2 text-[#2352A5] font-[600]"
             style={{ fontFamily: "Sora", fontSize: "16px" }}
           >
             Blogs
           </h3>
           <h1
-            className="text-[28px] sm:text-[52px] md:text-[62px] font-[600] text-black leading-[1.12] mb-[6px]"
+            className="px-0 sm:px-6 text-[28px] sm:text-[52px] md:text-[62px] font-[600] text-black leading-[1.12] mb-[6px]"
             style={{ fontFamily: "Sora" }}
           >
             Insights, <br className="block sm:hidden" /> Trends & Tips
           </h1>
           <p
-            className="text-[#333] text-[13px] sm:text-[17px] max-w-[750px] mb-[32px] sm:mb-[40px]"
+            className="px-0 sm:px-6 text-[#333] text-[13px] sm:text-[17px] max-w-[750px] mb-[32px] sm:mb-[40px]"
             style={{ fontFamily: "Sora", fontWeight: 400 }}
           >
             Stay updated with the latest in tech, AI, and business growth strategies.
           </p>
 
-<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center mb-[24px] sm:mb-[40px]">
-    <div className="w-full flex justify-center sm:justify-start">
+<div className="grid px-0 sm:px-4 grid-cols-1 md:grid-cols-2 gap-10 items-center mb-[24px] sm:mb-[40px]">
+    <div className="w-full flex justify-start sm:justify-start">
         <img
           src={Picture}
           alt="Featured Blog"
-            className="rounded-lg shadow-md w-[92%] max-w-[640px] sm:w-[85%] h-[200px] sm:h-[300px] object-cover"
+            className="rounded-lg shadow-md w-full max-w-[640px] sm:w-[85%] sm:max-w-[640px] h-[200px] sm:h-[300px] object-cover"
         />
       </div>
 
@@ -197,8 +197,8 @@ export default function BlogsPage() {
 </div>
       </section>
 
-<section className="relative z-10 px-6 md:px-12 pb-[40px] sm:pb-[80px] max-w-[1300px] mx-auto text-left -mt-[45px] sm:-mt-[25px]">
-  <div className="flex md:pl-4 justify-between items-center mb-5 px-6 md:px-[1%]">
+<section className="relative z-10 px-6 md:px-0 pb-[40px] sm:pb-[80px] max-w-[1300px] mx-auto text-left -mt-[45px] sm:-mt-[25px]">
+  <div className="flex md:pl-4 justify-between items-center mb-5 px-0 sm:px-6">
     <h2
       className="text-[18px] sm:text-[20px] md:text-[22px] font-[600] text-black"
       style={{ fontFamily: "Sora" }}
@@ -225,8 +225,8 @@ export default function BlogsPage() {
     sm:grid-cols-2 
     lg:grid-cols-3 
     gap-3 sm:gap-8 md:gap-12 
-  px-6 md:px-[1%] 
-    max-w-[1300px] mx-auto">
+  px-0 sm:px-6 md:px-[1%] 
+    w-full">
     {[1, 2, 3].map((idx) => (
       <div
         key={idx}
@@ -264,13 +264,13 @@ export default function BlogsPage() {
           className="relative z-10 w-full pt-[15px] pb-[50px] sm:pt-[70px] sm:pb-[70px] px-6 md:px-12 mt-[0px] overflow-hidden"
         >
           <h2
-            className="text-[18px] sm:text-[22px] md:text-[24px] font-[600] text-black mb-8"
+            className="px-0 sm:px-14 text-[18px] sm:text-[22px] md:text-[24px] font-[600] text-black mb-8"
             style={{ fontFamily: "Sora" }}
           >
             Browse By Categories
           </h2>
 
-          <div className="flex flex-col items-center gap-4 mb-10 md:flex-row md:items-center md:justify-between">
+          <div className="px-0 sm:px-12 flex flex-col items-center gap-4 mb-10 md:flex-row md:items-center md:justify-between">
             <div
   className="flex items-center gap-3 rounded-xl px-6 py-2 overflow-x-auto whitespace-nowrap md:flex-wrap md:justify-start 
              border border-[#ccc] 
@@ -337,7 +337,7 @@ export default function BlogsPage() {
               </svg>
             </div>
           </div>
-<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 px-6 md:px-[0.2%] max-w-[1220px] mx-auto mt-[30px]">
+<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 px-0 sm:px-6 md:px-[4.0%] w-full mt-[30px]">
   {[
     {
       category: "Artificial Intelligence",

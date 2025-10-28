@@ -5,8 +5,8 @@ import Logo from "../assets/logo.png";
 const Contact = () => {
   return (
     <>
-      <section className="hidden md:block relative w-full py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100">
-        <div className="text-center mb-16">
+  <section className="relative w-full py-6 sm:py-12 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100">
+        <div className="text-center mb-6 sm:mb-16">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold"
             style={{ fontFamily: "Sora" }}
@@ -14,18 +14,18 @@ const Contact = () => {
             <span className="text-black">Get in </span>
             <span className="text-blue-600">Touch</span>
           </h2>
-          <p className="mt-4 text-gray-600 max-w-xl mx-auto text-lg">
+          <p className="mt-4 text-gray-600 max-w-xl mx-auto text-base md:text-lg">
             Have questions? We’re here for you. <br />
             Drop us a line, write us an email, or send us a text.
           </p>
         </div>
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-lg overflow-hidden min-h-[700px]">
-          <div className="relative bg-black text-white p-12 flex flex-col justify-center overflow-hidden">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-lg overflow-hidden md:min-h-[700px]">
+          <div className="relative bg-black text-white p-8 md:p-12 flex flex-col justify-center overflow-hidden">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            <p className="mb-8 text-gray-300 text-lg">
+            <p className="mb-8 text-gray-300 text-base md:text-lg">
               Say something to start a live chat!
             </p>
-            <ul className="space-y-6 text-lg">
+            <ul className="space-y-6 text-base md:text-lg">
               <li className="flex items-center space-x-4">
                 <FiPhone className="text-xl text-white" />
                 <span>(949) 880-6134</span>
@@ -38,29 +38,29 @@ const Contact = () => {
             <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-40 sm:h-40 md:w-56 md:h-56 bg-blue-900/40 rounded-full translate-x-12 translate-y-12"></div>
             <div className="absolute bottom-7 right-8 w-12 h-12 sm:w-28 sm:bottom-16 sm:right-20 md:bottom-20 md:right-28 sm:h-28 md:w-32 md:h-32 bg-blue-700/40 rounded-full"></div>
           </div>
-          <div className="bg-white p-12 flex flex-col justify-center">
+          <div className="bg-white p-8 md:p-12 flex flex-col justify-center">
             <form className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <input
                   type="text"
                   placeholder="Name"
-                  className="border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-lg"
+                  className="border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-base md:text-lg"
                 />
                 <input
                   type="email"
                   placeholder="Email"
-                  className="border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-lg"
+                  className="border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-base md:text-lg"
                 />
               </div>
               <input
                 type="text"
                 placeholder="Phone Number"
-                className="w-full border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-lg"
+                className="w-full border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-base md:text-lg"
               />
               <textarea
                 placeholder="Write your message.."
                 rows="5"
-                className="w-full border-b border-gray-400 focus:outline-none focus:border-blue-600 pt-1 pb-0 text-lg -mt-6"
+                className="w-full border-b border-gray-400 focus:outline-none focus:border-blue-600 pt-1 pb-0 text-base md:text-lg -mt-6"
               ></textarea>
               <div className="flex items-start space-x-3 -mt-2">
                 <input
@@ -81,7 +81,7 @@ const Contact = () => {
               <div className="mt-8">
                 <button
                   type="submit"
-                  className="group bg-black text-white px-16 py-3 rounded-md hover:bg-gray-900 transition text-lg overflow-hidden"
+                  className="group bg-black text-white px-16 py-3 rounded-md hover:bg-gray-900 transition text-base md:text-lg overflow-hidden"
                 >
                   <span className="inline-block group-hover:animate-[jumpOnce_0.8s_ease-in-out]">
                     Send Message

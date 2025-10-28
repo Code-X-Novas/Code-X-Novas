@@ -118,7 +118,7 @@ export default function AboutPage() {
           </h1>
 
           <p
-            className="text-[16px] md:text-[17px] font-[400] text-[#333] leading-[1.7]"
+            className="text-[14px] md:text-[17px] font-[400] text-[#333] leading-[1.7]"
             style={{
               fontFamily: "Sora",
               width: "100%",
@@ -211,7 +211,7 @@ export default function AboutPage() {
 >
 
   <div
-    className="flex flex-col items-center w-full max-w-[1250px]"
+    className="-mt-8 sm:mt-0 flex flex-col items-center w-full max-w-[1250px]"
     style={{
       background: "rgba(255, 255, 255, 0.9)",
       borderRadius: "25px",
@@ -308,7 +308,7 @@ export default function AboutPage() {
   style={{ zIndex: 2 }}
 >
   <div
-    className="flex flex-col items-center w-full max-w-[1250px]"
+    className="-mt-8 sm:mt-0 flex flex-col items-center w-full max-w-[1250px]"
     style={{
       background: "rgba(255, 255, 255, 0.9)",
       borderRadius: "25px",
@@ -329,10 +329,39 @@ export default function AboutPage() {
       className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
     />
 
-    <div className="text-[14px] sm:text-[15px] text-[#333] leading-[1.6] text-center font-[400]">
-      <p>Represented India at the Dubai AI Festival.</p>
-      <p>Invited to India’s biggest tech conference at Jio World Convention Centre, Mumbai.</p>
-    </div>
+    <ul className="space-y-2 text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
+      {[
+        "Represented India at the Dubai AI Festival.",
+        "Invited to India’s biggest tech conference at Jio World Convention Centre, Mumbai.",
+      ].map((item, i) => (
+        <li key={i} className="flex items-start gap-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-6 h-6 flex-shrink-0 mt-[2px]"
+          >
+            <defs>
+              <linearGradient id={`tickGradientRecog-${i}`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#2352A5" />
+                <stop offset="11%" stopColor="#137DD1" />
+                <stop offset="26%" stopColor="#02A7FD" />
+                <stop offset="44%" stopColor="#7DE2FF" />
+                <stop offset="72%" stopColor="#42ACEF" />
+                <stop offset="83%" stopColor="#127CD1" />
+                <stop offset="99%" stopColor="#2352A5" />
+              </linearGradient>
+            </defs>
+            <path
+              fill={`url(#tickGradientRecog-${i})`}
+              fillRule="evenodd"
+              d="M9 16.17l-3.88-3.88a1 1 0 10-1.42 1.42l4.59 4.59a1 1 0 001.42 0l9.59-9.59a1 1 0 10-1.42-1.42L9 16.17z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
@@ -380,7 +409,7 @@ export default function AboutPage() {
   style={{ zIndex: 2 }}
 >
   <div
-    className="flex flex-col items-center w-full max-w-[1250px]"
+    className="-mt-6 sm:mt-0 flex flex-col items-center w-full max-w-[1250px]"
     style={{
       background: "rgba(255, 255, 255, 0.9)",
       borderRadius: "25px",
@@ -408,7 +437,29 @@ export default function AboutPage() {
         "24x7 communication and dedicated client support.",
       ].map((item, i) => (
         <li key={i} className="flex items-start gap-3">
-          <span className="text-[#002C6C]">✔</span>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-6 h-6 flex-shrink-0 mt-[2px]"
+          >
+            <defs>
+              <linearGradient id={`tickGradientWhat-${i}`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#2352A5" />
+                <stop offset="11%" stopColor="#137DD1" />
+                <stop offset="26%" stopColor="#02A7FD" />
+                <stop offset="44%" stopColor="#7DE2FF" />
+                <stop offset="72%" stopColor="#42ACEF" />
+                <stop offset="83%" stopColor="#127CD1" />
+                <stop offset="99%" stopColor="#2352A5" />
+              </linearGradient>
+            </defs>
+            <path
+              fill={`url(#tickGradientWhat-${i})`}
+              fillRule="evenodd"
+              d="M9 16.17l-3.88-3.88a1 1 0 10-1.42 1.42l4.59 4.59a1 1 0 001.42 0l9.59-9.59a1 1 0 10-1.42-1.42L9 16.17z"
+              clipRule="evenodd"
+            />
+          </svg>
           <span>{item}</span>
         </li>
       ))}
@@ -455,7 +506,7 @@ export default function AboutPage() {
   style={{ zIndex: 2 }}
 >
   <div
-    className="flex flex-col items-center w-full max-w-[1250px]"
+    className="-mt-8 sm:mt-0 flex flex-col items-center w-full max-w-[1250px]"
     style={{
       background: "rgba(255, 255, 255, 0.9)",
       borderRadius: "25px",
@@ -476,15 +527,44 @@ export default function AboutPage() {
       className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
     />
 
-    <div className="text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-center">
-      <p>Represented India at the Dubai AI Festival.</p>
-      <p>Invited to India’s biggest tech conference at Jio World Convention Centre, Mumbai.</p>
-    </div>
+    <ul className="space-y-2 text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
+      {[
+        "Represented India at the Dubai AI Festival.",
+        "Invited to India’s biggest tech conference at Jio World Convention Centre, Mumbai.",
+      ].map((item, i) => (
+        <li key={i} className="flex items-start gap-3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-6 h-6 flex-shrink-0 mt-[2px]"
+          >
+            <defs>
+              <linearGradient id={`tickGradientExp-${i}`} x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#2352A5" />
+                <stop offset="11%" stopColor="#137DD1" />
+                <stop offset="26%" stopColor="#02A7FD" />
+                <stop offset="44%" stopColor="#7DE2FF" />
+                <stop offset="72%" stopColor="#42ACEF" />
+                <stop offset="83%" stopColor="#127CD1" />
+                <stop offset="99%" stopColor="#2352A5" />
+              </linearGradient>
+            </defs>
+            <path
+              fill={`url(#tickGradientExp-${i})`}
+              fillRule="evenodd"
+              d="M9 16.17l-3.88-3.88a1 1 0 10-1.42 1.42l4.59 4.59a1 1 0 001.42 0l9.59-9.59a1 1 0 10-1.42-1.42L9 16.17z"
+              clipRule="evenodd"
+            />
+          </svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   </div>
 </section>
 
 <section
-  className="-mt-6 sm:mt-0 relative w-full flex justify-center"
+  className="-mt-8 sm:mt-0 relative w-full flex justify-center"
   style={{
     background: "rgba(255, 255, 255, 0.98)",
     backdropFilter: "blur(8px)",
@@ -493,7 +573,7 @@ export default function AboutPage() {
   }}
 >
   <div
-    className="w-full max-w-[1500px] -mt-6 sm:mt-0 text-center md:text-left -mb-8 sm:mb-0"
+    className="w-full max-w-[1500px] -mt-8 sm:mt-0 text-center md:text-left -mb-8 sm:mb-0"
     style={{ fontFamily: "Sora" }}
   >
     <h2

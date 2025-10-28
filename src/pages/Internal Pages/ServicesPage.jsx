@@ -74,12 +74,12 @@ export default function ServicesPage() {
   );
 
   const services = [
-    { title: "Web & App Development", description: "Custom, scalable, and high-performing solutions for every platform." },
-    { title: "AI-Powered Solutions", description: "From AI agents to automation tools — boost productivity and decision-making." },
-    { title: "UI/UX Design", description: "Intuitive, user-friendly interfaces designed for maximum engagement." },
-    { title: "Custom LMS Development", description: "Feature-rich e-learning platforms for schools, institutes, and corporates." },
-    { title: "E-commerce Solutions", description: "Secure, conversion-focused stores to help you sell smarter." },
-    { title: "Digital Branding & Pitch Decks", description: "Present your business with clarity, confidence, and creativity." },
+    { title: "Web Development", description: "We craft dynamic, high-performance websites tailored to your business goals. From responsive landing pages to complex enterprise platforms, our expert developers use Next.js, React, and Spring Boot to ensure speed, scalability, and security. Every project follows UX-centric design and SEO-friendly structure for maximum online visibility." },
+    { title: "App Development", description: "We build seamless, cross-platform mobile apps using React Native, Flutter, and Kotlin, focusing on intuitive UI and powerful functionality. Our development process covers ideation to deployment, ensuring smooth user experiences, real-time performance, and complete integration with APIs, cloud storage, and backend systems." },
+    { title: "AI & Machine Learning Solutions", description: "We integrate AI-powered automation, predictive analytics, and smart assistants into your business to drive eﬃciency. Our ML models are trained for accuracy, scalability, and real-world impact — helping companies make data-driven decisions, personalize user experiences, and streamline processes with intelligent automation.From AI agents to automation tools — boost productivity and decision-making." },
+    { title: "UI/UX Design", description: "Our design team focuses on creating visually appealing and user-centric interfaces. We blend creativity with usability principles to deliver interactive prototypes and pixel-perfect designs. Every design we make is tested for accessibility, engagement, and conversion, ensuring your users love every click and swipe." },
+    { title: "Custom LMS & E-Learning Platforms", description: "We develop tailor-made Learning Management Systems that redefine digital education. Our LMS includes features like course management, analytics, live sessions, and digital certificates — built with Node.js, Firebase, and React for scalability, interactivity, and a frictionless learning experience across web and mobile devices.Feature-rich e-learning platforms for schools, institutes, and corporates." },
+    { title: "E-commerce Solutions", description: "We build fast, secure, and scalable custom e-commerce platforms designed to boost sales and brand visibility. From product catalogs to secure payments, inventory tracking, and customer engagement, our solutions ensure smooth operations. We use Next.js, Stripe, and Firebase for a seamless buying journey." },
   ];
 
   return (
@@ -137,7 +137,10 @@ export default function ServicesPage() {
           <p
             className="mb-3 max-w-[520px] text-[#555] font-sora font-normal text-sm sm:text-lg md:text-[16px]"
           >
-            At Code-X-Novas, we blend creativity, technology, and strategy to deliver tailor-made solutions for startups, brands, and individuals.
+            At Code-X-Novas - a product and service based tech company, we believe that technology
+            is more than just code-it's a catalyst for innovation, growth, and meaningful impact. We are
+            a passionate team of developers, designers, and thinkers driven by curiosity, creativity,
+            and a commitment to excellence.
           </p>
 
           <button
@@ -173,7 +176,7 @@ export default function ServicesPage() {
                     transition: "transform 0.1s linear",
                   }}
                 >
-                  <img src={picture} alt={s.title} className="w-full h-auto object-cover" />
+                  <img src={picture} alt={s.title} className="mt-0 sm:mt-7 w-full h-auto object-cover" />
                 </div>
 
                 <div

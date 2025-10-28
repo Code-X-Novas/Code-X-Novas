@@ -124,7 +124,7 @@ export default function WorkPage() {
             Our Works
           </h3>
           <h1
-            className="font-[700] text-black leading-[1.05] mb-3 text-[30px] sm:text-[42px] md:text-[48px] lg:text-[56px]"
+            className="font-[700] text-black leading-relaxed sm:leading-[1.05] mb-3 text-[30px] sm:text-[42px] md:text-[48px] lg:text-[56px]"
             style={{ fontFamily: "Sora" }}
           >
             Designed. Developed.
@@ -227,22 +227,11 @@ export default function WorkPage() {
                       </div>
                       <button
                         aria-label={`Open ${title}`}
-                        className="w-12 h-12 rounded-full flex items-center justify-center shadow-sm border border-gray-100 bg-[#F6F5F8]"
+                        className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 bg-[#F6F5F8]"
                       >
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="22"
-                          height="22"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="#2352A5"
-                          strokeWidth="1.8"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        >
-                          <path d="M7 17L17 7" />
-                          <path d="M7 7h10v10" />
-                        </svg>
+                        <span className="text-[#2352A5] text-xl transform -rotate-45" aria-hidden>
+                          →
+                        </span>
                       </button>
                     </div>
                   </div>
@@ -286,22 +275,11 @@ export default function WorkPage() {
                     </div>
                     <button
                       aria-label={`Open ${title}`}
-                      className="w-12 h-12 rounded-full flex items-center justify-center shadow-sm border border-gray-100 bg-[#F6F5F8]"
+                      className="w-10 h-10 rounded-full flex items-center justify-center shadow-sm border border-gray-100 bg-[#F6F5F8]"
                     >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="22"
-                        height="22"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="#2352A5"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M7 17L17 7" />
-                        <path d="M7 7h10v10" />
-                      </svg>
+                      <span className="text-[#2352A5] text-xl transform -rotate-45" aria-hidden>
+                        →
+                      </span>
                     </button>
                   </div>
                 </div>
