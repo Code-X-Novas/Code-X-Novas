@@ -2,10 +2,14 @@ import React from "react";
 import { FiPhone, FiMail } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import Logo from "../assets/logo.png";
+
 const Contact = () => {
   return (
     <>
-  <section id="contact" className="relative w-full py-6 sm:py-12 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100">
+      <section
+        id="contact"
+        className="relative w-full py-6 sm:py-12 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100"
+      >
         <div className="text-center mb-6 sm:mb-16">
           <h2
             className="text-3xl sm:text-4xl md:text-5xl font-bold"
@@ -22,17 +26,17 @@ const Contact = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-lg overflow-hidden md:min-h-[700px]">
           <div className="relative bg-black text-white p-8 md:p-12 flex flex-col justify-center overflow-hidden">
             <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
-            <p className="mb-8 text-gray-300 text-base md:text-lg">
+            <p className="mb-8 text-gray-300 text-[15.25px] sm:text-lg">
               Say something to start a live chat!
             </p>
             <ul className="space-y-6 text-base md:text-lg">
               <li className="flex items-center space-x-4">
                 <FiPhone className="text-xl text-white" />
-                <span>(949) 880-6134</span>
+                <span>+91 9348976663</span>
               </li>
               <li className="flex items-center space-x-4">
                 <FiMail className="text-xl text-white" />
-                <span>team@turn.me</span>
+                <span>info@codexnovas.in</span>
               </li>
             </ul>
             <div className="absolute bottom-0 right-0 w-28 h-28 sm:w-40 sm:h-40 md:w-56 md:h-56 bg-blue-900/40 rounded-full translate-x-12 translate-y-12"></div>
@@ -89,13 +93,13 @@ const Contact = () => {
                 </button>
                 <style>
                   {`
-      @keyframes jumpOnce {
-        0% { transform: translateY(0); }
-        40% { transform: translateY(-120%); }
-        60% { transform: translateY(120%); }
-        100% { transform: translateY(0); }
-      }
-    `}
+                    @keyframes jumpOnce {
+                      0% { transform: translateY(0); }
+                      40% { transform: translateY(-120%); }
+                      60% { transform: translateY(120%); }
+                      100% { transform: translateY(0); }
+                    }
+                  `}
                 </style>
               </div>
             </form>
@@ -106,33 +110,37 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto block md:hidden px-6">
           <div className="pt-2 sm:pt-6">
             <img src={Logo} alt="CodeX Novas" className="h-8 mb-4 -mt-8" />
-            {/* Hidden on mobile as requested by user: hide this email submit control only for mobile view. No desktop change. */}
             <div className="hidden bg-white rounded-full overflow-hidden w-full max-w-[240px] border border-gray-300">
               <input
                 type="email"
                 placeholder="Your Email address"
                 className="flex-1 min-w-0 px-4 py-2 text-black bg-transparent focus:outline-none placeholder:text-xs"
               />
-             
               <button className="bg-blue-500 text-white px-3 py-2 rounded-full hover:bg-blue-700 transition m-1">
                 Submit
               </button>
             </div>
             <div className="flex justify-start gap-4 mt-5 ml-1">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/code-x-novas/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-[#0F2030] text-blue-400"
               >
                 <FaLinkedinIn />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/codexnovas?igsh=NHdpbmk1amJyNnc1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-[#0F2030] text-blue-400"
               >
                 <FaInstagram />
               </a>
               <a
-                href="#"
+                href="https://youtube.com/@code-x-novas?si=5JWCRETLXGoSgqJ0"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 flex items-center justify-center rounded-full bg-[#0F2030] text-blue-400"
               >
                 <FaYoutube />
@@ -144,13 +152,13 @@ const Contact = () => {
                   Company
                 </li>
                 <li>
-                  <a href="#">About Us</a>
+                  <a href="/about">About Us</a>
                 </li>
                 <li>
-                  <a href="#">Careers</a>
+                  <a href="/career">Careers</a>
                 </li>
                 <li>
-                  <a href="#">Contact</a>
+                  <a href="/contact">Contact</a>
                 </li>
               </ul>
               <ul className="space-y-3 text-left">
@@ -158,18 +166,17 @@ const Contact = () => {
                   Products
                 </li>
                 <li className="text-gray-600">
-                  <a href="#">Synchrotask</a>
+                  <a href="/products">Synchrotask</a>
                 </li>
               </ul>
             </div>
-            
-            <div className="w-full h-[2px] bg-gray-700 mt-8 mb-4 -mx-0"></div>         
+            <div className="w-full h-[2px] bg-gray-700 mt-8 mb-4 -mx-0"></div>
             <p className="text-center text-gray-500 text-[13px] mt-4 mb-2">
               ©Code-X-Novas 2025 All Rights Reserved
             </p>
             <div className="flex ml-2 justify-between text-sm px-2 text-gray-400">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms Of Use</a>
+              <a href="/privacy">Privacy Policy</a>
+              <a href="/terms">Terms Of Use</a>
             </div>
           </div>
         </div>
@@ -189,19 +196,25 @@ const Contact = () => {
             </div>
             <div className="flex space-x-6 mt-6">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/code-x-novas/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 text-blue-600 hover:bg-gray-700 transition"
               >
                 <FaLinkedinIn className="text-2xl" />
               </a>
               <a
-                href="#"
+                href="https://www.instagram.com/codexnovas?igsh=NHdpbmk1amJyNnc1"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 text-blue-600 hover:bg-gray-700 transition"
               >
                 <FaInstagram className="text-2xl" />
               </a>
               <a
-                href="#"
+                href="https://youtube.com/@code-x-novas?si=5JWCRETLXGoSgqJ0"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 text-blue-600 hover:bg-gray-700 transition"
               >
                 <FaYoutube className="text-2xl" />
@@ -212,13 +225,13 @@ const Contact = () => {
             <h3 className="font-semibold text-lg mb-6">Company</h3>
             <ul className="space-y-4 text-gray-300">
               <li>
-                <a href="#">About Us</a>
+                <a href="/about">About Us</a>
               </li>
               <li>
-                <a href="#">Careers</a>
+                <a href="/career">Careers</a>
               </li>
               <li>
-                <a href="#">Contact</a>
+                <a href="/contact">Contact</a>
               </li>
             </ul>
           </div>
@@ -226,7 +239,7 @@ const Contact = () => {
             <h3 className="font-semibold text-lg mb-6">Products</h3>
             <ul className="space-y-4 text-gray-300">
               <li>
-                <a href="#">Synchrotask</a>
+                <a href="/products">Synchrotask</a>
               </li>
             </ul>
           </div>
@@ -234,12 +247,13 @@ const Contact = () => {
         <div className="mt-12 border-t border-gray-700 pt-6 hidden md:flex justify-between items-center text-gray-400 text-sm">
           <p>©Code-X-Novas 2025 All Rights Reserved</p>
           <div className="flex space-x-6">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms Of Use</a>
+            <a href="/privacy">Privacy Policy</a>
+            <a href="/terms">Terms Of Use</a>
           </div>
         </div>
       </footer>
     </>
   );
 };
+
 export default Contact;

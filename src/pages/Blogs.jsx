@@ -9,30 +9,30 @@ const Blogs = () => {
     {
       id: 0,
       img: Big1,
-      title: "Lorem ipsum is placeholder text commonly",
+      title: "Building a Culture of Innovation in Tech Teams",
       desc:
-        "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        "Discover how fostering creativity, collaboration, and ownership can transform your development team into a powerhouse of innovation and product excellence.",
     },
     {
       id: 1,
       img: Blog1,
-      title: "Lorem ipsum is place holder text",
+      title: "Powering the Future with Smart Engineering",
       desc:
-        "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        "From microchips to machine learning, explore how modern engineering drives automation, eﬃciency, and the next generation of intelligent digital solutions.",
     },
     {
       id: 2,
       img: Blog2,
-      title: "Lorem ipsum is place holder text",
+      title: "How Data-Driven Decisions Shape Smarter Businesses",
       desc:
-        "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        "Learn how AI and analytics empower companies to predict trends, optimize operations, and create personalized customer experiences in today’s fast-paced digital economy.",
     },
     {
       id: 3,
       img: Blog3,
-      title: "Lorem ipsum is place holder text",
+      title: "Immersive Tech: The Future of User Experience",
       desc:
-        "Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.",
+        "Discover how VR and AR are redefining engagement — blending innovation and design to create immersive digital experiences that inspire, educate, and entertain.",
     },
   ];
 
@@ -87,14 +87,10 @@ const Blogs = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
           <div>
             <h3 className="text-2xl font-bold text-black mb-4 leading-snug">
-              Lorem ipsum is placeholder text <br />
-              commonly
+              {posts[0].title}
             </h3>
             <p className="text-gray-600 text-lg leading-relaxed">
-              Lorem ipsum is placeholder text commonly used in the graphic, <br />
-              print, and publishing industries for previewing layouts and visual{" "}
-              <br />
-              mockups.
+              {posts[0].desc}
             </p>
           </div>
 
@@ -149,21 +145,18 @@ const Blogs = () => {
 
       <div className="hidden lg:block">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[{ img: Blog1 }, { img: Blog2 }, { img: Blog3 }].map((blog, idx) => (
-            <div key={idx} className="flex flex-col">
+          {posts.slice(1).map((blog) => (
+            <div key={blog.id} className="flex flex-col">
               <img
                 src={blog.img}
-                alt={`Blog ${idx + 1}`}
+                alt={`Blog ${blog.id}`}
                 className="w-full h-[220px] object-cover mb-4"
               />
               <h4 className="text-lg font-semibold text-black leading-snug mb-2">
-                Lorem ipsum is placeholder text <br />
-                commonly
+                {blog.title}
               </h4>
               <p className="text-gray-600 text-base leading-relaxed">
-                Lorem ipsum is placeholder text commonly used in the graphic,
-                print, and publishing industries for previewing layouts and visual
-                mockups.
+                {blog.desc}
               </p>
             </div>
           ))}
