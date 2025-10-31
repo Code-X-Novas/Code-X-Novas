@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import SEO from "../../components/SEO";
 import frame1 from "../../assets/InternalPages/ServicesPage/Frames/Frame1.png";
@@ -84,7 +85,11 @@ export default function ServicesPage() {
   ];
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+    >
       <SEO
         title="Our Services — Code X Novas | Web, App & AI Development"
         description="Expert web development, mobile apps, AI solutions, UI/UX design, custom LMS platforms, and e-commerce services. We build digital products that drive results."
@@ -135,46 +140,72 @@ export default function ServicesPage() {
   </div>
 )}
         <div className="relative z-10 flex flex-col items-start justify-center px-6 md:px-16 lg:px-28 pt-[95px] sm:pt-[130px] max-w-[1000px]">
-          <h3 className="uppercase mb-2 text-[#2352A5] font-[600]" style={{ fontFamily: "Sora", fontSize: "16px" }}>
+          <motion.h3 
+            className="uppercase mb-2 text-[#2352A5] font-[600]" 
+            style={{ fontFamily: "Sora", fontSize: "16px" }}
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             Services
-          </h3>
-          <h1 className="mb-5 font-[600] text-[30px] sm:text-[50px] md:text-[56px] lg:text-[62px] text-black leading-[1.25]" style={{ fontFamily: "Sora" }}>
+          </motion.h3>
+          <motion.h1 
+            className="mb-5 font-[600] text-[30px] sm:text-[50px] md:text-[56px] lg:text-[62px] text-black leading-[1.25]" 
+            style={{ fontFamily: "Sora" }}
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          >
             Our Expertise, <br /> Your Growth
-          </h1>
-          <p
+          </motion.h1>
+          <motion.p
             className="mb-3 max-w-[520px] text-[#555] font-sora font-normal text-sm sm:text-lg md:text-[16px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
           >
             At Code-X-Novas - a product and service based tech company, we believe that technology
             is more than just code-it's a catalyst for innovation, growth, and meaningful impact. We are
             a passionate team of developers, designers, and thinkers driven by curiosity, creativity,
             and a commitment to excellence.
-          </p>
+          </motion.p>
 
-          <button
+          <motion.button
             className="relative overflow-hidden mt-1 px-6 py-3 rounded-md font-poppins text-[15px] text-white shadow-md group"
             style={{
               background:
                 "linear-gradient(90deg, #2352A5 0%, #137DD1 11%, #02A7FD 26%, #7DE2FF 44%, #42ACEF 72%, #B7F1FF 100%)",
             }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+            whileHover={{ scale: 1.05, boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.25)" }}
+            whileTap={{ scale: 0.95 }}
           >
             <span className="relative z-10">Explore Our Products</span>
             <span
               className="absolute top-0 left-[-100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/60 to-transparent opacity-0 group-hover:opacity-100 group-hover:left-[130%] transition-all duration-[1.2s] ease-in-out"
               style={{ transform: "skewX(-20deg)" }}
             ></span>
-          </button>
+          </motion.button>
         </div>
 
         {services.map((s, i) => (
           <React.Fragment key={i}>
-            <section className="relative z-10 -mt-[10px] sm:mt-[80px]">
+            <motion.section 
+              className="relative z-10 -mt-[10px] sm:mt-[80px]"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.8, delay: i * 0.1, ease: "easeOut" }}
+            >
               <div
                 ref={sectionRef}
                 className={`hidden md:flex px-6 md:px-16 lg:px-28 items-start justify-between ${
                   i % 2 === 0 ? "flex-row" : "flex-row-reverse"
                 }`}
               >
-                <div
+                <motion.div
                   className="w-1/2 overflow-visible"
                   style={{
                     marginTop: "-5vh",
@@ -182,11 +213,16 @@ export default function ServicesPage() {
                       i === services.length - 1 ? "none" : `translateY(${textOffset * 0.6}px)`,
                     transition: "transform 0.1s linear",
                   }}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? -50 : 50, rotateY: i % 2 === 0 ? -15 : 15 }}
+                  whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  whileHover={{ scale: 1.05, rotateY: i % 2 === 0 ? -5 : 5 }}
                 >
                   <img src={picture} loading="lazy" alt={s.title} className="mt-0 sm:mt-7 w-full h-auto object-cover" />
-                </div>
+                </motion.div>
 
-                <div
+                <motion.div
                   className={`w-1/2 flex flex-col justify-start text-left ${
                     i % 2 === 0 ? "md:pl-10" : "md:pr-10"
                   }`}
@@ -196,27 +232,49 @@ export default function ServicesPage() {
                       i === services.length - 1 ? "none" : `translateY(${textOffset * 0.6}px)`,
                     transition: "transform 0.1s linear",
                   }}
+                  initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  <h2
+                  <motion.h2
                     className="mb-4 text-[32px] sm:text-[42px] md:text-[50px] lg:text-[60px] text-black font-[600]"
                     style={{ fontFamily: "Sora", lineHeight: "1.25" }}
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.4 }}
                   >
                     {s.title}
-                  </h2>
-                  <p
+                  </motion.h2>
+                  <motion.p
                     className="mb-6 max-w-[560px] text-[#555]"
                     style={{ fontFamily: "Sora", fontWeight: 400, fontSize: "16px" }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
                   >
                     {s.description}
                     <br />
                     <span style={{ fontWeight: 400 }}>Technologies:</span>
-                  </p>
+                  </motion.p>
 
-                  <div className="space-y-3 w-full">
+                  <motion.div 
+                    className="space-y-3 w-full"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ staggerChildren: 0.1, delayChildren: 0.6 }}
+                  >
                     {technologies.map((t, idx) => (
-                      <div
+                      <motion.div
                         key={idx}
                         className="flex items-center justify-between border-b border-gray-200 pb-3"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: 0.6 + (idx * 0.1) }}
                       >
                         <div className="flex items-center space-x-4">
                           <span style={{ fontFamily: "Sora", fontSize: "15px", color: "#444" }}>
@@ -234,41 +292,67 @@ export default function ServicesPage() {
                           </span>
                         </div>
 
-                        <button
+                        <motion.button
                           className="p-1.5 rounded-full border border-[#08306F] hover:bg-[#2352A5] transition-all duration-300 group flex items-center justify-center"
                           style={{ width: "30px", height: "30px" }}
+                          whileHover={{ scale: 1.2, rotate: 90 }}
+                          whileTap={{ scale: 0.9 }}
                         >
                           <span className="text-[#2352A5] transition-transform duration-300 group-hover:text-white group-hover:translate-x-[4px]">
                             <ArrowIcon />
                           </span>
-                        </button>
-                      </div>
+                        </motion.button>
+                      </motion.div>
                     ))}
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
               </div>
 
-              <div className="flex flex-col md:hidden px-6 mt-10">
-                <div className="w-full text-left mb-6">
+              <motion.div 
+                className="flex flex-col md:hidden px-6 mt-10"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
+              >
+                <motion.div 
+                  className="w-full text-left mb-6"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
                   <h2 className="mb-2 text-[24px] font-[600] text-black" style={{ fontFamily: "Sora", lineHeight: "1.15" }}>
                     {s.title}
                   </h2>
                   <p className="text-[#555] text-sm" style={{ fontFamily: "Sora", lineHeight: "1.5" }}>
                     {s.description}
                   </p>
-                </div>
-                <div className="w-full mb-6 flex justify-center">
+                </motion.div>
+                <motion.div 
+                  className="w-full mb-6 flex justify-center"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                >
                   <img
                     src={picture}
                     alt={s.title}
                     loading="lazy"
                     className="w-full h-[220px] max-h-[220px] object-cover rounded-lg"
                   />
-                </div>
-              </div>
-            </section>
+                </motion.div>
+              </motion.div>
+            </motion.section>
 
-            <div className="w-full border-t border-gray-300 opacity-70 mt-6 md:mt-[60px] relative z-[5]" />
+            <motion.div 
+              className="w-full border-t border-gray-300 opacity-70 mt-6 md:mt-[60px] relative z-[5]"
+              initial={{ scaleX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            />
           </React.Fragment>
         ))}
 
@@ -276,6 +360,6 @@ export default function ServicesPage() {
           <Contact />
         </div>
       </div>
-    </>
+    </motion.div>
   );
 }

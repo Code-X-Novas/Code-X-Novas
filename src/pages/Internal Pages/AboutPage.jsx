@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import SEO from "../../components/SEO";
 import Picture1 from "../../assets/InternalPages/AboutPage/Picture1.png";
@@ -56,7 +57,12 @@ export default function AboutPage() {
     const nextFrame = (currentFrame + 1) % frames.length;
 
     return (
-        <div className="w-full overflow-x-hidden relative">
+        <motion.div 
+            className="w-full overflow-x-hidden relative"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
             <SEO
                 title="About Us — Code X Novas | Digital Product Studio"
                 description="Learn about Code X Novas: our mission, values, team, and approach to building exceptional digital products. We create websites and apps that make a difference."
@@ -103,28 +109,34 @@ export default function AboutPage() {
                 }}
             >
                 <div className="w-full text-left text-black">
-                    <h3
+                    <motion.h3
                         className="uppercase font-semibold mb-2 text-[13px] sm:text-[14px] md:text-[15px] text-center md:text-left"
                         style={{
                             letterSpacing: "1px",
                             color: "#2352A5",
                             fontFamily: "Sora",
                         }}
+                        initial={{ opacity: 0, x: -30 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
                     >
                         About Us
-                    </h3>
+                    </motion.h3>
 
-                    <h1
+                    <motion.h1
                         className="font-[600] leading-tight mb-3 text-[28px] sm:text-[32px] md:text-[40px] lg:text-[65px] text-center md:text-left"
                         style={{
                             color: "#000",
                             fontFamily: "Sora",
                         }}
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.7, delay: 0.4 }}
                     >
                         Get to Know Us
-                    </h1>
+                    </motion.h1>
 
-                    <p
+                    <motion.p
                         className="text-[14px] md:text-[17px] font-[400] text-[#333] leading-[1.7]"
                         style={{
                             fontFamily: "Sora",
@@ -133,17 +145,20 @@ export default function AboutPage() {
                             marginLeft: "0",
                             marginRight: "0",
                         }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.7 }}
                     >
                         At Code-X-Novas, we believe in transforming ideas into impactful
                         digital solutions. Our focus is on delivering high-quality,
                         innovative, and budget-friendly technology products while building
                         long-term relationships with our clients.
-                    </p>
+                    </motion.p>
                 </div>
             </section>
 
             <section className="relative w-full hidden md:flex justify-center px-[5%] md:px-[4%] my-[100px]" style={{ marginTop: "-160px", zIndex: 2 }}>
-                <div
+                <motion.div
                     className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center w-full max-w-[1250px]"
                     style={{
                         background: "rgba(255, 255, 255, 0.88)",
@@ -151,30 +166,74 @@ export default function AboutPage() {
                         padding: "30px 25px",
                         boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
                     }}
+                    initial={{ opacity: 0, y: 80, scale: 0.9 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
                 >
-                    <div className="relative flex justify-center items-center">
-                        <img
+                    <motion.div 
+                        className="relative flex justify-center items-center"
+                        initial={{ opacity: 0, x: -60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                    >
+                        <motion.img
                             src={Picture1}
                             loading="lazy"
                             alt="Proven Track Record"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            transition={{ duration: 0.4 }}
                         />
-                    </div>
+                    </motion.div>
 
-                    <div
+                    <motion.div
                         className="flex flex-col justify-center text-center md:text-left px-4 md:px-6"
                         style={{ color: "#002C6C", fontFamily: "Sora" }}
+                        initial={{ opacity: 0, x: 60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.7 }}
                     >
-                        <h2 className="text-[32px] sm:text-[40px] md:text-[54px] font-[600] mb-6">
+                        <motion.h2 
+                            className="text-[32px] sm:text-[40px] md:text-[54px] font-[600] mb-6"
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: 0.9 }}
+                        >
                             Proven Track <br className="hidden md:block" /> Record
-                        </h2>
-                        <ul className="space-y-4 text-[15px] sm:text-[16px] md:text-[17px] text-[#333] leading-[1.7]">
+                        </motion.h2>
+                        <motion.ul 
+                            className="space-y-4 text-[15px] sm:text-[16px] md:text-[17px] text-[#333] leading-[1.7]"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            variants={{
+                                visible: {
+                                    transition: {
+                                        staggerChildren: 0.15,
+                                        delayChildren: 1.1,
+                                    },
+                                },
+                            }}
+                        >
                             {[
                                 "Successfully delivered 50+ projects in web, app, AI, and custom solutions.",
                                 "Trusted by leading brands and startups across India, Dubai, USA, and beyond.",
                                 "Recognized as one of India’s Top 75 Emerging Startups for digital innovation.",
                             ].map((item, i) => (
-                                <li key={i} className="flex items-start gap-3 justify-center md:justify-start">
+                                <motion.li 
+                                    key={i} 
+                                    className="flex items-start gap-3 justify-center md:justify-start"
+                                    variants={{
+                                        hidden: { opacity: 0, x: -30 },
+                                        visible: { opacity: 1, x: 0 },
+                                    }}
+                                    transition={{ duration: 0.5 }}
+                                    whileHover={{ x: 10 }}
+                                >
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         viewBox="0 0 24 24"
@@ -199,11 +258,11 @@ export default function AboutPage() {
                                         />
                                     </svg>
                                     <span className="max-w-[500px]">{item}</span>
-                                </li>
+                                </motion.li>
                             ))}
-                        </ul>
-                    </div>
-                </div>
+                        </motion.ul>
+                    </motion.div>
+                </motion.div>
 
 
             </section>
@@ -578,7 +637,7 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            <section
+            <motion.section
                 className="-mt-8 sm:mt-0 relative w-full flex justify-center"
                 style={{
                     background: "rgba(255, 255, 255, 0.98)",
@@ -586,32 +645,44 @@ export default function AboutPage() {
                     padding: "80px 6%",
                     boxShadow: "0 -5px 25px rgba(0,0,0,0.05)",
                 }}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.9 }}
             >
                 <div
                     className="w-full max-w-[1500px] -mt-8 sm:mt-0 text-center md:text-left -mb-8 sm:mb-0"
                     style={{ fontFamily: "Sora" }}
                 >
-                    <h2
+                    <motion.h2
                         className="font-[600] leading-[1.2] mb-3 
-                 text-[28px] sm:text-[36px] md:text-[48px] lg:text-[55px]"
+                        text-[28px] sm:text-[36px] md:text-[48px] lg:text-[55px]"
                         style={{ color: "#002C6C", whiteSpace: "nowrap" }}
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
                     >
                         Our Commitment
-                    </h2>
+                    </motion.h2>
 
-                    <p
+                    <motion.p
                         className="text-[15px] sm:text-[16px] md:text-[17px] text-[#333] leading-[1.7] mx-auto md:mx-0"
                         style={{ maxWidth: "900px" }}
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7, delay: 0.5 }}
                     >
-                        We don’t just deliver projects — we partner for growth. From ideation to
+                        We don't just deliver projects — we partner for growth. From ideation to
                         launch and beyond, we ensure continuous improvements, maintenance, and
                         upgrades that create lasting value for your business.
-                    </p>
+                    </motion.p>
                 </div>
-            </section>
+            </motion.section>
 
             <Contact />
 
-        </div>
+        </motion.div>
     );
 }

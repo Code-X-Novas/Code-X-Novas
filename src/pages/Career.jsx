@@ -1,85 +1,130 @@
-{/**Few Imports*/}
+{/**Few Imports*/ }
 import React from "react";
+import { motion } from "framer-motion";
 import UIUX from "../assets/Career/uiux.png";
 import Backend from "../assets/Career/backend.png";
 import AI from "../assets/Career/ai.png";
 import Community from "../assets/Career/community.png";
 
-{/**Careers Section*/}
+{/**Careers Section*/ }
 const careers = [
-  { title: "UI/ UX Designer", img: UIUX },
-  { title: "Backend Developer", img: Backend },
-  { title: "AI Prompt Engineer", img: AI},
-  { title: "Community Evangelist", img: Community },
+    { title: "UI/ UX Designer", img: UIUX },
+    { title: "Backend Developer", img: Backend },
+    { title: "AI Prompt Engineer", img: AI },
+    { title: "Community Evangelist", img: Community },
 ];
 
 const Careers = () => {
-  return (
-    <section className="relative w-full py-10 md:py-20 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-[#fdfdfd] to-[#f5f9ff] text-center overflow-hidden">
-      <span className="absolute top-0 left-0 w-60 h-60 bg-gradient-to-br from-blue-200 to-transparent opacity-5 rounded-full blur-2xl pointer-events-none"></span>
+    return (
+        <section className="relative w-full py-10 md:py-20 px-4 sm:px-6 md:px-12 bg-gradient-to-b from-[#fdfdfd] to-[#f5f9ff] text-center overflow-hidden">
+            <span className="absolute top-0 left-0 w-60 h-60 bg-gradient-to-br from-blue-200 to-transparent opacity-5 rounded-full blur-2xl pointer-events-none"></span>
 
-      <span className="absolute top-0 right-0 w-60 h-60 bg-gradient-to-bl from-blue-200 to-transparent opacity-5 rounded-full blur-2xl pointer-events-none"></span>
+            <span className="absolute top-0 right-0 w-60 h-60 bg-gradient-to-bl from-blue-200 to-transparent opacity-5 rounded-full blur-2xl pointer-events-none"></span>
 
-      <h2
-        className="text-2xl sm:text-4xl md:text-4xl font-bold mb-3 relative z-10 leading-tight"
-        style={{ fontFamily: "Sora" }}
-      >
-        <span className="text-black">Join Our Product </span>
-        <span className="text-blue-600">Team / Careers</span>
-      </h2>
-      <p className="text-black mb-12 text-base md:text-lg relative z-10">
-        Replace mentorship with talent recruitment
-      </p>
-
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 relative z-10">
-        {careers.map((career, idx) => (
-          <div
-            key={idx}
-            className="relative group overflow-hidden cursor-pointer rounded-none md:rounded-md"
-          >
-            <img
-              src={career.img}
-              loading="lazy"
-              alt={career.title}
-              className="w-full h-54 md:h-auto md:aspect-square object-cover transition-transform duration-500 group-hover:scale-105 rounded-none md:rounded-md"
-            />
-
-            <div
-              className="absolute w-full flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out bottom-4 md:bottom-6 md:group-hover:bottom-1/2 md:group-hover:translate-y-1/2 p-3"
+            <motion.h2
+                className="text-2xl sm:text-4xl md:text-4xl font-bold mb-3 relative z-10 leading-tight"
+                style={{ fontFamily: "Sora" }}
+                initial={{ opacity: 0, y: -30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              <h3 className="text-white text-sm md:text-lg font-semibold drop-shadow-md transition-all duration-500 leading-tight">
-                {career.title}
-              </h3>
+                <span className="text-black">Join Our Product </span>
+                <span className="text-blue-600">Team / Careers</span>
+            </motion.h2>
+            
+            <motion.p 
+                className="text-black mb-12 text-base md:text-lg relative z-10"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+            >
+                Replace mentorship with talent recruitment
+            </motion.p>
 
-    
-              <button
-                className="hidden md:inline-flex mt-3 px-4 py-2 bg-white text-gray-800 font-medium rounded-md shadow-lg transition-all duration-300 md:opacity-0 md:group-hover:opacity-100"
-              >
-                Join Now
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
+            <motion.div 
+                className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 relative z-10"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.2 }}
+                variants={{
+                    hidden: {},
+                    visible: {
+                        transition: {
+                            staggerChildren: 0.15
+                        }
+                    }
+                }}
+            >
+                {careers.map((career, idx) => (
+                    <motion.div
+                        key={idx}
+                        className="relative group overflow-hidden cursor-pointer rounded-none md:rounded-md"
+                        variants={{
+                            hidden: { scale: 0.8, opacity: 0, rotateY: -15 },
+                            visible: { 
+                                scale: 1, 
+                                opacity: 1, 
+                                rotateY: 0,
+                                transition: { duration: 0.7, ease: "easeOut" } 
+                            }
+                        }}
+                        whileHover={{ y: -10, transition: { duration: 0.3 } }}
+                    >
+                        <motion.img
+                            src={career.img}
+                            loading="lazy"
+                            alt={career.title}
+                            className="w-full h-54 md:h-auto md:aspect-square object-cover transition-transform duration-500 group-hover:scale-105 rounded-none md:rounded-md"
+                        />
 
-      <div className="flex justify-center relative z-10">
-        <button className="relative flex items-center overflow-hidden rounded-md transition-all group">
-
-          <span className="absolute inset-0 bg-gradient-to-r from-[#016FAE] to-[#4FA3FF] w-0 group-hover:w-full transition-all duration-300 rounded-md"></span>
-
-
-          <span className="relative z-10 flex items-center justify-center w-12 h-10 rounded-sm bg-blue-600 text-white font-bold mr-3 transition-all duration-300">
-            &gt;
-          </span>
+                        <div
+                            className="absolute w-full flex flex-col items-center justify-center text-center transition-all duration-500 ease-in-out bottom-4 md:bottom-6 md:group-hover:bottom-1/2 md:group-hover:translate-y-1/2 p-3"
+                        >
+                            <h3 className="text-white text-sm md:text-lg font-semibold drop-shadow-md transition-all duration-500 leading-tight">
+                                {career.title}
+                            </h3>
 
 
-          <span className="relative z-10 pr-6 font-medium text-gray-800 md:group-hover:text-white transition-all duration-300">
-            Join the Build Force
-          </span>
-        </button>
-      </div>
-    </section>
-  );
+                            <button
+                                className="hidden md:inline-flex mt-3 px-4 py-2 bg-white text-gray-800 font-medium rounded-md shadow-lg transition-all duration-300 md:opacity-0 md:group-hover:opacity-100"
+                            >
+                                Join Now
+                            </button>
+                        </div>
+                    </motion.div>
+                ))}
+            </motion.div>
+
+            <motion.div 
+                className="flex justify-center relative z-10"
+                initial={{ scale: 0.9, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.6 }}
+            >
+                <motion.button 
+                    className="relative flex items-center overflow-hidden rounded-md transition-all group"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+
+                    <span className="absolute inset-0 bg-gradient-to-r from-[#016FAE] to-[#4FA3FF] w-0 group-hover:w-full transition-all duration-300 rounded-md"></span>
+
+
+                    <span className="relative z-10 flex items-center justify-center w-12 h-10 rounded-sm bg-blue-600 text-white font-bold mr-3 transition-all duration-300">
+                        &gt;
+                    </span>
+
+
+                    <span className="relative z-10 pr-6 font-medium text-gray-800 md:group-hover:text-white transition-all duration-300">
+                        Join the Build Force
+                    </span>
+                </motion.button>
+            </motion.div>
+        </section>
+    );
 };
 
 export default Careers;
