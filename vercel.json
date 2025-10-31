@@ -1,5 +1,10 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -66,7 +71,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(png|jpg|jpeg|gif|webp|svg|ico))",
+      "source": "/:path*.(png|jpg|jpeg|gif|webp|svg|ico)",
       "headers": [
         {
           "key": "Cache-Control",
@@ -75,7 +80,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(js|css))",
+      "source": "/:path*.(js|css)",
       "headers": [
         {
           "key": "Cache-Control",
