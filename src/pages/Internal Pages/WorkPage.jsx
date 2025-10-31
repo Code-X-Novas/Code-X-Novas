@@ -97,6 +97,7 @@ export default function WorkPage() {
             {frames.map((f, i) => (
               <img
                 key={i}
+                loading="lazy"
                 src={f}
                 alt={`blur-${i}`}
                 className="absolute top-0 right-0 w-full h-full object-contain transition-opacity duration-[6000ms] ease-[cubic-bezier(0.45,0.05,0.2,0.95)]"
@@ -113,10 +114,12 @@ export default function WorkPage() {
 
         <img
           src={curve}
+          loading="lazy"
           alt="curve"
           className="hidden lg:block absolute top-0 right-0 w-[420px] opacity-80 pointer-events-none -z-10"
         />
         <img
+          loading="lazy"
           src={corner}
           alt="corner"
           className="hidden lg:block absolute bottom-0 left-0 w-[380px] opacity-70 pointer-events-none -z-10"
@@ -218,6 +221,7 @@ export default function WorkPage() {
                     className="relative bg-white rounded-lg overflow-hidden shadow-md border border-transparent hover:border-[#2352A5] transition"
                   >
                     <img
+                      loading="lazy"
                       src={img}
                       alt={title}
                       className="w-full h-[200px] md:h-[300px] lg:h-[320px] object-cover rounded-t-lg"
@@ -270,6 +274,7 @@ export default function WorkPage() {
                   <img
                     src={img}
                     alt={title}
+                    loading="lazy"
                     className="w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover rounded-t-lg"
                   />
                   <div className="p-4 flex items-center justify-between">

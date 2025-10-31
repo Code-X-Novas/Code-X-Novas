@@ -224,7 +224,7 @@ const Contact = () => {
       <footer className="bg-[#0B1221] text-white py-12 px-3 md:px-20">
         <div className="max-w-7xl mx-auto block md:hidden px-6">
           <div className="pt-2 sm:pt-6">
-            <img src={Logo} alt="CodeX Novas" className="h-8 mb-4 -mt-8" />
+            <img src={Logo} loading="lazy" alt="CodeX Novas" className="h-8 mb-4 -mt-8" />
             <div className="hidden bg-white rounded-full overflow-hidden w-full max-w-[240px] border border-gray-300">
               <input
                 type="email"
@@ -297,13 +297,13 @@ const Contact = () => {
         </div>
         <div className="max-w-7xl mx-auto hidden md:grid md:grid-cols-3 gap-12">
           <div>
-            <img src={Logo} alt="CodeX Novas" className="h-10 mb-5" />
+            <img src={Logo} loading="lazy" alt="CodeX Novas" className="h-10 mb-5" />
             <div className="flex items-center bg-white rounded-full overflow-hidden w-full max-w-md border border-gray-300">
               <input
                 type="email"
                 placeholder="Your Email address"
                 className="flex-1 min-w-0 px-2 sm:px-4 py-2 text-black bg-transparent 
-                         focus:outline-none placeholder:text-sm sm:placeholder:text-base lg:placeholder:text-lg"
+                        focus:outline-none placeholder:text-sm sm:placeholder:text-base lg:placeholder:text-lg"
               />
               <button className="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition m-1">
                 Submit

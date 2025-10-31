@@ -155,6 +155,7 @@ const handleNavClick = (id, path) => {
   <Link to="/" className="flex items-center pl-2">
     <img
       src={logo}
+      loading="lazy"
       alt="Code X Novas"
       className="w-auto transition-all duration-300"
       style={{ height: window.innerWidth <= 640 ? 36 : window.innerWidth <= 768 ? 48 : 64 }}
@@ -231,6 +232,7 @@ const handleNavClick = (id, path) => {
 )}
   <div className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pr-6 md:pr-28 z-10 h-auto md:h-screen">
         <img
+          loading="lazy"
           src={ellipse}
           alt="background ellipse"
           className="absolute left-[-2px] top-20 w-[600px] opacity-90 z-0 hidden md:block"
@@ -280,10 +282,10 @@ const handleNavClick = (id, path) => {
               TRUSTED BY CURRENT AND SOON TO BE <span className="">WORLD-CLASS BRANDS</span>
             </h3>
             <div className="flex items-center justify-center gap-6 px-4 mb-6 sm:mb-0">
-              <img src={brand1} alt="brand1" className="h-10 object-contain" />
-              <img src={brand2} alt="brand2" className="h-10 object-contain" />
-              <img src={brand3} alt="brand3" className="h-10 object-contain" />
-              <img src={brand4} alt="brand4" className="h-10 object-contain" />
+              <img loading="lazy" src={brand1} alt="brand1" className="h-10 object-contain" />
+              <img loading="lazy" src={brand2} alt="brand2" className="h-10 object-contain" />
+              <img loading="lazy" src={brand3} alt="brand3" className="h-10 object-contain" />
+              <img loading="lazy" src={brand4} alt="brand4" className="h-10 object-contain" />
             </div>
           </div>
 
@@ -326,7 +328,7 @@ const handleNavClick = (id, path) => {
         {/* Desktop Interface- seperated for clarity*/}
         <motion.div className="absolute inset-0 mt-10 z-10 hidden lg:block">
           {current.rectangles.map((rect, i) => (
-            <img key={i} src={rect.src} alt={`Rectangle ${i + 1}`} className="absolute" style={rect.style} />
+            <img key={i} src={rect.src} loading="lazy" alt={`Rectangle ${i + 1}`} className="absolute" style={rect.style} />
           ))}
           <div
             className="absolute left-[60%] overflow-hidden"
@@ -397,6 +399,7 @@ const handleNavClick = (id, path) => {
     {current.rectangles.map((rect, i) => (
       <img
         key={i}
+        loading="lazy"
         src={rect.src}
         alt={`Rectangle ${i + 1}`}
         className="w-[220px] sm:w-[110px] h-auto rounded shadow"
@@ -445,6 +448,7 @@ const handleNavClick = (id, path) => {
   <div className="relative w-[85%] sm:w-[70%] max-w-[220px] flex flex-col items-center">
     <img
       src={current.rectangles[0].src}
+      loading="lazy"
       alt="Big Rectangle"
       className="w-full rounded shadow"
     />
@@ -453,6 +457,7 @@ const handleNavClick = (id, path) => {
     <img
       src={current.rectangles[1].src}
       alt="Small Rectangle"
+      loading="lazy"
       className="w-[65%] sm:w-[60%] max-w-[120px] rounded shadow absolute bottom-[-12px] right-[-12px]"
     />
 

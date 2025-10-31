@@ -90,6 +90,7 @@ export default function BlogsPage() {
               <img
                 key={i}
                 src={f}
+                loading="lazy"
                 alt={`blog-frame-${i}`}
                 className="absolute top-0 right-0 w-full h-full object-contain transition-opacity duration-[6000ms] ease-[cubic-bezier(0.45,0.05,0.2,0.95)]"
                 style={{
@@ -136,6 +137,7 @@ export default function BlogsPage() {
     <div className="w-full flex justify-start sm:justify-start">
         <img
           src={Picture}
+          loading="lazy"
           alt="Featured Blog"
             className="rounded-lg shadow-md w-full max-w-[640px] sm:w-[85%] sm:max-w-[640px] h-[200px] sm:h-[300px] object-cover"
         />
@@ -241,6 +243,7 @@ export default function BlogsPage() {
         <img
           src={Picture}
           alt={`Blog ${idx}`}
+          loading="lazy"
           className="w-full h-[160px] sm:h-[200px] object-cover rounded-lg"
         />
 
@@ -398,6 +401,7 @@ export default function BlogsPage() {
       <img
         src={blog.image}
         alt={`Blog ${idx}`}
+        loading="lazy"
         className="w-full h-[180px] sm:h-[230px] object-cover rounded-lg"
       />
 

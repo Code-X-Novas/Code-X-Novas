@@ -67,6 +67,7 @@ export default function Navbar() {
       <Link to="/" className="flex items-center pl-2">
         <img
           src={logo}
+          loading="lazy"
           alt="Code X Novas"
           className="h-[40px] sm:h-[20px] md:h-[40px] lg:h-[100px] xl:h-[55px] w-auto transition-all duration-300"
         />

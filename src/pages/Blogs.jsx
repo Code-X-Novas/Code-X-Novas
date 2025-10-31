@@ -58,6 +58,7 @@ const Blogs = () => {
           <div className="absolute -top-6 -right-6 left-5 w-full h-full bg-gray-200"></div>
           <img
             src={posts.find((p) => p.id === selectedId).img}
+            loading="lazy"
             alt="Featured blog mobile"
             className="relative w-full h-[230px] object-cover z-10"
           />
@@ -98,6 +99,7 @@ const Blogs = () => {
             <div className="absolute -top-6 -right-6 w-full h-full bg-gray-200"></div>
             <img
               src={Big1}
+              loading="lazy"
               alt="Featured blog"
               className="relative w-full h-[350px] object-cover z-10"
             />
@@ -126,6 +128,7 @@ const Blogs = () => {
                 <div className="w-1/2 h-[110px] flex-shrink-0">
                   <img
                     src={blog.img}
+                    loading="lazy"
                     alt={`Blog ${blog.id}`}
                     className="w-full h-full object-cover"
                   />
@@ -149,6 +152,7 @@ const Blogs = () => {
             <div key={blog.id} className="flex flex-col">
               <img
                 src={blog.img}
+                loading="lazy"
                 alt={`Blog ${blog.id}`}
                 className="w-full h-[220px] object-cover mb-4"
               />

@@ -43,11 +43,13 @@ const Works = () => {
      
       <img
         src={CornerGlow}
+        loading="lazy"
         alt="Glow"
         className="absolute top-0 right-0 w-[300px] md:w-[500px] pointer-events-none select-none"
       />
       <img
         src={CurveGlow}
+        loading="lazy"
         alt="Glow"
         className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] md:w-[800px] pointer-events-none select-none"
       />
@@ -98,6 +100,7 @@ const Works = () => {
                 <div className="border border-gray-800 hover:border-[#016FAE] transition aspect-[4/3] overflow-hidden rounded-lg">
                   <img
                     src={project.img}
+                    loading="lazy"
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
@@ -149,6 +152,7 @@ const Works = () => {
                 <div className="border border-gray-800 hover:border-[#016FAE] transition aspect-[4/3] overflow-hidden rounded-lg">
                   <img
                     src={project.img}
+                    loading="lazy"
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />
@@ -184,6 +188,7 @@ const Works = () => {
                 <div className="border border-gray-800 hover:border-[#016FAE] transition aspect-square overflow-hidden rounded-lg">
                   <img
                     src={project.img}
+                    loading="lazy"
                     alt={project.title}
                     className="w-full h-full object-cover"
                   />

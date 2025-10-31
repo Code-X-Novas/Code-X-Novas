@@ -72,18 +72,21 @@ const DesktopProducts = ({ index, direction, handlePrev, handleNext }) => {
 
         <img
           src={testimonials[(index + 2) % testimonials.length]}
+          loading="lazy"
           alt="third stacked"
           className="absolute w-[80%] h-[80%] object-contain -top-14 z-10"
         />
 
         <img
           src={testimonials[(index + 1) % testimonials.length]}
+          loading="lazy"
           alt="second stacked"
           className="absolute w-[90%] h-[90%] object-contain -top-8 z-20"
         />
 
         <AnimatePresence mode="wait">
           <motion.img
+          loading="lazy"
             key={index}
             src={testimonials[index]}
             alt="Client"
@@ -124,18 +127,21 @@ const MobileProducts = ({ index, direction, handlePrev, handleNext }) => {
 
         <img
           src={testimonials[(index + 2) % testimonials.length]}
+          loading="lazy"
           alt="third stacked"
           className="absolute w-[78%] h-[78%] object-contain -top-0 z-10"
         />
 
         <img
           src={testimonials[(index + 1) % testimonials.length]}
+          loading="lazy"
           alt="second stacked"
           className="absolute w-[88%] h-[88%] object-contain -top-0 z-20"
         />
 
         <AnimatePresence mode="wait">
           <motion.img
+          loading="lazy"
             key={index}
             src={testimonials[index]}
             alt="Client"

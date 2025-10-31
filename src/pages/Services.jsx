@@ -55,7 +55,7 @@ const PulseDot = ({ left, top }) => (
 
 const MapWithDots = () => (
   <div className="relative w-full max-w-[638px] aspect-[638/614] -ml-0 lg:-ml-24">
-    <img src={MapImage} alt="World map" className="w-full h-full object-contain" />
+    <img src={MapImage} loading="lazy" alt="World map" className="w-full h-full object-contain" />
     <PulseDot left={48} top={34} />
     <PulseDot left={55} top={35} />
     <PulseDot left={56} top={38} />
@@ -106,6 +106,7 @@ const Services = () => {
         <section className="relative w-full bg-black text-white py-16 px-4 overflow-hidden">
           <img
             src={RightElement}
+            loading="lazy"
             alt="Decorative element"
             className="absolute right-0 top-[-910px] h-[150%] object-contain pointer-events-none select-none opacity-100"
           />
@@ -226,6 +227,7 @@ const Services = () => {
         <section className="relative w-full bg-black text-white py-20 px-12 overflow-hidden">
           <img
             src={RightElement}
+            loading="lazy"
             alt="Decorative element"
             className="absolute right-0 top-0 h-full object-contain pointer-events-none select-none opacity-100"
           />

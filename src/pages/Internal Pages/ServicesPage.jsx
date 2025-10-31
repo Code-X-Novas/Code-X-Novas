@@ -115,6 +115,7 @@ export default function ServicesPage() {
       <img
         key={i}
         src={f}
+        loading="lazy"
         alt={`blur-${i}`}
         className="absolute top-0 right-0 w-full h-full object-contain transition-opacity duration-[6000ms] ease-[cubic-bezier(0.45,0.05,0.2,0.95)]"
         style={{
@@ -182,7 +183,7 @@ export default function ServicesPage() {
                     transition: "transform 0.1s linear",
                   }}
                 >
-                  <img src={picture} alt={s.title} className="mt-0 sm:mt-7 w-full h-auto object-cover" />
+                  <img src={picture} loading="lazy" alt={s.title} className="mt-0 sm:mt-7 w-full h-auto object-cover" />
                 </div>
 
                 <div
@@ -260,6 +261,7 @@ export default function ServicesPage() {
                   <img
                     src={picture}
                     alt={s.title}
+                    loading="lazy"
                     className="w-full h-[220px] max-h-[220px] object-cover rounded-lg"
                   />
                 </div>

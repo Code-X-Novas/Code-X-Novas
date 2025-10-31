@@ -21,6 +21,7 @@ const TestimonialCard = () => {
              <div className="w-1/2 relative flex justify-end items-end h-full pr-3">
             <img
               src="/girl.png"
+              loading="lazy"
               alt="testimonial"
                  className="w-[320px] sm:w-[360px] object-contain absolute top-0 right-[-10px] z-10" 
               style={{ pointerEvents: "none" }}
@@ -47,6 +48,7 @@ const TestimonialCard = () => {
             <img
               src="/girl.png"
               alt="testimonial"
+              loading="lazy"
               className="w-[420px] lg:w-[480px] object-contain absolute -bottom-48 right-0"
               style={{ pointerEvents: "none" }}
             />

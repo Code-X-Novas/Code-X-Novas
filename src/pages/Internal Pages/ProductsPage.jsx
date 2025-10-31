@@ -83,6 +83,7 @@ export default function ProductsPage() {
               <img
                 key={i}
                 src={f}
+                loading="lazy"
                 alt={`blur-${i}`}
                 className="absolute top-0 right-0 w-full h-full object-contain transition-opacity duration-[6000ms] ease-[cubic-bezier(0.45,0.05,0.2,0.95)]"
                 style={{

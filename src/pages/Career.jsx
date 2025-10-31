@@ -39,6 +39,7 @@ const Careers = () => {
           >
             <img
               src={career.img}
+              loading="lazy"
               alt={career.title}
               className="w-full h-54 md:h-auto md:aspect-square object-cover transition-transform duration-500 group-hover:scale-105 rounded-none md:rounded-md"
             />

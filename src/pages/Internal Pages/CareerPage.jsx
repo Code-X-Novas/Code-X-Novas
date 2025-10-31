@@ -97,6 +97,7 @@ export default function CareerPage() {
               <img
                 key={i}
                 src={f}
+                loading="lazy"
                 alt={`career-frame-${i}`}
                 className="absolute top-0 right-0 w-full h-full object-contain transition-opacity duration-[6000ms] ease-[cubic-bezier(0.45,0.05,0.2,0.95)]"
                 style={{
@@ -212,6 +213,7 @@ export default function CareerPage() {
               >
                 <img
                   src={career.img}
+                  loading="lazy"
                   alt={career.title}
                   className="w-full h-[220px] sm:h-[330px] object-cover transition-transform duration-500 group-hover:scale-105"
                 />

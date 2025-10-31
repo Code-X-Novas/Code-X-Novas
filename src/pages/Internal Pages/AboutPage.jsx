@@ -79,6 +79,7 @@ export default function AboutPage() {
                         <img
                             key={i}
                             src={f}
+                            loading="lazy"
                             alt={`frame-${i}`}
                             className="absolute top-0 right-0 h-full object-cover transition-opacity duration-[6000ms] ease-in-out"
                             style={{
@@ -154,6 +155,7 @@ export default function AboutPage() {
                     <div className="relative flex justify-center items-center">
                         <img
                             src={Picture1}
+                            loading="lazy"
                             alt="Proven Track Record"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
                         />
@@ -234,6 +236,7 @@ export default function AboutPage() {
 
                     <img
                         src={Picture1}
+                        loading="lazy"
                         alt="Proven Track Record"
                         className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
                     />
@@ -303,6 +306,7 @@ export default function AboutPage() {
                     <div className="relative flex justify-center items-center order-1 md:order-2">
                         <img
                             src={Picture2}
+                            loading="lazy"
                             alt="Recognized Excellence"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
                         />
@@ -331,6 +335,7 @@ export default function AboutPage() {
 
                     <img
                         src={Picture2}
+                        loading="lazy"
                         alt="Recognized Excellence"
                         className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
                     />
@@ -384,6 +389,7 @@ export default function AboutPage() {
                     <div className="relative flex justify-center items-center">
                         <img
                             src={Picture3}
+                            loading="lazy"
                             alt="What Sets Us Apart"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
                         />
@@ -432,6 +438,7 @@ export default function AboutPage() {
 
                     <img
                         src={Picture3}
+                        loading="lazy"
                         alt="What Sets Us Apart"
                         className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
                     />
@@ -501,6 +508,7 @@ export default function AboutPage() {
                     <div className="relative flex justify-center items-center order-1 md:order-2">
                         <img
                             src={Picture4}
+                            loading="lazy"
                             alt="Our Expertise"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
                         />
@@ -529,6 +537,7 @@ export default function AboutPage() {
 
                     <img
                         src={Picture4}
+                        loading="lazy"
                         alt="Our Expertise"
                         className="w-[85%] sm:w-[90%] h-auto object-contain rounded-[12px] mb-4"
                     />

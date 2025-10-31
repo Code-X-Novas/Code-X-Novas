@@ -101,6 +101,7 @@ const About = () => {
           <div className="w-full md:w-[50%] justify-center items-start bg-white flex">
             <img
               src={mobileFrame}
+              loading="lazy"
               alt="Mobile mockup"
               className="h-[82vh] lg:h-[88vh] w-auto object-contain mt-0 md:mt-4 md:ml-[20px] lg:ml-[40px]"
             />
@@ -150,6 +151,7 @@ const About = () => {
               <div className="flex flex-col items-center">
                 <img
                   src={firstImg}
+                  loading="lazy"
                   alt="Product Engineering"
                   className="shadow-lg w-full max-w-[160px] md:max-w-[200px] lg:max-w-[300px] h-auto object-contain mb-6"
                 />
@@ -161,6 +163,7 @@ const About = () => {
               <div className="flex flex-col items-center md:mt-6 lg:mt-20">
                 <img
                   src={secondImg}
+                  loading="lazy"
                   alt="AI Integrations"
                   className="shadow-lg w-full max-w-[180px] md:max-w-[220px] lg:max-w-[320px] h-auto object-contain mb-6"
                 />
@@ -172,6 +175,7 @@ const About = () => {
               <div className="flex flex-col items-center">
                 <img
                   src={thirdImg}
+                  loading="lazy"
                   alt="SaaS Infrastructure"
                   className="shadow-lg w-full max-w-[160px] md:max-w-[200px] lg:max-w-[300px] h-auto object-contain mb-6"
                 />
@@ -198,10 +202,10 @@ const About = () => {
           </h2>
 
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10 lg:gap-12">
-            <img src={brand1} alt="Brand 1" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
-            <img src={brand2} alt="Brand 2" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
-            <img src={brand3} alt="Brand 3" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
-            <img src={brand4} alt="Brand 4" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
+            <img loading="lazy" src={brand1} alt="Brand 1" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
+            <img loading="lazy" src={brand2} alt="Brand 2" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
+            <img loading="lazy" src={brand3} alt="Brand 3" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
+            <img loading="lazy" src={brand4} alt="Brand 4" className="w-[100px] md:w-[120px] lg:w-[150px] h-auto" />
           </div>
         </section>
       </div>
@@ -238,6 +242,7 @@ const About = () => {
 
             <img
               src={mobileFrame}
+              loading="lazy"
               alt="Mobile mockup"
               className="h-[40vh] w-auto object-contain mt-4"
             />
@@ -254,18 +259,21 @@ const About = () => {
           <div className="relative w-full h-full flex items-center justify-center">
             <img
               src={firstImg}
+              loading="lazy"
               alt="Product Engineering"
               className="absolute w-[70%] h-auto object-contain"
               style={getMobileImageStyle(0)}
             />
             <img
               src={secondImg}
+              loading="lazy"
               alt="AI Integrations"
               className="absolute w-[70%] h-auto object-contain"
               style={getMobileImageStyle(1)}
             />
             <img
               src={thirdImg}
+              loading="lazy"
               alt="SaaS Infrastructure"
               className="absolute w-[70%] h-auto object-contain"
               style={getMobileImageStyle(2)}
