@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import { FiPhone, FiMail } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
+import SEO from "../components/SEO";
 import Logo from "../assets/logo.png";
 
 const Contact = () => {
@@ -85,6 +86,11 @@ const Contact = () => {
 
   return (
     <>
+      <SEO
+        title="Contact Us — Code X Novas | Let's Build Together"
+        description="Get in touch with Code X Novas. Let's discuss your project, explore partnership opportunities, or answer your questions about our services."
+        url="https://codexnovas.in/contact"
+      />
       <section
         id="contact"
         className="relative w-full py-6 sm:py-12 md:py-24 px-6 md:px-12 bg-gradient-to-b from-white to-gray-100"

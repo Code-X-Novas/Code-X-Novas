@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar";
+import SEO from "../../components/SEO";
 import Contact from "../Contact";
 
 import Picture from "../../assets/InternalPages/BlogsPage/Picture.png";
@@ -60,6 +61,11 @@ export default function BlogsPage() {
 
   return (
     <>
+      <SEO
+        title="Blogs — Code X Novas | Tech Insights & Industry Trends"
+        description="Read the latest articles on web development, AI, design, and digital transformation. Expert insights and best practices from the Code X Novas team."
+        url="https://codexnovas.in/blogs"
+      />
       <Navbar />
 
       <div className="relative w-full bg-white overflow-hidden min-h-screen">

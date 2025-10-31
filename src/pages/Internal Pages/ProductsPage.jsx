@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar";
+import SEO from "../../components/SEO";
 
 import frame1 from "../../assets/InternalPages/ProductsPage/Frames/Frame1.png";
 import frame2 from "../../assets/InternalPages/ProductsPage/Frames/Frame2.png";
@@ -51,6 +52,11 @@ export default function ProductsPage() {
 
   return (
     <>
+      <SEO
+        title="Our Products — Code X Novas | Digital Solutions & Platforms"
+        description="Explore Code X Novas products: innovative digital platforms, SaaS solutions, and custom tools designed to accelerate your business growth."
+        url="https://codexnovas.in/products"
+      />
       <Navbar />
 
       <div className="relative w-full bg-white overflow-hidden">

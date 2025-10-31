@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar";
+import SEO from "../../components/SEO";
 import Contact from "../Contact";
 
 import UIUX from "../../assets/Career/uiux.png";
@@ -65,6 +66,11 @@ export default function CareerPage() {
 
   return (
     <>
+      <SEO
+        title="Careers — Code X Novas | Join Our Team"
+        description="Explore career opportunities at Code X Novas. We're hiring UI/UX designers, developers, and business professionals. Build the future with us."
+        url="https://codexnovas.in/career"
+      />
       <Navbar />
 
       <div className="relative w-full bg-white overflow-hidden">

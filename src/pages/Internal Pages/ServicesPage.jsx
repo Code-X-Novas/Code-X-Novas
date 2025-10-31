@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import Navbar from "../../components/Navbar";
+import SEO from "../../components/SEO";
 import frame1 from "../../assets/InternalPages/ServicesPage/Frames/Frame1.png";
 import frame2 from "../../assets/InternalPages/ServicesPage/Frames/Frame2.png";
 import frame3 from "../../assets/InternalPages/ServicesPage/Frames/Frame3.png";
@@ -84,6 +85,11 @@ export default function ServicesPage() {
 
   return (
     <>
+      <SEO
+        title="Our Services — Code X Novas | Web, App & AI Development"
+        description="Expert web development, mobile apps, AI solutions, UI/UX design, custom LMS platforms, and e-commerce services. We build digital products that drive results."
+        url="https://codexnovas.in/services"
+      />
       <Navbar />
 
       <div className="relative w-full bg-white overflow-hidden">

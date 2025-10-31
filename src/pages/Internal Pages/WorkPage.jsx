@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar";
+import SEO from "../../components/SEO";
 import SynchroTask from "../../assets/Works/synchrotask.png";
 import SkillLoop from "../../assets/Works/skillloop.png";
 import UrbanPilgrim from "../../assets/Works/urbanpilgrim.png";
@@ -70,6 +71,11 @@ export default function WorkPage() {
 
   return (
     <>
+      <SEO
+        title="Our Work — Code X Novas | Portfolio & Case Studies"
+        description="View our portfolio of web apps, mobile solutions, and digital products. See how we've helped businesses scale with innovative technology."
+        url="https://codexnovas.in/works"
+      />
       <Navbar />
       <div className="relative w-full bg-white overflow-hidden">
         {showBlur && (
