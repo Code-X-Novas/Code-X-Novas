@@ -162,7 +162,7 @@ export default function AboutPage() {
             </h2>
             <ul className="space-y-4 text-[15px] sm:text-[16px] md:text-[17px] text-[#333] leading-[1.7]">
               {[
-                "Successfully delivered 40+ projects in web, app, AI, and custom solutions.",
+                "Successfully delivered 50+ projects in web, app, AI, and custom solutions.",
                 "Trusted by leading brands and startups across India, Dubai, USA, and beyond.",
                 "Recognized as one of India’s Top 75 Emerging Startups for digital innovation.",
               ].map((item, i) => (
@@ -234,7 +234,7 @@ export default function AboutPage() {
 
     <ul className="space-y-2 text-[14px] sm:text-[15px] text-[#333] leading-[1.6] font-[400] text-left">
       {[
-        "Successfully delivered 40+ projects in web, app, AI, and custom solutions.",
+        "Successfully delivered 50+ projects in web, app, AI, and custom solutions.",
         "Trusted by leading brands and startups across India, Dubai, USA, and beyond.",
         "Recognized as one of India’s Top 75 Emerging Startups for digital innovation.",
       ].map((item, i) => (

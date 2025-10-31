@@ -1,9 +1,88 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import { FiPhone, FiMail } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
+import emailjs from "@emailjs/browser";
 import Logo from "../assets/logo.png";
 
 const Contact = () => {
+  const form = useRef();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    subscribe: false,
+  });
+  const [status, setStatus] = useState({ type: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setStatus({ type: "", message: "" });
+
+    // Basic validation
+    if (!formData.name || !formData.email || !formData.message) {
+      setStatus({
+        type: "error",
+        message: "Please fill in all required fields.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus({
+        type: "error",
+        message: "Please enter a valid email address.",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      // Replace these with your actual EmailJS credentials
+      const result = await emailjs.sendForm(
+        "service_5hqfkmn",
+        "template_zfp7e0s",
+        form.current,
+        "SuuyPe1FNbCGOQaWM"
+      );
+
+      if (result.text === "OK") {
+        setStatus({
+          type: "success",
+          message: "Message sent successfully! We'll get back to you soon.",
+        });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          message: "",
+          subscribe: false,
+        });
+      }
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      setStatus({
+        type: "error",
+        message: "Failed to send message. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
       <section
@@ -43,33 +122,51 @@ const Contact = () => {
             <div className="absolute bottom-7 right-8 w-12 h-12 sm:w-28 sm:bottom-16 sm:right-20 md:bottom-20 md:right-28 sm:h-28 md:w-32 md:h-32 bg-blue-700/40 rounded-full"></div>
           </div>
           <div className="bg-white p-8 md:p-12 flex flex-col justify-center">
-            <form className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <input
                   type="text"
+                  name="name"
                   placeholder="Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                   className="border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-base md:text-lg"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                   className="border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-base md:text-lg"
                 />
               </div>
               <input
                 type="text"
+                name="phone"
                 placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
                 className="w-full border-b border-gray-400 focus:outline-none focus:border-blue-600 py-3 text-base md:text-lg"
               />
               <textarea
+                name="message"
                 placeholder="Write your message.."
                 rows="5"
+                value={formData.message}
+                onChange={handleChange}
+                required
                 className="w-full border-b border-gray-400 focus:outline-none focus:border-blue-600 pt-1 pb-0 text-base md:text-lg -mt-6"
               ></textarea>
               <div className="flex items-start space-x-3 -mt-2">
                 <input
                   type="checkbox"
                   id="subscribe"
+                  name="subscribe"
+                  checked={formData.subscribe}
+                  onChange={handleChange}
                   className="peer mt-1 w-4 h-4 rounded-full appearance-none border border-gray-400 
                checked:bg-black checked:border-black checked:before:content-['✔'] 
                checked:before:text-white checked:before:block checked:before:text-xs 
@@ -82,13 +179,25 @@ const Contact = () => {
                   Subscribe to receive the latest news and exclusive offers
                 </label>
               </div>
+              {status.message && (
+                <div
+                  className={`p-4 rounded-md text-sm ${
+                    status.type === "success"
+                      ? "bg-green-100 text-green-700 border border-green-300"
+                      : "bg-red-100 text-red-700 border border-red-300"
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
               <div className="mt-8">
                 <button
                   type="submit"
-                  className="group bg-black text-white px-16 py-3 rounded-md hover:bg-gray-900 transition text-base md:text-lg overflow-hidden"
+                  disabled={isSubmitting}
+                  className="group bg-black text-white px-16 py-3 rounded-md hover:bg-gray-900 transition text-base md:text-lg overflow-hidden disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <span className="inline-block group-hover:animate-[jumpOnce_0.8s_ease-in-out]">
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </span>
                 </button>
                 <style>
