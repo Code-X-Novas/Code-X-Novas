@@ -273,7 +273,7 @@ export default function HeroWithNavbar() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.8 }}
                         >
-                            <h3 className="text-[#2352A5] font-semibold tracking-wide text-[12px] mb-10 px-4">
+                            <h3 className="text-[#2352A5] font-semibold tracking-wide text-[12px] mt-8 mb-12 px-4">
                                 TRUSTED BY CURRENT AND SOON TO BE WORLD-CLASS BRANDS
                             </h3>
                             <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap px-4">
@@ -299,18 +299,26 @@ export default function HeroWithNavbar() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        We Build <motion.span
-                            className="text-black"
+                        We Build 
+                        <motion.span
+                            className="text-[#2352A5]"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
-                        >Products</motion.span> <br /> that Work – <motion.span
-                            className="text-black"
+                        >
+                            {" "} Products
+                        </motion.span> 
+                        <br /> that Work – 
+                        <motion.span
+                            className="text-[#2352A5]"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
-                        >Fast.</motion.span>
+                        >
+                            Fast.
+                        </motion.span>
                     </motion.h1>
+
                     <motion.p
                         className="font-sora text-black mb-8 text-[16px] xl:text-[19px] 2xl:text-[21px] leading-[140%] font-normal"
                         initial={{ opacity: 0, y: 20 }}
