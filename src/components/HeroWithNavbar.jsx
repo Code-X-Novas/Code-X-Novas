@@ -206,9 +206,9 @@ export default function HeroWithNavbar() {
                     </button>
                 </div>
             )}
-            
+
             <div className="relative flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 z-10 min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-70px)] md:min-h-[calc(100vh-80px)] lg:gap-8">
-                
+
                 <img
                     loading="lazy"
                     src={ellipse}
@@ -217,166 +217,101 @@ export default function HeroWithNavbar() {
                 />
 
                 {/* Mobile/Tablet View (below lg breakpoint) */}
-                <div className="w-full lg:hidden pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
-                    <div className="w-full px-4 sm:px-6">
-                        <div className="max-w-3xl mx-auto text-center">
-                            <motion.h1 
-                                className="font-sora font-semibold text-black mb-4 sm:mb-6 text-[24px] xs:text-[26px] sm:text-[32px] md:text-[38px] leading-[120%]"
-                                initial={{ opacity: 0, y: -30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.8, ease: "easeOut" }}
-                            >
-                                We Build <motion.span 
-                                    className="text-[#2352A5]"
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.3 }}
-                                >Products</motion.span> <br /> that Work – <motion.span 
-                                    className="text-[#2352A5]"
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.5 }}
-                                >Fast.</motion.span>
-                            </motion.h1>
-                            <motion.p 
-                                className="font-sora text-gray-600 mb-6 sm:mb-8 text-[13px] xs:text-[14px] sm:text-[15px] md:text-[17px] leading-[140%] font-normal px-2"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, delay: 0.4 }}
-                            >
-                                From startup tools to enterprise systems – Code-X-Novas crafts scalable, AI-powered solutions that redefine productivity
-                            </motion.p>
-
-                            <motion.div 
-                                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-10"
-                                initial={{ opacity: 0, y: 30 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.7, delay: 0.6 }}
-                            >
-                                <motion.button
-                                    onClick={() => {
-                                        const section = document.getElementById("products");
-                                        if (section) section.scrollIntoView({ behavior: "smooth" });
-                                    }}
-                                    className="w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[14px] sm:text-[15px]"
-                                    style={{
-                                        background: `linear-gradient(90deg,#2352A5 0%,#137DD1 20%,#02A7FD 45%,#42ACEF 70%,#7DE2FF 92%,#B7F1FF 100%)`,
-                                        boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
-                                    }}
-                                    initial={{ x: -20, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.8 }}
-                                    whileHover={{ scale: 1.05, boxShadow: "0px 6px 20px rgba(0, 0, 0, 0.25)" }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Explore Our Products
-                                </motion.button>
-
-                                <motion.button
-                                    className="w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-md text-[#1E5FB3] font-medium text-[14px] sm:text-[15px] hover:bg-sky-50 border-[#1E5FB3] border-[2px] text-center bg-transparent transition-all"
-                                    initial={{ x: 20, opacity: 0 }}
-                                    animate={{ x: 0, opacity: 1 }}
-                                    transition={{ duration: 0.6, delay: 0.8 }}
-                                    whileHover={{ scale: 1.05, backgroundColor: "#e0f2fe" }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Partner With Us
-                                </motion.button>
-                            </motion.div>
-                        </div>
-                    </div>
-
-                    {/* Brand logos section */}
-                    <motion.div 
-                        className="w-full bg-white py-6 sm:py-8 flex flex-col items-center"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 1 }}
-                    >
-                        <motion.h3 
-                            className="text-center text-[#2352A5] font-semibold tracking-wide text-[11px] xs:text-[12px] sm:text-[13px] md:text-[14px] mb-6 sm:mb-8 px-4 max-w-2xl"
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.6, delay: 1.2 }}
+                <div className="w-full lg:hidden pt-28 sm:pt-20 pb-10 bg-gradient-to-b from-[#E6F4FF] to-white">
+                    <div className="px-5 text-center">
+                        {/* Heading */}
+                        <motion.h1
+                            className="font-sora font-semibold text-black mb-4 text-[26px] sm:text-[32px] leading-[120%]"
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8 }}
                         >
-                            TRUSTED BY CURRENT AND SOON TO BE WORLD-CLASS BRANDS
-                        </motion.h3>
-                        <motion.div 
-                            className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 px-4 flex-wrap"
+                            We Build <span className="text-[#2352A5]">Products</span> <br /> that Work – <span className="text-[#2352A5]">Fast.</span>
+                        </motion.h1>
+
+                        {/* Description */}
+                        <motion.p
+                            className="font-sora text-black text-[14px] sm:text-[15px] leading-[150%] max-w-md mx-auto mb-8"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, delay: 0.3 }}
+                        >
+                            From startup tools to enterprise systems – Code-X-Novas crafts scalable, AI-powered solutions that redefine productivity.
+                        </motion.p>
+
+                        {/* Buttons */}
+                        <motion.div
+                            className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-10"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ staggerChildren: 0.15, delayChildren: 1.4 }}
+                            transition={{ duration: 0.7, delay: 0.5 }}
                         >
-                            <motion.img 
-                                loading="lazy" 
-                                src={brand1} 
-                                alt="brand1" 
-                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 1.4 }}
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                            />
-                            <motion.img 
-                                loading="lazy" 
-                                src={brand2} 
-                                alt="brand2" 
-                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 1.55 }}
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                            />
-                            <motion.img 
-                                loading="lazy" 
-                                src={brand3} 
-                                alt="brand3" 
-                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 1.7 }}
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                            />
-                            <motion.img 
-                                loading="lazy" 
-                                src={brand4} 
-                                alt="brand4" 
-                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
-                                initial={{ opacity: 0, scale: 0 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.5, delay: 1.85 }}
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                            />
+                            {/* Explore Button */}
+                            <button
+                                onClick={() => document.getElementById("products")?.scrollIntoView({ behavior: "smooth" })}
+                                className="min-w-[220px] px-6 py-3 rounded-md font-semibold text-white text-[14px]"
+                                style={{
+                                    background: `linear-gradient(90deg,#2352A5 0%,#137DD1 20%,#02A7FD 45%,#42ACEF 70%,#7DE2FF 92%,#B7F1FF 100%)`,
+                                    boxShadow: "0px 4px 15px rgba(0,0,0,0.15)",
+                                }}
+                            >
+                                Explore Our Products
+                            </button>
+
+                            {/* Partner Button */}
+                            <button
+                                className="min-w-[180px] px-6 py-3 rounded-md text-[#1E5FB3] font-semibold text-[14px] border-[2px] border-[#1E5FB3] hover:bg-sky-50 transition-all bg-transparent"
+                            >
+                                Partner With Us
+                            </button>
                         </motion.div>
-                    </motion.div>
+
+                        {/* Trusted Brands */}
+                        <motion.div
+                            className="w-full bg-white py-6 flex flex-col items-center"
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                        >
+                            <h3 className="text-[#2352A5] font-semibold tracking-wide text-[12px] mb-6 px-4">
+                                TRUSTED BY CURRENT AND SOON TO BE WORLD-CLASS BRANDS
+                            </h3>
+                            <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap px-4">
+                                <img loading="lazy" src={brand1} alt="Urban Pilgrim" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand2} alt="TakshaFM" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand3} alt="Shagun" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand4} alt="SkillLoop" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
 
                 {/* Desktop View (lg and above) - Left Side */}
-                <motion.div 
+                <motion.div
                     className="w-full lg:w-[48%] z-10 flex-shrink-0 text-left hidden lg:block mt-16 xl:mt-20"
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
-                    <motion.h1 
+                    <motion.h1
                         className="font-sora font-semibold text-black mb-6 text-[40px] xl:text-[52px] 2xl:text-[60px] leading-[120%]"
                         initial={{ opacity: 0, y: -30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        We Build <motion.span 
+                        We Build <motion.span
                             className="text-black"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
-                        >Products</motion.span> <br /> that Work – <motion.span 
+                        >Products</motion.span> <br /> that Work – <motion.span
                             className="text-black"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
                         >Fast.</motion.span>
                     </motion.h1>
-                    <motion.p 
+                    <motion.p
                         className="font-sora text-black mb-8 text-[16px] xl:text-[19px] 2xl:text-[21px] leading-[140%] font-normal"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -385,7 +320,7 @@ export default function HeroWithNavbar() {
                         From startup tools to enterprise systems – Code-X-Novas crafts scalable, AI-powered solutions that redefine productivity
                     </motion.p>
 
-                    <motion.div 
+                    <motion.div
                         className="flex flex-wrap gap-4 lg:gap-5 xl:gap-6 mt-10"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -424,7 +359,7 @@ export default function HeroWithNavbar() {
                 </motion.div>
 
                 {/* Desktop Interface - Right Side (lg and above) */}
-                <motion.div 
+                <motion.div
                     className="relative w-full lg:w-[48%] z-10 hidden lg:flex items-center justify-center mt-16"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -432,12 +367,12 @@ export default function HeroWithNavbar() {
                 >
                     <div className="relative w-full h-[500px] lg:h-[550px] xl:h-[600px]">
                         {current.rectangles.map((rect, i) => (
-                            <motion.img 
-                                key={i} 
-                                src={rect.src} 
-                                loading="lazy" 
-                                alt={`Rectangle ${i + 1}`} 
-                                className="absolute" 
+                            <motion.img
+                                key={i}
+                                src={rect.src}
+                                loading="lazy"
+                                alt={`Rectangle ${i + 1}`}
+                                className="absolute"
                                 style={{
                                     ...rect.style,
                                     top: i === 0 ? '70px' : '370px',
@@ -511,13 +446,13 @@ export default function HeroWithNavbar() {
                 </motion.div>
 
                 {/* Tablet Interface (md to lg) - Removed as content now handled by mobile/desktop views */}
-                <motion.div 
+                <motion.div
                     className="hidden"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    <motion.div 
+                    <motion.div
                         className="flex flex-col sm:flex-row items-center justify-center gap-6"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
@@ -568,13 +503,13 @@ export default function HeroWithNavbar() {
                 </motion.div>
 
                 {/* Mobile Rectangle Interface - Hidden for cleaner layout */}
-                <motion.div 
+                <motion.div
                     className="hidden"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                 >
-                    <motion.div 
+                    <motion.div
                         className="relative w-[85%] sm:w-[70%] max-w-[220px] flex flex-col items-center"
                         initial={{ y: 30, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}

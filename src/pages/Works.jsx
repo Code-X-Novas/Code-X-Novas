@@ -25,15 +25,15 @@ const Works = () => {
     // mobile-only: number of visible project cards (shows 3, then +3 per Load More)
     const [mobileVisibleCount, setMobileVisibleCount] = useState(3);
 
-    // Reset mobile visible count when category changes to ensure mobile shows first 3 of new filter
-    useEffect(() => {
-        setMobileVisibleCount(3);
-    }, [activeCategory]);
-
     const filteredProjects =
         activeCategory === "All"
             ? projectsData
             : projectsData.filter((p) => p.category === activeCategory);
+
+    // Reset mobile visible count when category changes to ensure mobile shows first 3 of new filter
+    useEffect(() => {
+        setMobileVisibleCount(3);
+    }, [activeCategory]);
 
     // --- Mobile Glassmorphism Class ---
     // Using a class for the new glass effect: low white background, slight border, and backdrop blur.
@@ -55,7 +55,6 @@ const Works = () => {
                 className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] md:w-[800px] pointer-events-none select-none"
             />
             <div className="relative z-10">
-
                 <motion.div
                     className="text-center mb-12"
                     initial={{ opacity: 0, y: -40 }}
@@ -108,8 +107,8 @@ const Works = () => {
                                 // inline-block + whitespace-nowrap (mobile) allow horizontal scrolling on small screens
                                 // md:whitespace-normal restores wrap behavior on larger screens (no desktop change)
                                 className={`inline-block px-4 sm:px-6 py-2 text-sm sm:text-base font-medium transition rounded-lg whitespace-nowrap md:whitespace-normal ${activeCategory === cat
-                                        ? "bg-gradient-to-r from-[#016FAE] to-[#4FA3FF] text-white shadow-lg"
-                                        : "text-white/70 hover:text-white md:text-gray-300"
+                                    ? "bg-gradient-to-r from-[#016FAE] to-[#4FA3FF] text-white shadow-lg"
+                                    : "text-white/70 hover:text-white md:text-gray-300"
                                     }`}
                                 onClick={() => setActiveCategory(cat)}
                                 variants={{
@@ -128,9 +127,10 @@ const Works = () => {
                 {/* MOBILE: show limited number of project cards (single column), expand by 3 on Load More */}
                 <div className="md:hidden">
                     <motion.div
+                        key={activeCategory}
                         className="flex flex-col gap-6 mb-6 items-center"
                         initial="hidden"
-                        whileInView="visible"
+                        animate="visible"
                         viewport={{ once: true, amount: 0.1 }}
                         variants={{
                             hidden: {},
@@ -212,9 +212,10 @@ const Works = () => {
                 {/* DESKTOP & TABLET: original layout preserved exactly */}
                 <div className="hidden md:block">
                     <motion.div
+                        key={`desktop-top-${activeCategory}`}
                         className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[40%_40%] justify-center gap-6 lg:gap-x-4 mb-6"
                         initial="hidden"
-                        whileInView="visible"
+                        animate="visible"
                         viewport={{ once: true, amount: 0.2 }}
                         variants={{
                             hidden: {},
@@ -279,9 +280,10 @@ const Works = () => {
                         ))}
                     </motion.div>
                     <motion.div
+                        key={`desktop-bottom-${activeCategory}`}
                         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[27%_27%_27%] justify-center gap-6 lg:gap-x-4"
                         initial="hidden"
-                        whileInView="visible"
+                        animate="visible"
                         viewport={{ once: true, amount: 0.2 }}
                         variants={{
                             hidden: {},
