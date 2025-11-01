@@ -92,58 +92,47 @@ export default function HeroWithNavbar() {
 
     const current = layouts[index];
     const activeIndex = offset === 0 ? 0 : 1;
-    const top1 = parseInt(current.rectangles[0].style.top, 10);
-    const top2 = parseInt(current.rectangles[1].style.top, 10);
-    const midpoint = (top1 + top2) / 2;
 
     return (
         <section
             id="hero"
-            className="relative overflow-hidden mb-6"
+            className="relative overflow-hidden mb-4 sm:mb-6 md:mb-8"
             style={{
                 width: "100%",
-                // Base is white. The visible blue-to-white top layer is rendered by the element below
                 background: "#ffffff",
-                // Reduce the mobile min-height (was 120vh) to avoid excessive vertical space
-                // on small phones. Desktop remains unchanged.
-                minHeight: window.innerWidth <= 768 ? "1vh" : "100vh",
+                minHeight: "auto",
             }}
         >
-            {/* Top gradient layer to create a smooth blue-to-white upper section (not a hard rectangle) */}
+            {/* Top gradient layer - responsive height */}
             <div
                 aria-hidden
                 className="absolute top-0 left-0 w-full z-0"
                 style={{
-                    // smaller gradient band on very small phones to match Figma spacing
-                    height: window.innerWidth <= 640 ? "36vh" : window.innerWidth <= 768 ? "48vh" : "60vh",
+                    height: "50vh",
                     background: "linear-gradient(180deg, #e6f6ff 0%, #d7f0ff 35%, rgba(255,255,255,0.95) 100%)",
-                    // rounded bottom to avoid a sharp rectangular cut
-                    borderBottomLeftRadius: window.innerWidth <= 768 ? "40% 20%" : "28% 12%",
-                    borderBottomRightRadius: window.innerWidth <= 768 ? "40% 20%" : "28% 12%",
+                    borderBottomLeftRadius: "30% 15%",
+                    borderBottomRightRadius: "30% 15%",
                     pointerEvents: "none",
                 }}
             />
 
-            {/* Right-side atmospheric gradient (desktop lg+): stronger, blurred radial glow */}
+            {/* Right-side atmospheric gradient (desktop only) */}
             <div
                 aria-hidden
-                className="absolute top-0 right-0 h-full z-0 hidden lg:block"
+                className="absolute top-0 right-0 h-full z-0 hidden xl:block"
                 style={{
-                    width: '48%',
-                    // Smooth right-side color wash (less clustered, more uniform)
-                    // Use a wide linear gradient from subtle transparency into the brand blues
+                    width: '45%',
                     background: 'linear-gradient(90deg, rgba(230,246,255,0) 0%, rgba(213,238,255,0.6) 25%, rgba(135,195,235,0.6) 55%, rgba(52,138,217,0.9) 100%)',
                     opacity: 1,
-                    // small blur to soften transition edges without producing a concentrated "spot"
                     filter: 'blur(18px)',
                     transform: 'translateX(2%)',
                     pointerEvents: 'none',
                 }}
             />
 
-            {/* The rest of the code remains unchanged */}
+            {/* Navbar */}
             <nav
-                className="flex items-center justify-between px-6 h-[65px] md:h-[80px] lg:h-[90px] fixed top-0 left-0 z-50"
+                className="flex items-center justify-between px-4 sm:px-6 md:px-8 h-[60px] sm:h-[70px] md:h-[80px] lg:h-[85px] fixed top-0 left-0 z-50"
                 style={{
                     width: "100%",
                     background: "#FFFFFFB5",
@@ -151,100 +140,88 @@ export default function HeroWithNavbar() {
                     backdropFilter: "blur(10px)",
                 }}
             >
-                <Link to="/" className="flex items-center pl-2">
+                <Link to="/" className="flex items-center">
                     <img
                         src={logo}
                         loading="lazy"
                         alt="Code X Novas"
-                        className="w-auto transition-all duration-300"
-                        style={{ height: window.innerWidth <= 640 ? 36 : window.innerWidth <= 768 ? 48 : 64 }}
+                        className="h-[32px] sm:h-[40px] md:h-[48px] lg:h-[56px] w-auto transition-all duration-300"
                     />
                 </Link>
 
-                <div className="hidden md:flex items-center">
-                    <div className="flex items-center mr-80 space-x-6 lg:space-x-6 xl:space-x-8">
-                        <button onClick={() => handleNavClick("services", "/services")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Services</button>
-                        <button onClick={() => handleNavClick("works", "/works")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Works</button>
-                        <button onClick={() => handleNavClick("products", "/products")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Products</button>
-                        <button onClick={() => handleNavClick("blogs", "/blogs")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Blogs</button>
-                        <button onClick={() => handleNavClick("about", "/about")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">About</button>
-                        <button onClick={() => handleNavClick("career", "/career")} className="font-sora text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4">Career</button>
-                    </div>
+                <div className="hidden lg:flex items-center gap-4 xl:gap-6 absolute left-1/2 transform -translate-x-1/2">
+                    <button onClick={() => handleNavClick("services", "/services")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Services</button>
+                    <button onClick={() => handleNavClick("works", "/works")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Works</button>
+                    <button onClick={() => handleNavClick("products", "/products")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Products</button>
+                    <button onClick={() => handleNavClick("blogs", "/blogs")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Blogs</button>
+                    <button onClick={() => handleNavClick("about", "/about")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">About</button>
+                    <button onClick={() => handleNavClick("career", "/career")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Career</button>
+                </div>
+
+                <div className="hidden lg:flex items-center">
                     <button
                         onClick={() => handleNavClick("contact", "/contact")}
-                        className="relative overflow-hidden ml-auto px-6 py-2 rounded-md font-poppins text-[16px] text-white"
+                        className="relative overflow-hidden px-5 xl:px-6 py-2 xl:py-2.5 rounded-md font-poppins text-[14px] xl:text-[16px] text-white hover:opacity-90 transition-all"
                         style={{
-                            background: `
-      linear-gradient(
-        90deg,
-      #2352A5 0%,
-        #137DD1 20%,
-        #02A7FD 45%,
-        #42ACEF 70%,
-        #7DE2FF 92%,
-        #B7F1FF 100%
-      )
-    `,
+                            background: `linear-gradient(90deg, #2352A5 0%, #137DD1 20%, #02A7FD 45%, #42ACEF 70%, #7DE2FF 92%, #B7F1FF 100%)`,
                             boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
                         }}
                     >
                         Contact us
                     </button>
-
                 </div>
 
-                <div className="flex items-center gap-3 md:hidden">
-                    {/* Mobile-only Contact button removed so only hamburger is visible on small screens */}
+                <div className="flex items-center lg:hidden">
                     <button
-                        className="text-gray-700"
+                        className="text-gray-700 p-1"
                         onClick={() => setOpen(!open)}
                         aria-label={open ? "Close menu" : "Open menu"}
                     >
-                        {open ? <X size={26} /> : <Menu size={26} />}
+                        {open ? <X size={24} /> : <Menu size={24} />}
                     </button>
                 </div>
-
             </nav>
 
             {open && (
                 <div
-                    className="fixed left-0 w-full bg-white shadow-md flex flex-col p-6 space-y-6 md:hidden"
+                    className="fixed left-0 w-full bg-white shadow-lg flex flex-col p-5 sm:p-6 space-y-4 sm:space-y-5 lg:hidden z-[9999]"
                     style={{
-                        // place the menu right under the fixed navbar and force it above all content
-                        top: window?.innerWidth <= 640 ? 65 : 80,
-                        zIndex: 9999,
+                        top: "60px",
                     }}
                 >
-                    <button onClick={() => handleNavClick("services", "/services")}>Services</button>
-                    <button onClick={() => handleNavClick("works", "/works")}>Works</button>
-                    <button onClick={() => handleNavClick("products", "/products")}>Products</button>
-                    <button onClick={() => handleNavClick("blogs", "/blogs")}>Blogs</button>
-                    <button onClick={() => handleNavClick("about", "/about")}>About</button>
-                    <button onClick={() => handleNavClick("career", "/career")}>Career</button>
+                    <button onClick={() => { handleNavClick("services", "/services"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Services</button>
+                    <button onClick={() => { handleNavClick("works", "/works"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Works</button>
+                    <button onClick={() => { handleNavClick("products", "/products"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Products</button>
+                    <button onClick={() => { handleNavClick("blogs", "/blogs"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Blogs</button>
+                    <button onClick={() => { handleNavClick("about", "/about"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">About</button>
+                    <button onClick={() => { handleNavClick("career", "/career"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Career</button>
                     <button
-                        onClick={() => handleNavClick("contact", "/contact")}
-                        className="w-full text-center px-6 py-3 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]"
+                        onClick={() => { handleNavClick("contact", "/contact"); setOpen(false); }}
+                        className="w-full text-center px-6 py-2.5 sm:py-3 rounded-md font-poppins text-[15px] sm:text-[16px] text-white transition-all hover:opacity-90"
+                        style={{
+                            background: "linear-gradient(90deg, #2352A5 0%, #137DD1 50%, #3CA9E2 100%)",
+                        }}
                     >
                         Contact us
                     </button>
                 </div>
             )}
             
-            <div className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 pr-6 md:pr-28 z-10 h-auto md:h-screen">
+            <div className="relative flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 z-10 min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-70px)] md:min-h-[calc(100vh-80px)] lg:gap-8">
+                
                 <img
                     loading="lazy"
                     src={ellipse}
                     alt="background ellipse"
-                    className="absolute left-[-2px] top-20 w-[600px] opacity-90 z-0 hidden md:block"
+                    className="absolute left-[-2px] top-20 w-[500px] lg:w-[600px] opacity-90 z-0 hidden lg:block"
                 />
 
-                {/* Mobile: top gradient band that contains heading + CTAs only; below this is white (so white starts after CTAs) */}
-                {/* reduce top gap on phones so CTAs and logos sit higher (mobile-only) */}
-                <div className="w-full md:hidden mt-28">
-                    <div className="w-full px-6 py-6">
-                        <div className="max-w-5xl mx-auto text-center">
+                {/* Mobile/Tablet View (below lg breakpoint) */}
+                <div className="w-full lg:hidden pt-16 sm:pt-20 md:pt-24 pb-8 sm:pb-12">
+                    <div className="w-full px-4 sm:px-6">
+                        <div className="max-w-3xl mx-auto text-center">
                             <motion.h1 
-                                className="font-sora font-semibold text-black mb-10 sm:mb-6 text-[28px] sm:text-[32px] leading-[120%]"
+                                className="font-sora font-semibold text-black mb-4 sm:mb-6 text-[24px] xs:text-[26px] sm:text-[32px] md:text-[38px] leading-[120%]"
                                 initial={{ opacity: 0, y: -30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -262,18 +239,16 @@ export default function HeroWithNavbar() {
                                 >Fast.</motion.span>
                             </motion.h1>
                             <motion.p 
-                                className="font-sora text-gray-600 mb-8 text-[14px] sm:text-[16px] leading-[140%] font-normal tracking-tight"
+                                className="font-sora text-gray-600 mb-6 sm:mb-8 text-[13px] xs:text-[14px] sm:text-[15px] md:text-[17px] leading-[140%] font-normal px-2"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: 0.4 }}
                             >
-                                From startup tools to enterprise systems – Code-X-
-                                Novas crafts scalable, AI-powered solutions that
-                                redefine productivity
+                                From startup tools to enterprise systems – Code-X-Novas crafts scalable, AI-powered solutions that redefine productivity
                             </motion.p>
 
                             <motion.div 
-                                className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-10 sm:mt-10 justify-center mb-6 sm:mb-0"
+                                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-10"
                                 initial={{ opacity: 0, y: 30 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.7, delay: 0.6 }}
@@ -283,7 +258,7 @@ export default function HeroWithNavbar() {
                                         const section = document.getElementById("products");
                                         if (section) section.scrollIntoView({ behavior: "smooth" });
                                     }}
-                                    className="w-[230px] sm:w-auto mx-auto sm:mx-0 relative overflow-hidden px-6 py-3 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[16px] sm:text-[18px]"
+                                    className="w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[14px] sm:text-[15px]"
                                     style={{
                                         background: `linear-gradient(90deg,#2352A5 0%,#137DD1 20%,#02A7FD 45%,#42ACEF 70%,#7DE2FF 92%,#B7F1FF 100%)`,
                                         boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
@@ -298,7 +273,7 @@ export default function HeroWithNavbar() {
                                 </motion.button>
 
                                 <motion.button
-                                    className="w-[190px] sm:w-auto mx-auto sm:mx-0 px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-md sm:rounded-md text-[#1E5FB3] font-medium text-[15px] sm:text-[17px] hover:bg-sky-50 border-[#1E5FB3] border-[1.5px] sm:border-[3px] text-center bg-transparent"
+                                    className="w-full sm:w-auto px-5 py-2.5 sm:px-6 sm:py-3 rounded-md text-[#1E5FB3] font-medium text-[14px] sm:text-[15px] hover:bg-sky-50 border-[#1E5FB3] border-[2px] text-center bg-transparent transition-all"
                                     initial={{ x: 20, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{ duration: 0.6, delay: 0.8 }}
@@ -311,23 +286,23 @@ export default function HeroWithNavbar() {
                         </div>
                     </div>
 
-                    {/* Mobile logos sit on the white section below the gradient band */}
+                    {/* Brand logos section */}
                     <motion.div 
-                        className="w-full bg-white py-2 sm:py-4 flex flex-col items-center -mb-2 sm:mb-0"
+                        className="w-full bg-white py-6 sm:py-8 flex flex-col items-center"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 1 }}
                     >
                         <motion.h3 
-                            className="text-center text-[#2352A5] font-semibold tracking-wide text-[14px] sm:text-[15px] mb-10 sm:mb-4 px-4"
+                            className="text-center text-[#2352A5] font-semibold tracking-wide text-[11px] xs:text-[12px] sm:text-[13px] md:text-[14px] mb-6 sm:mb-8 px-4 max-w-2xl"
                             initial={{ opacity: 0, scale: 0.9 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 1.2 }}
                         >
-                            TRUSTED BY CURRENT AND SOON TO BE <span className="">WORLD-CLASS BRANDS</span>
+                            TRUSTED BY CURRENT AND SOON TO BE WORLD-CLASS BRANDS
                         </motion.h3>
                         <motion.div 
-                            className="flex items-center justify-center gap-6 px-4 mb-6 sm:mb-0"
+                            className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 px-4 flex-wrap"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ staggerChildren: 0.15, delayChildren: 1.4 }}
@@ -336,7 +311,7 @@ export default function HeroWithNavbar() {
                                 loading="lazy" 
                                 src={brand1} 
                                 alt="brand1" 
-                                className="h-10 object-contain"
+                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 1.4 }}
@@ -346,7 +321,7 @@ export default function HeroWithNavbar() {
                                 loading="lazy" 
                                 src={brand2} 
                                 alt="brand2" 
-                                className="h-10 object-contain"
+                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 1.55 }}
@@ -356,7 +331,7 @@ export default function HeroWithNavbar() {
                                 loading="lazy" 
                                 src={brand3} 
                                 alt="brand3" 
-                                className="h-10 object-contain"
+                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 1.7 }}
@@ -366,7 +341,7 @@ export default function HeroWithNavbar() {
                                 loading="lazy" 
                                 src={brand4} 
                                 alt="brand4" 
-                                className="h-10 object-contain"
+                                className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain"
                                 initial={{ opacity: 0, scale: 0 }}
                                 animate={{ opacity: 1, scale: 1 }}
                                 transition={{ duration: 0.5, delay: 1.85 }}
@@ -374,47 +349,44 @@ export default function HeroWithNavbar() {
                             />
                         </motion.div>
                     </motion.div>
-
                 </div>
 
-                {/* Desktop / tablet: original hero content (kept for md+) */}
+                {/* Desktop View (lg and above) - Left Side */}
                 <motion.div 
-                    className="max-w-5xl z-10 flex-shrink-0 mt-28 md:mt-[80px] md:ml-30 text-center md:text-left hidden md:block"
+                    className="w-full lg:w-[48%] z-10 flex-shrink-0 text-left hidden lg:block mt-16 xl:mt-20"
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                     <motion.h1 
-                        className="font-sora font-semibold text-black mb-6 text-[24px] sm:text-[28px] md:text-[56px] lg:text-[64px] leading-[120%]"
+                        className="font-sora font-semibold text-black mb-6 text-[40px] xl:text-[52px] 2xl:text-[60px] leading-[120%]"
                         initial={{ opacity: 0, y: -30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
                         We Build <motion.span 
-                            className="text-[#2352A5] md:text-black"
+                            className="text-black"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.5 }}
                         >Products</motion.span> <br /> that Work – <motion.span 
-                            className="text-[#2352A5] md:text-black"
+                            className="text-black"
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.6, delay: 0.7 }}
                         >Fast.</motion.span>
                     </motion.h1>
                     <motion.p 
-                        className="font-sora text-gray-600 md:text-black mb-8 text-[12px] sm:text-[15px] md:text-[20.5px] leading-[140%] font-normal tracking-tight"
+                        className="font-sora text-black mb-8 text-[16px] xl:text-[19px] 2xl:text-[21px] leading-[140%] font-normal"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.6 }}
                     >
-                        From startup tools to enterprise systems – Code-X- <br />
-                        Novas crafts scalable, AI-powered solutions that <br />
-                        redefine productivity
+                        From startup tools to enterprise systems – Code-X-Novas crafts scalable, AI-powered solutions that redefine productivity
                     </motion.p>
 
                     <motion.div 
-                        className="flex flex-col sm:flex-row gap-4 sm:gap-8 mt-6 sm:mt-10 justify-center md:justify-start"
+                        className="flex flex-wrap gap-4 lg:gap-5 xl:gap-6 mt-10"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.7, delay: 0.8 }}
@@ -424,7 +396,7 @@ export default function HeroWithNavbar() {
                                 const section = document.getElementById("products");
                                 if (section) section.scrollIntoView({ behavior: "smooth" });
                             }}
-                            className="w-[220px] sm:w-auto mx-auto sm:mx-0 relative overflow-hidden px-6 py-3 sm:px-6 sm:py-3 rounded-md font-semibold text-white text-[15px] sm:text-[16px]"
+                            className="px-5 lg:px-6 xl:px-7 py-2.5 lg:py-3 xl:py-3.5 rounded-md font-semibold text-white text-[14px] lg:text-[15px] xl:text-[16px]"
                             style={{
                                 background: `linear-gradient(90deg,#2352A5 0%,#137DD1 20%,#02A7FD 45%,#42ACEF 70%,#7DE2FF 92%,#B7F1FF 100%)`,
                                 boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
@@ -439,7 +411,7 @@ export default function HeroWithNavbar() {
                         </motion.button>
 
                         <motion.button
-                            className="w-[190px] sm:w-auto mx-auto sm:mx-0 px-3 py-1.5 sm:px-6 sm:py-2.5 rounded-md sm:rounded-md text-[#1E5FB3] font-medium text-[14px] sm:text-[16px] hover:bg-sky-50 border-[#1E5FB3] border-[1.5px] sm:border-[3px] text-center bg-transparent"
+                            className="px-5 lg:px-6 xl:px-7 py-2.5 lg:py-3 xl:py-3.5 rounded-md text-[#1E5FB3] font-medium text-[14px] lg:text-[15px] xl:text-[16px] hover:bg-sky-50 border-[#1E5FB3] border-[2.5px] text-center bg-transparent transition-all"
                             initial={{ x: 20, opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             transition={{ duration: 0.6, delay: 1 }}
@@ -451,93 +423,96 @@ export default function HeroWithNavbar() {
                     </motion.div>
                 </motion.div>
 
-                {/* Desktop Interface- seperated for clarity*/}
+                {/* Desktop Interface - Right Side (lg and above) */}
                 <motion.div 
-                    className="absolute inset-0 mt-10 z-10 hidden lg:block"
+                    className="relative w-full lg:w-[48%] z-10 hidden lg:flex items-center justify-center mt-16"
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
                 >
-                    {current.rectangles.map((rect, i) => (
-                        <motion.img 
-                            key={i} 
-                            src={rect.src} 
-                            loading="lazy" 
-                            alt={`Rectangle ${i + 1}`} 
-                            className="absolute" 
-                            style={rect.style}
-                            initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
-                            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-                            transition={{ duration: 0.7, delay: 0.6 + (i * 0.2) }}
-                            whileHover={{ scale: 1.05, rotateY: -5 }}
-                        />
-                    ))}
-                    <div
-                        className="absolute left-[60%] overflow-hidden"
-                        style={{ top: midpoint + 130, transform: "translateY(-50%)", height: boxHeight * 3.5 }}
-                    >
-                        <motion.div animate={{ y: offset }} transition={{ duration: 0.5, ease: "easeInOut" }} className="flex flex-col space-y-[8px]">
-                            {topics.map((topic, i) => {
-                                const isActive = i === activeIndex;
-                                const group = ["App Development", "Graphics Designing", "Google My Business"];
-                                let widthStyle = "fit-content";
-                                if (group.includes(topic) && groupWidth) widthStyle = `${groupWidth - 40}px`;
-                                if (topic === "Custom Website Development" && measureRefs.current[topic]) {
-                                    const cWidth = measureRefs.current[topic]?.offsetWidth || 0;
-                                    // For this specific long label we want it to wrap into two lines
-                                    // (matching the first screenshot). Cap the rendered width so the
-                                    // text naturally breaks. Use measured text width + small padding,
-                                    // but don't exceed 180px to force wrapping.
-                                    const capped = Math.min(cWidth + 40, 340);
-                                    widthStyle = `${capped}px`;
-                                }
-                                return (
-                                    <div
-                                        key={i}
-                                        ref={(el) => {
-                                            if (el) measureRefs.current[topic] = el;
-                                            if (i === 0) boxRef.current = el;
-                                        }}
-                                        className="relative flex items-start bg-white"
-                                        style={{
-                                            transform: "scale(0.85)",
-                                            width: widthStyle,
-                                            padding: "20px 40px 16px 24px",
-                                            minHeight: "50px",
-                                            boxSizing: "border-box",
-                                        }}
-                                    >
-                                        <span
+                    <div className="relative w-full h-[500px] lg:h-[550px] xl:h-[600px]">
+                        {current.rectangles.map((rect, i) => (
+                            <motion.img 
+                                key={i} 
+                                src={rect.src} 
+                                loading="lazy" 
+                                alt={`Rectangle ${i + 1}`} 
+                                className="absolute" 
+                                style={{
+                                    ...rect.style,
+                                    top: i === 0 ? '70px' : '370px',
+                                    left: i === 0 ? '15%' : '45%',
+                                    width: i === 0 ? '280px' : '240px',
+                                    height: i === 0 ? '380px' : '220px',
+                                }}
+                                initial={{ opacity: 0, scale: 0.9, rotateY: 15 }}
+                                animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+                                transition={{ duration: 0.7, delay: 0.6 + (i * 0.2) }}
+                                whileHover={{ scale: 1.05, rotateY: -5 }}
+                            />
+                        ))}
+                        <div
+                            className="absolute left-[50%] top-1/2 transform -translate-x-1/2 -translate-y-1/2 overflow-hidden"
+                            style={{ height: boxHeight * 3.5 }}
+                        >
+                            <motion.div animate={{ y: offset }} transition={{ duration: 0.5, ease: "easeInOut" }} className="flex flex-col space-y-[8px]">
+                                {topics.map((topic, i) => {
+                                    const isActive = i === activeIndex;
+                                    const group = ["App Development", "Graphics Designing", "Google My Business"];
+                                    let widthStyle = "fit-content";
+                                    if (group.includes(topic) && groupWidth) widthStyle = `${groupWidth - 40}px`;
+                                    if (topic === "Custom Website Development" && measureRefs.current[topic]) {
+                                        const cWidth = measureRefs.current[topic]?.offsetWidth || 0;
+                                        const capped = Math.min(cWidth + 40, 340);
+                                        widthStyle = `${capped}px`;
+                                    }
+                                    return (
+                                        <div
+                                            key={i}
+                                            ref={(el) => {
+                                                if (el) measureRefs.current[topic] = el;
+                                                if (i === 0) boxRef.current = el;
+                                            }}
+                                            className="relative flex items-start bg-white"
                                             style={{
-                                                fontFamily: "Sora",
-                                                fontWeight: 500,
-                                                fontSize: "20px",
-                                                color: isActive ? "#2352A5" : "#000000",
+                                                transform: "scale(0.75)",
+                                                width: widthStyle,
+                                                padding: "16px 32px 12px 20px",
+                                                minHeight: "45px",
+                                                boxSizing: "border-box",
                                             }}
                                         >
-                                            {topic}
-                                        </span>
-                                        <svg
-                                            width="20"
-                                            height="20"
-                                            viewBox="0 0 24 24"
-                                            fill="none"
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            className="absolute top-3 right-3 transform rotate-90"
-                                        >
-                                            <path d="M20 4H8V16" stroke={isActive ? "#2352A5" : "#000000"} strokeWidth="2" />
-                                        </svg>
-                                    </div>
-                                );
-                            })}
-                        </motion.div>
+                                            <span
+                                                style={{
+                                                    fontFamily: "Sora",
+                                                    fontWeight: 500,
+                                                    fontSize: "18px",
+                                                    color: isActive ? "#2352A5" : "#000000",
+                                                }}
+                                            >
+                                                {topic}
+                                            </span>
+                                            <svg
+                                                width="18"
+                                                height="18"
+                                                viewBox="0 0 24 24"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                className="absolute top-3 right-3 transform rotate-90"
+                                            >
+                                                <path d="M20 4H8V16" stroke={isActive ? "#2352A5" : "#000000"} strokeWidth="2" />
+                                            </svg>
+                                        </div>
+                                    );
+                                })}
+                            </motion.div>
+                        </div>
                     </div>
                 </motion.div>
 
-                {/* Tablet or iPad Interface- For seperated clarity */}
-
+                {/* Tablet Interface (md to lg) - Removed as content now handled by mobile/desktop views */}
                 <motion.div 
-                    className="hidden md:flex lg:hidden flex-col items-center gap-6 mt-4 w-full"
+                    className="hidden"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
@@ -592,16 +567,9 @@ export default function HeroWithNavbar() {
                     </motion.div>
                 </motion.div>
 
-
-                {/*Mobile Interface -Seperated for clarity*/}
-
-                {/* Hide the heavy rectangle/topic visual on very small phones so the About
-  section (which is rendered right after this hero) appears immediately
-  after the brand logos. This is a mobile-only adjustment — desktop/tablet
-  behavior is unchanged. */}
-
+                {/* Mobile Rectangle Interface - Hidden for cleaner layout */}
                 <motion.div 
-                    className="hidden sm:flex md:hidden w-full flex-col items-center mt-6"
+                    className="hidden"
                     initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
