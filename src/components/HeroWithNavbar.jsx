@@ -207,7 +207,7 @@ export default function HeroWithNavbar() {
                 </div>
             )}
 
-            <div className="relative flex flex-col lg:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-16 xl:px-20 z-10 min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-70px)] md:min-h-[calc(100vh-80px)] lg:gap-8">
+            <div className="relative flex flex-col lg:flex-row items-center justify-between sm:px-6 md:px-12 lg:px-16 xl:px-20 z-10 min-h-[calc(100vh-60px)] sm:min-h-[calc(100vh-70px)] md:min-h-[calc(100vh-80px)] lg:gap-8">
 
                 <img
                     loading="lazy"
@@ -217,8 +217,8 @@ export default function HeroWithNavbar() {
                 />
 
                 {/* Mobile/Tablet View (below lg breakpoint) */}
-                <div className="w-full lg:hidden pt-28 sm:pt-20 pb-10 bg-gradient-to-b from-[#E6F4FF] to-white">
-                    <div className="px-5 text-center">
+                <div className="w-full lg:hidden pt-36 sm:pt-20 pb-5 bg-gradient-to-b from-[#E6F4FF] to-white">
+                    <div className="text-center">
                         {/* Heading */}
                         <motion.h1
                             className="font-sora font-semibold text-black mb-4 text-[26px] sm:text-[32px] leading-[120%]"
@@ -231,7 +231,7 @@ export default function HeroWithNavbar() {
 
                         {/* Description */}
                         <motion.p
-                            className="font-sora text-black text-[14px] sm:text-[15px] leading-[150%] max-w-md mx-auto mb-8"
+                            className="font-sora py-4 px-5 text-black text-[14px] sm:text-[15px] leading-[150%] max-w-md mx-auto mb-8"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.3 }}
@@ -268,19 +268,19 @@ export default function HeroWithNavbar() {
 
                         {/* Trusted Brands */}
                         <motion.div
-                            className="w-full bg-white py-6 flex flex-col items-center"
+                            className="w-full bg-white pt-6 flex flex-col items-center"
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.8 }}
                         >
-                            <h3 className="text-[#2352A5] font-semibold tracking-wide text-[12px] mb-6 px-4">
+                            <h3 className="text-[#2352A5] font-semibold tracking-wide text-[12px] mb-10 px-4">
                                 TRUSTED BY CURRENT AND SOON TO BE WORLD-CLASS BRANDS
                             </h3>
                             <div className="flex items-center justify-center gap-4 sm:gap-6 md:gap-8 flex-wrap px-4">
-                                <img loading="lazy" src={brand1} alt="Urban Pilgrim" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
-                                <img loading="lazy" src={brand2} alt="TakshaFM" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
-                                <img loading="lazy" src={brand3} alt="Shagun" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
-                                <img loading="lazy" src={brand4} alt="SkillLoop" className="h-7 xs:h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand1} alt="Urban Pilgrim" className="h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand2} alt="TakshaFM" className="h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand3} alt="Shagun" className="h-8 sm:h-9 md:h-10 object-contain" />
+                                <img loading="lazy" src={brand4} alt="SkillLoop" className="h-8 sm:h-9 md:h-10 object-contain" />
                             </div>
                         </motion.div>
                     </div>
@@ -524,7 +524,6 @@ export default function HeroWithNavbar() {
                             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
                             transition={{ duration: 0.6, delay: 0.8 }}
                         />
-
 
                         <motion.img
                             src={current.rectangles[1].src}
