@@ -1,62 +1,30 @@
 
-{/**Few Imports**/}
-
 import { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logo from "../assets/logo.png";
 
-
-
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const location = useLocation();
   const navigate = useNavigate();
 
-  const [active, setActive] = useState(location.pathname);
-
   const handleNavClick = (id, path) => {
-    setActive(path);
-    // If the target is the Contact route, try to scroll to an on-page contact section
     if (path === "/contact") {
-      // If a contact element exists on the current page, scroll to it smoothly
       const contactEl = typeof document !== "undefined" && document.getElementById("contact");
       if (contactEl) {
         contactEl.scrollIntoView({ behavior: "smooth", block: "start" });
-        // close mobile menu if open
         setOpen(false);
         return;
       }
-      // otherwise fall back to navigating to the dedicated contact page
       navigate(path);
       return;
     }
-
     navigate(path);
   };
 
-  const gradientText = {
-    background:
-      "linear-gradient(90deg, #2352A5 0%, #137DD1 25%, #02A7FD 45%, #7DE2FF 65%, #42ACEF 85%, #B7F1FF 100%)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-  };
-
-  const navItems = [
-    { label: "Services", path: "/services" },
-    { label: "Works", path: "/works" },
-    { label: "Products", path: "/products" },
-    { label: "Blogs", path: "/blogs" },
-    { label: "About", path: "/about" },
-    { label: "Career", path: "/career" },
-  ];
-
   return (
     <nav
-      className="flex items-center justify-between 
-                 px-4 sm:px-5 md:px-6 lg:px-10 
-                 h-[65px] sm:h-[75px] md:h-[80px] lg:h-[90px] 
-                 fixed top-0 left-0 z-50"
+      className="flex items-center justify-between px-4 sm:px-6 md:px-8 h-[60px] sm:h-[70px] md:h-[80px] lg:h-[85px] fixed top-0 left-0 z-50"
       style={{
         width: "100%",
         background: "#FFFFFFB5",
@@ -64,87 +32,66 @@ export default function Navbar() {
         backdropFilter: "blur(10px)",
       }}
     >
-      <Link to="/" className="flex items-center pl-2">
+      <Link to="/" className="flex items-center">
         <img
           src={logo}
           loading="lazy"
           alt="Code X Novas"
-          className="h-[40px] sm:h-[20px] md:h-[40px] lg:h-[100px] xl:h-[55px] w-auto transition-all duration-300"
+          className="h-[32px] sm:h-[40px] md:h-[48px] lg:h-[56px] w-auto transition-all duration-300"
         />
       </Link>
-  
-      <div className="hidden md:flex items-center">
-        <div
-          className="
-            flex items-center 
-            md:mr-15 lg:mr-60 xl:mr-80 
-            space-x-4 sm:space-x-5 md:space-x-5 lg:space-x-6 xl:space-x-8
-          "
-        >
-          {navItems.map((item) => (
-            <button
-              key={item.path}
-              onClick={() => handleNavClick(item.label.toLowerCase(), item.path)}
-              className="font-sora 
-                         text-[14px] sm:text-[15px] md:text-[15px] lg:text-[16px] 
-                         hover:underline decoration-gray-400 underline-offset-4 
-                         transition-all duration-300"
-              style={active === item.path ? gradientText : { color: "#000000" }}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-  
+
+      <div className="hidden lg:flex items-center gap-4 xl:gap-6 absolute left-1/2 transform -translate-x-1/2">
+        <button onClick={() => handleNavClick("services", "/services")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Services</button>
+        <button onClick={() => handleNavClick("works", "/works")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Works</button>
+        <button onClick={() => handleNavClick("products", "/products")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Products</button>
+        <button onClick={() => handleNavClick("blogs", "/blogs")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Blogs</button>
+        <button onClick={() => handleNavClick("about", "/about")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">About</button>
+        <button onClick={() => handleNavClick("career", "/career")} className="font-sora text-[14px] xl:text-[16px] text-black hover:underline decoration-gray-400 underline-offset-4 transition-all">Career</button>
+      </div>
+
+      <div className="hidden lg:flex items-center">
         <button
           onClick={() => handleNavClick("contact", "/contact")}
-          className="relative overflow-hidden ml-auto 
-                     px-4 sm:px-5 md:px-6 lg:px-6 
-                     py-[6px] sm:py-[7px] md:py-[8px] lg:py-2 
-                     rounded-md font-poppins 
-                     text-[14px] sm:text-[15px] md:text-[15px] lg:text-[16px] 
-                     text-white whitespace-nowrap"
+          className="relative overflow-hidden px-5 xl:px-6 py-2 xl:py-2.5 rounded-md font-poppins text-[14px] xl:text-[16px] text-white hover:opacity-90 transition-all"
           style={{
-            background: `
-            linear-gradient(
-              90deg,
-            #2352A5 0%,
-              #137DD1 20%,
-              #02A7FD 45%,
-              #42ACEF 70%,
-              #7DE2FF 92%,
-              #B7F1FF 100%
-            )
-          `,
-          boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
+            background: `linear-gradient(90deg, #2352A5 0%, #137DD1 20%, #02A7FD 45%, #42ACEF 70%, #7DE2FF 92%, #B7F1FF 100%)`,
+            boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.15)",
           }}
         >
           Contact us
         </button>
       </div>
-  
-      <button
-        className="md:hidden text-gray-700 ml-3"
-        onClick={() => setOpen(!open)}
-      >
-        {open ? <X size={26} /> : <Menu size={26} />}
-      </button>
-  
+
+      <div className="flex items-center lg:hidden">
+        <button
+          className="text-gray-700 p-1"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+        >
+          {open ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
       {open && (
-        <div className="absolute top-[80px] left-0 w-full bg-white shadow-md z-40 flex flex-col p-6 space-y-6 md:hidden">
-          {navItems.map((item) => (
-            <button
-              key={item.path}
-              onClick={() => handleNavClick(item.label.toLowerCase(), item.path)}
-              style={active === item.path ? gradientText : { color: "#000000" }}
-              className="font-sora text-[16px] text-left"
-            >
-              {item.label}
-            </button>
-          ))}
+        <div
+          className="fixed left-0 w-full bg-white shadow-lg flex flex-col p-5 sm:p-6 space-y-4 sm:space-y-5 lg:hidden z-[9999]"
+          style={{
+            top: "60px",
+          }}
+        >
+          <button onClick={() => { handleNavClick("services", "/services"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Services</button>
+          <button onClick={() => { handleNavClick("works", "/works"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Works</button>
+          <button onClick={() => { handleNavClick("products", "/products"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Products</button>
+          <button onClick={() => { handleNavClick("blogs", "/blogs"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Blogs</button>
+          <button onClick={() => { handleNavClick("about", "/about"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">About</button>
+          <button onClick={() => { handleNavClick("career", "/career"); setOpen(false); }} className="text-left font-sora text-[15px] sm:text-[16px] text-gray-800 hover:text-blue-600 transition-colors">Career</button>
           <button
-            onClick={() => handleNavClick("contact", "/contact")}
-            className="w-full text-center px-6 py-3 rounded-md font-poppins text-[16px] text-white bg-gradient-to-r from-[#2352A5] to-[#3CA9E2]"
+            onClick={() => { handleNavClick("contact", "/contact"); setOpen(false); }}
+            className="w-full text-center px-6 py-2.5 sm:py-3 rounded-md font-poppins text-[15px] sm:text-[16px] text-white transition-all hover:opacity-90"
+            style={{
+              background: "linear-gradient(90deg, #2352A5 0%, #137DD1 50%, #3CA9E2 100%)",
+            }}
           >
             Contact us
           </button>
@@ -152,5 +99,4 @@ export default function Navbar() {
       )}
     </nav>
   );
-  
 }

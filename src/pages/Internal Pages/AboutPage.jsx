@@ -372,6 +372,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+
             <section
                 className="flex md:hidden relative w-full justify-center px-[6%] my-[80px]"
                 style={{ zIndex: 2 }}
@@ -475,6 +476,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+
             <section
                 className="flex md:hidden relative w-full justify-center px-[6%] my-[80px]"
                 style={{ zIndex: 2 }}
@@ -574,6 +576,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+            
             <section
                 className="flex md:hidden relative w-full justify-center px-[6%] my-[80px]"
                 style={{ zIndex: 2 }}
