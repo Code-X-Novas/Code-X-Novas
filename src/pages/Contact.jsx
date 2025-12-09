@@ -4,6 +4,7 @@ import { FiPhone, FiMail } from "react-icons/fi";
 import { FaLinkedinIn, FaInstagram, FaYoutube } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import SEO from "../components/SEO";
+import TextHover from "../components/TextHover";
 import Logo from "../assets/logo.png";
 
 const Contact = () => {
@@ -317,20 +318,12 @@ const Contact = () => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    <span className="inline-block group-hover:animate-[jumpOnce_0.8s_ease-in-out]">
-                                        {isSubmitting ? "Sending..." : "Send Message"}
-                                    </span>
+                                    <TextHover 
+                                        text={isSubmitting ? "Sending..." : "Send Message"}
+                                        customClass="text-white"
+                                        noPadding={true}
+                                    />
                                 </motion.button>
-                                <style>
-                                    {`
-                    @keyframes jumpOnce {
-                      0% { transform: translateY(0); }
-                      40% { transform: translateY(-120%); }
-                      60% { transform: translateY(120%); }
-                      100% { transform: translateY(0); }
-                    }
-                  `}
-                                </style>
                             </motion.div>
                         </form>
                     </motion.div>

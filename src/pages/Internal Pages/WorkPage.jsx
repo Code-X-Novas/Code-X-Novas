@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import SEO from "../../components/SEO";
+import TextHover from "../../components/TextHover";
 import SynchroTask from "../../assets/Works/synchrotask.png";
 import UrbanPilgrim from "../../assets/Works/skillloop.png";
 import SkillLoop from "../../assets/Works/urbanpilgrim.png";
@@ -374,7 +375,11 @@ export default function WorkPage() {
                                 whileHover={{ scale: 1.05, boxShadow: "0 8px 20px rgba(35, 82, 165, 0.4)" }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                Load More
+                                <TextHover 
+                                    text="Load More"
+                                    customClass="text-white"
+                                    noPadding={true}
+                                />
                             </motion.button>
                         </motion.div>
                     </div>
@@ -393,3 +398,4 @@ export default function WorkPage() {
         </motion.div>
     );
 }
+

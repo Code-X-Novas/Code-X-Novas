@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import TextHover from "../components/TextHover";
 import Synchrotask from "../assets/Works/synchrotask.png";
 import SkillLoop from "../assets/Works/skillloop.png";
 import UrbanPilgrim from "../assets/Works/urbanpilgrim.png";
@@ -203,7 +204,11 @@ const Works = () => {
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
-                                Load More
+                                <TextHover 
+                                    text="Load More"
+                                    customClass="text-white"
+                                    noPadding={true}
+                                />
                             </motion.button>
                         ) : null}
                     </div>
@@ -358,7 +363,11 @@ const Works = () => {
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                         >
-                            Load More
+                            <TextHover 
+                                text="Load More"
+                                customClass="text-white"
+                                noPadding={true}
+                            />
                         </motion.button>
                     </motion.div>
                 </div>
