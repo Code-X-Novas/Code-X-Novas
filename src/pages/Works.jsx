@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import TextHover from "../components/TextHover";
 import Synchrotask from "../assets/Works/synchrotask.png";
 import SkillLoop from "../assets/Works/skillloop.png";
@@ -22,6 +23,7 @@ const projectsData = [
 const categories = ["All", "Animation", "Development", "Illustration", "Social Media", "Website", "App Design"];
 
 const Works = () => {
+    const navigate = useNavigate();
     const [activeCategory, setActiveCategory] = useState("All");
     // mobile-only: number of visible project cards (shows 3, then +3 per Load More)
     const [mobileVisibleCount, setMobileVisibleCount] = useState(3);
@@ -195,7 +197,7 @@ const Works = () => {
                     <div className="text-center mt-4">
                         {mobileVisibleCount < filteredProjects.length ? (
                             <motion.button
-                                onClick={() => setMobileVisibleCount((prev) => Math.min(prev + 3, filteredProjects.length))}
+                                onClick={() => navigate('/works')}
                                 className="px-6 py-3 bg-gradient-to-r from-[#016FAE] to-[#4FA3FF] text-white rounded-lg hover:opacity-90 transition"
                                 initial={{ scale: 0.9, opacity: 0 }}
                                 whileInView={{ scale: 1, opacity: 1 }}
@@ -359,6 +361,7 @@ const Works = () => {
                         transition={{ duration: 0.6, delay: 0.3 }}
                     >
                         <motion.button
+                            onClick={() => navigate('/works')}
                             className="px-6 py-3 bg-gradient-to-r from-[#016FAE] to-[#4FA3FF] text-white rounded-lg hover:opacity-90 transition"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
