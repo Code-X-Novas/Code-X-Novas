@@ -23,6 +23,8 @@ export default function BlogsPage() {
   const [showBlur, setShowBlur] = useState(true);
   const [currentFrame, setCurrentFrame] = useState(0);
   const [activeCategory, setActiveCategory] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
 
   const sectionRef = useRef(null);
   const contactRef = useRef(null);
@@ -79,9 +81,17 @@ export default function BlogsPage() {
     },
   ];
 
-  const filteredBlogs = activeCategory === "All" 
-    ? blogData 
-    : blogData.filter(blog => blog.mappedCategory === activeCategory);
+  const filteredBlogs = blogData.filter(blog => {
+    const matchesCategory = activeCategory === "All" || blog.mappedCategory === activeCategory;
+    
+    const matchesSearch = debouncedSearchTerm.trim() === "" || 
+      blog.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim()) ||
+      blog.category.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim()) ||
+      blog.mappedCategory.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim()) ||
+      blog.date.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim());
+    
+    return matchesCategory && matchesSearch;
+  });
 
   const frames = [
     frame1,
@@ -97,6 +107,14 @@ export default function BlogsPage() {
     frame11,
     frame12,
   ];
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchTerm(searchTerm);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [searchTerm]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -492,7 +510,7 @@ export default function BlogsPage() {
             </motion.div>
 
             <motion.div
-              className="flex items-center border border-[#ccc] rounded-full px-6 md:px-4 py-2 md:py-4 w-full sm:w-[240px] md:w-[280px] bg-white/80 backdrop-blur-sm"
+              className="flex items-center border border-[#ccc] rounded-full px-6 md:px-4 py-2 md:py-4 w-full sm:w-[240px] md:w-[280px] bg-white/80 backdrop-blur-sm relative"
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 5.4 }}
@@ -500,9 +518,22 @@ export default function BlogsPage() {
               <input
                 type="text"
                 placeholder="Search Blogs"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
                 className="flex-1 bg-transparent outline-none text-[13px] sm:text-[15px] text-gray-700 placeholder-black"
                 style={{ fontFamily: "Sora" }}
               />
+              {searchTerm && (
+                <button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setDebouncedSearchTerm("");
+                  }}
+                  className="mr-2 text-gray-500 hover:text-gray-700 transition-colors"
+                >
+                  ✕
+                </button>
+              )}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -519,6 +550,41 @@ export default function BlogsPage() {
               </svg>
             </motion.div>
           </motion.div>
+
+          {/* Search Results Counter */}
+          {(debouncedSearchTerm || activeCategory !== "All") && (
+            <motion.div 
+              className="mb-6 flex items-center justify-between px-0 sm:px-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="text-sm text-gray-600" style={{ fontFamily: "Sora" }}>
+                {filteredBlogs.length > 0 ? (
+                  <span>
+                    Showing <span className="font-semibold text-[#2352A5]">{filteredBlogs.length}</span> blog{filteredBlogs.length !== 1 ? 's' : ''}
+                    {debouncedSearchTerm && <span> matching "<span className="font-medium">{debouncedSearchTerm}</span>"</span>}
+                    {activeCategory !== "All" && <span> in {activeCategory}</span>}
+                  </span>
+                ) : (
+                  <span className="text-gray-500">No blogs found</span>
+                )}
+              </div>
+              {(debouncedSearchTerm || activeCategory !== "All") && (
+                <button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setDebouncedSearchTerm("");
+                    setActiveCategory("All");
+                  }}
+                  className="text-xs text-[#2352A5] hover:text-[#1e4694] font-medium transition-colors"
+                  style={{ fontFamily: "Sora" }}
+                >
+                  Clear all filters
+                </button>
+              )}
+            </motion.div>
+          )}
 
           {filteredBlogs.length === 0 ? (
             <motion.div
@@ -538,12 +604,29 @@ export default function BlogsPage() {
                 className="text-[16px] text-gray-600 text-center max-w-[400px]"
                 style={{ fontFamily: "Sora" }}
               >
-                No blogs available for the "{activeCategory}" category. Try selecting a different category.
+                {debouncedSearchTerm ? (
+                  <>No blogs match "<span className="font-medium text-[#2352A5]">{debouncedSearchTerm}</span>" in the {activeCategory === "All" ? "selected" : activeCategory} category.</>
+                ) : (
+                  <>No blogs available for the "{activeCategory}" category. Try selecting a different category.</>
+                )}
               </p>
+              {(debouncedSearchTerm || activeCategory !== "All") && (
+                <button
+                  onClick={() => {
+                    setSearchTerm("");
+                    setDebouncedSearchTerm("");
+                    setActiveCategory("All");
+                  }}
+                  className="mt-4 px-4 py-2 text-sm bg-[#2352A5] text-white rounded-lg hover:bg-[#1e4694] transition-colors"
+                  style={{ fontFamily: "Sora" }}
+                >
+                  Clear filters
+                </button>
+              )}
             </motion.div>
           ) : (
             <motion.div
-              key={activeCategory} // Re-animate when category changes
+              key={`${activeCategory}-${debouncedSearchTerm}`} // Re-animate when category or search changes
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-16 px-0 sm:px-6 md:px-[4.0%] w-full mt-[30px]"
               initial="hidden"
               animate="visible"

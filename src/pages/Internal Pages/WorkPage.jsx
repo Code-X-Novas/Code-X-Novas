@@ -26,10 +26,64 @@ import frame12 from "../../assets/InternalPages/ServicesPage/Frames/Frame12.png"
 
 export default function WorkPage() {
     const [activeCategory, setActiveCategory] = useState("All");
+    const [searchTerm, setSearchTerm] = useState("");
+    const [debouncedSearchTerm, setDebouncedSearchTerm] = useState("");
     const [scrollY, setScrollY] = useState(0);
     const [showBlur, setShowBlur] = useState(true);
     const [currentFrame, setCurrentFrame] = useState(0);
     const contactRef = useRef(null);
+
+    const workData = [
+        {
+            img: SynchroTask,
+            title: "Synchrotask",
+            subtitle: "AI-Powered Productivity with Human Precision",
+            category: "App Design",
+            type: "large"
+        },
+        {
+            img: SkillLoop,
+            title: "Skill Loop",
+            subtitle: "Future-Proof Your Skills: AI & Finance",
+            category: "Website",
+            type: "large"
+        },
+        {
+            img: UrbanPilgrim,
+            title: "Urban Pilgrim",
+            subtitle: "Urban Wellness Rooted in Indian Wisdom",
+            category: "Development",
+            type: "small"
+        },
+        {
+            img: eCommerce,
+            title: "Ecommerce Website",
+            subtitle: "Modern E-commerce Solution",
+            category: "Website",
+            type: "small"
+        },
+        {
+            img: TakshilaFm,
+            title: "Takshila FM",
+            subtitle: "Audio Streaming Platform",
+            category: "Development",
+            type: "small"
+        },
+    ];
+
+    const filteredProjects = workData.filter(project => {
+        const matchesCategory = activeCategory === "All" || project.category === activeCategory;
+        
+        const matchesSearch = debouncedSearchTerm.trim() === "" || 
+            project.title.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim()) ||
+            project.subtitle.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim()) ||
+            project.category.toLowerCase().includes(debouncedSearchTerm.toLowerCase().trim());
+        
+        return matchesCategory && matchesSearch;
+    });
+
+    const largeProjects = filteredProjects.filter(project => project.type === "large");
+    const smallProjects = filteredProjects.filter(project => project.type === "small");
 
     const frames = [
         frame1,
@@ -45,6 +99,14 @@ export default function WorkPage() {
         frame11,
         frame12,
     ];
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDebouncedSearchTerm(searchTerm);
+        }, 500);
+
+        return () => clearTimeout(timer);
+    }, [searchTerm]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -173,7 +235,7 @@ export default function WorkPage() {
                 <section className="relative w-full py-6 px-6 md:px-[5%] bg-white text-left z-10">
                     <div className="max-w-[1400px] mx-auto">
                         <motion.div 
-                            className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4"
+                            className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-4"
                             initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, delay: 0.6 }}
@@ -184,9 +246,9 @@ export default function WorkPage() {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.7, delay: 0.8 }}
                             >
-                                <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-md px-4 py-3">
+                                <div className="bg-white/40 backdrop-blur-md border border-white/40 rounded-2xl shadow-md px-8 py-3">
                                     <div className="overflow-x-auto scrollbar-none">
-                                        <div className="flex items-center gap-3 min-w-max">
+                                        <div className="flex items-center gap-5 min-w-max">
                                             {[
                                                 "All",
                                                 "Animation",
@@ -229,10 +291,24 @@ export default function WorkPage() {
                                     style={{ minHeight: "56px" }}
                                 >
                                     <input
-                                        placeholder="Search"
+                                        placeholder="Search projects..."
+                                        value={searchTerm}
+                                        onChange={(e) => setSearchTerm(e.target.value)}
                                         className="flex-1 outline-none bg-transparent text-sm placeholder:text-gray-500"
-                                        aria-label="Search"
+                                        aria-label="Search projects"
                                     />
+                                    {searchTerm && (
+                                        <button
+                                            onClick={() => setSearchTerm("")}
+                                            aria-label="Clear search"
+                                            className="p-1 rounded-full text-gray-400 hover:text-gray-600 hover:bg-white/60 transition"
+                                        >
+                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                                            </svg>
+                                        </button>
+                                    )}
                                     <button
                                         aria-label="Search"
                                         className="p-2 rounded-full text-[#2352A5] hover:bg-white/60 transition"
@@ -256,14 +332,52 @@ export default function WorkPage() {
                             </motion.div>
                         </motion.div>
 
-                        <motion.div 
-                            className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ staggerChildren: 0.2, delayChildren: 1.2 }}
-                        >
-                            {[{ img: SynchroTask, title: "Synchrotask" }, { img: SkillLoop, title: "Skill Loop" }].map(
-                                ({ img, title }, idx) => (
+                        {/* Search Results Counter */}
+                        {(debouncedSearchTerm || activeCategory !== "All") && (
+                            <motion.div 
+                                className="mb-6 flex items-center justify-between"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.8 }}
+                            >
+                                <div className="text-sm text-gray-600">
+                                    {filteredProjects.length > 0 ? (
+                                        <span>
+                                            Showing <span className="font-semibold text-[#2352A5]">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? 's' : ''}
+                                            {debouncedSearchTerm && <span> matching "<span className="font-medium">{debouncedSearchTerm}</span>"</span>}
+                                            {activeCategory !== "All" && <span> in {activeCategory}</span>}
+                                        </span>
+                                    ) : (
+                                        <span className="text-gray-500">No projects found</span>
+                                    )}
+                                </div>
+                                {(debouncedSearchTerm || activeCategory !== "All") && (
+                                    <button
+                                        onClick={() => {
+                                            setSearchTerm("");
+                                            setDebouncedSearchTerm("");
+                                            setActiveCategory("All");
+                                        }}
+                                        className="text-xs text-[#2352A5] hover:text-[#1e4694] font-medium transition-colors"
+                                    >
+                                        Clear all filters
+                                    </button>
+                                )}
+                            </motion.div>
+                        )}
+
+                        {filteredProjects.length > 0 ? (
+                            <>
+                                {largeProjects.length > 0 && (
+                                    <motion.div 
+                                        className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ staggerChildren: 0.2, delayChildren: 0.2 }}
+                                        key={`large-${activeCategory}-${debouncedSearchTerm}`}
+                                    >
+                            {largeProjects.map(
+                                ({ img, title, subtitle }, idx) => (
                                     <motion.div
                                         key={title}
                                         className="relative bg-white rounded-lg overflow-hidden shadow-md border border-transparent hover:border-[#2352A5] transition"
@@ -284,7 +398,7 @@ export default function WorkPage() {
                                                     {title}
                                                 </h3>
                                                 <p className="text-[13px] text-[#6B7280] mt-2">
-                                                    AI-Powered Productivity with Human Precision
+                                                    {subtitle}
                                                 </p>
                                             </div>
                                             <motion.button
@@ -301,31 +415,18 @@ export default function WorkPage() {
                                     </motion.div>
                                 )
                             )}
-                        </motion.div>
+                                    </motion.div>
+                                )}
 
-                        <motion.div 
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ staggerChildren: 0.15, delayChildren: 1.6 }}
-                        >
-                            {[
-                                {
-                                    img: UrbanPilgrim,
-                                    title: "Urban Pilgrim",
-                                    subtitle: "Urban Wellness Rooted in Indian Wisdom",
-                                },
-                                {
-                                    img: eCommerce,
-                                    title: "Ecommerce Website",
-                                    subtitle: "AI-Powered Productivity",
-                                },
-                                {
-                                    img: TakshilaFm,
-                                    title: "Takshila FM",
-                                    subtitle: "AI-Powered Productivity",
-                                },
-                            ].map(({ img, title, subtitle }, idx) => (
+                                {smallProjects.length > 0 && (
+                                    <motion.div 
+                                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{ staggerChildren: 0.15, delayChildren: 0.4 }}
+                                        key={`small-${activeCategory}-${debouncedSearchTerm}`}
+                                    >
+                            {smallProjects.map(({ img, title, subtitle }, idx) => (
                                 <motion.div
                                     key={title}
                                     className="relative bg-white rounded-lg overflow-hidden shadow-sm border border-transparent hover:border-[#2352A5] transition"
@@ -362,7 +463,43 @@ export default function WorkPage() {
                                     </div>
                                 </motion.div>
                             ))}
-                        </motion.div>
+                                    </motion.div>
+                                )}
+                            </>
+                        ) : (
+                            <motion.div 
+                                className="text-center py-16"
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.7, delay: 0.3 }}
+                            >
+                                <div className="max-w-md mx-auto">
+                                    <svg className="w-16 h-16 mx-auto mb-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.058 0-3.9.748-5.332 1.968M6.343 6.343A8 8 0 1017.657 17.657 8 8 0 006.343 6.343z" />
+                                    </svg>
+                                    <h3 className="text-xl font-semibold text-gray-700 mb-2">No projects found</h3>
+                                    <p className="text-gray-500 text-sm">
+                                        {debouncedSearchTerm ? (
+                                            <>No projects match "<span className="font-medium text-[#2352A5]">{debouncedSearchTerm}</span>" in the {activeCategory === "All" ? "selected" : activeCategory} category.</>
+                                        ) : (
+                                            <>No projects available in the {activeCategory} category.</>
+                                        )}
+                                    </p>
+                                    {(debouncedSearchTerm || activeCategory !== "All") && (
+                                        <button
+                                            onClick={() => {
+                                                setSearchTerm("");
+                                                setDebouncedSearchTerm("");
+                                                setActiveCategory("All");
+                                            }}
+                                            className="mt-4 px-4 py-2 text-sm bg-[#2352A5] text-white rounded-lg hover:bg-[#1e4694] transition-colors"
+                                        >
+                                            Clear filters
+                                        </button>
+                                    )}
+                                </div>
+                            </motion.div>
+                        )}
 
                         <motion.div 
                             className="text-center"
@@ -398,4 +535,3 @@ export default function WorkPage() {
         </motion.div>
     );
 }
-
