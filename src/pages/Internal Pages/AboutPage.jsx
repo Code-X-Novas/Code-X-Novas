@@ -362,14 +362,22 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="relative flex justify-center items-center order-1 md:order-2">
-                        <img
+                    <motion.div 
+                        className="relative flex justify-center items-center order-1 md:order-2"
+                        initial={{ opacity: 0, x: 60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                    >
+                        <motion.img
                             src={Picture2}
                             loading="lazy"
                             alt="Recognized Excellence"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            transition={{ duration: 0.4 }}
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
@@ -446,14 +454,22 @@ export default function AboutPage() {
                         boxShadow: "0 10px 35px rgba(0,0,0,0.08)",
                     }}
                 >
-                    <div className="relative flex justify-center items-center">
-                        <img
+                    <motion.div 
+                        className="relative flex justify-center items-center"
+                        initial={{ opacity: 0, x: -60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                    >
+                        <motion.img
                             src={Picture3}
                             loading="lazy"
                             alt="What Sets Us Apart"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            transition={{ duration: 0.4 }}
                         />
-                    </div>
+                    </motion.div>
 
                     <div
                         className="flex flex-col justify-center text-center md:text-left px-4 md:px-6"
@@ -566,14 +582,22 @@ export default function AboutPage() {
                         </p>
                     </div>
 
-                    <div className="relative flex justify-center items-center order-1 md:order-2">
-                        <img
+                    <motion.div 
+                        className="relative flex justify-center items-center order-1 md:order-2"
+                        initial={{ opacity: 0, x: 60 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.5 }}
+                    >
+                        <motion.img
                             src={Picture4}
                             loading="lazy"
                             alt="Our Expertise"
                             className="w-[90%] sm:w-[420px] md:w-[500px] lg:w-[550px] h-auto object-contain mx-auto"
+                            whileHover={{ scale: 1.05, rotate: 2 }}
+                            transition={{ duration: 0.4 }}
                         />
-                    </div>
+                    </motion.div>
                 </div>
             </section>
             

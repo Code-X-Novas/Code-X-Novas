@@ -16,6 +16,11 @@ import frame11 from "../../assets/InternalPages/ServicesPage/Frames/Frame11.png"
 import frame12 from "../../assets/InternalPages/ServicesPage/Frames/Frame12.png";
 
 import picture from "../../assets/InternalPages/ServicesPage/Picture.png";
+import WebAppDeveloper from "../../assets/InternalPages/ServicesPage/WebAppDeveloper.png";
+import AIDeveloper from "../../assets/InternalPages/ServicesPage/AIDeveloper.png";
+import UXDesigner from "../../assets/InternalPages/ServicesPage/UXDesigner.png";
+import CustomLMSDeveloper from "../../assets/InternalPages/ServicesPage/CustomLMSDeveloper.png";
+import ECommerceSolution from "../../assets/InternalPages/ServicesPage/ECommerceSolution.png";
 import Contact from "../Contact";
 
 export default function ServicesPage() {
@@ -76,12 +81,12 @@ export default function ServicesPage() {
   );
 
   const services = [
-    { title: "Web Development", description: "We design fast, scalable, and secure websites using Next.js, React, and Spring Boot — ensuring SEO optimization, responsive layouts, and a smooth user experience tailored to your business goals." },
-    { title: "App Development", description: "We build cross-platform apps with React Native, Flutter, and Kotlin — combining sleek UI, powerful performance, and real-time backend integration for smooth, high-quality user experiences across devices." },
-    { title: "AI & Machine Learning Solutions", description: "We create AI-driven automation, predictive analytics, and intelligent assistants that improve efficiency, personalize user experiences, and enable data-driven decision-making for businesses across industries." },
-    { title: "UI/UX Design", description: "We design intuitive, visually engaging interfaces that enhance usability, accessibility, and engagement — delivering prototypes and final designs that ensure every user interaction feels effortless." },
-    { title: "Custom LMS & E-Learning Platforms", description: "We develop scalable, interactive LMS platforms with live sessions, analytics, and digital certificates — using React, Firebase, and Node.js for seamless education experiences across web and mobile." },
-    { title: "E-commerce Solutions", description: "We build custom, secure, and high-performance e-commerce platforms using Next.js, Stripe, and Firebase — enabling smooth shopping, payment, and inventory management experiences for your customers." },
+    { title: "Web Development", description: "We design fast, scalable, and secure websites using Next.js, React, and Spring Boot — ensuring SEO optimization, responsive layouts, and a smooth user experience tailored to your business goals.", image: picture },
+    { title: "App Development", description: "We build cross-platform apps with React Native, Flutter, and Kotlin — combining sleek UI, powerful performance, and real-time backend integration for smooth, high-quality user experiences across devices.", image: WebAppDeveloper },
+    { title: "AI & Machine Learning Solutions", description: "We create AI-driven automation, predictive analytics, and intelligent assistants that improve efficiency, personalize user experiences, and enable data-driven decision-making for businesses across industries.", image: AIDeveloper },
+    { title: "UI/UX Design", description: "We design intuitive, visually engaging interfaces that enhance usability, accessibility, and engagement — delivering prototypes and final designs that ensure every user interaction feels effortless.", image: UXDesigner },
+    { title: "Custom LMS & E-Learning Platforms", description: "We develop scalable, interactive LMS platforms with live sessions, analytics, and digital certificates — using React, Firebase, and Node.js for seamless education experiences across web and mobile.", image: CustomLMSDeveloper },
+    { title: "E-commerce Solutions", description: "We build custom, secure, and high-performance e-commerce platforms using Next.js, Stripe, and Firebase — enabling smooth shopping, payment, and inventory management experiences for your customers.", image: ECommerceSolution },
   ];
 
   return (
@@ -219,7 +224,7 @@ export default function ServicesPage() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   whileHover={{ scale: 1.05, rotateY: i % 2 === 0 ? -5 : 5 }}
                 >
-                  <img src={picture} loading="lazy" alt={s.title} className="mt-0 sm:mt-7 w-full h-auto object-cover" />
+                  <img src={s.image} loading="lazy" alt={s.title} className="mt-0 sm:mt-7 w-full h-auto lg:h-[500px] object-cover" />
                 </motion.div>
 
                 <motion.div
@@ -337,7 +342,7 @@ export default function ServicesPage() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                 >
                   <img
-                    src={picture}
+                    src={s.image}
                     alt={s.title}
                     loading="lazy"
                     className="w-full h-[220px] max-h-[220px] object-cover rounded-lg"
