@@ -9,6 +9,23 @@ import Ecommerce from "../assets/Works/ecommerce.png";
 import TakshilaFM from "../assets/Works/takshilafm.png";
 import CurveGlow from "../assets/Works/curve-glow.png";
 import CornerGlow from "../assets/Works/corner-glow.png";
+import Animation1 from "../assets/Works/Animations/LoadingAnimation.gif";
+import Animation2 from "../assets/Works/Animations/ButtonAnimation.gif";
+import Animation3 from "../assets/Works/Animations/SmokyAnimation.gif";
+import Animation4 from "../assets/Works/Animations/JumpingAnimation.gif";
+import Animation5 from "../assets/Works/Animations/WaterFillingAnimation.gif";
+import CohesiveMinds from "../assets/Works/Website/CohesiveMinds.png";
+import Shagun from "../assets/Works/Website/Shagun.png";
+import ShoeWebsite from "../assets/Works/Website/ShoeWebsite.png";
+import TravelandTours from "../assets/Works/Website/TravelandTours.png";
+import WinzInfotech from "../assets/Works/Website/WinzInfotech.png";
+import ECommerceWebsite1 from "../assets/Works/Website/ECommerceWebsite-1.png";
+import ECommerceWebsite2 from "../assets/Works/Website/ECommerceWebsite-2.png";
+import GenLokalApp from "../assets/Works/App/GenLokalApp.png";
+import GymApp from "../assets/Works/App/GymApp.png";
+import VicinaCustomerApp from "../assets/Works/App/VicinaCustomerApp.png";
+import VicinaDeliveryApp from "../assets/Works/App/VicinaDeliveryApp.png";
+import VicinaShopApp from "../assets/Works/App/VicinaShopApp.png";
 
 /**Works Section*/
 const projectsData = [
@@ -17,6 +34,23 @@ const projectsData = [
     { title: "Urban Pilgrim", desc: "Urban Wellness Rooted in Indian Wisdom", img: SkillLoop, category: "Website" },
     { title: "Ecommerce Website", desc: "AI-Powered Productivity", img: Ecommerce, category: "Website" },
     { title: "Takshila FM", desc: "AI-Powered Productivity", img: TakshilaFM, category: "Website" },
+    { title: "Water filling Animation", img: Animation5, category: "Animation" },
+    { title: "Smoky Animation", img: Animation3, category: "Animation" },
+    { title: "Loading Animation", img: Animation1, category: "Animation" },
+    { title: "Button animation", img: Animation2, category: "Animation" },
+    { title: "Jumping Animation", img: Animation4, category: "Animation" },
+    { title: "ECommerce Website", img: ECommerceWebsite1, category: "Website" },
+    { title: "Cohesive Minds", img: CohesiveMinds, category: "Website" },
+    { title: "Shagun", img: Shagun, category: "Website" },
+    { title: "Shoe Website", img: ShoeWebsite, category: "Website" },
+    { title: "Travel and Tours", img: TravelandTours, category: "Website" },
+    { title: "Winz Infotech", img: WinzInfotech, category: "Website" },
+    { title: "ECommerce Website", img: ECommerceWebsite2, category: "Website" },
+    { title: "Gen Lokal App", img: GenLokalApp, category: "App Design" },
+    { title: "Gym App", img: GymApp, category: "App Design" },
+    { title: "Vicina Customer App", img: VicinaCustomerApp, category: "App Design" },
+    { title: "Vicina Delivery App", img: VicinaDeliveryApp, category: "App Design" },
+    { title: "Vicina Shop App", img: VicinaShopApp, category: "App Design" },
 ];
 
 /**Categories- Various options as mentioned in the figma protoype */

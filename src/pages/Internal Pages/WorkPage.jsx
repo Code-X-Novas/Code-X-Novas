@@ -3,11 +3,28 @@ import { motion } from "framer-motion";
 import Navbar from "../../components/Navbar";
 import SEO from "../../components/SEO";
 import TextHover from "../../components/TextHover";
-import SynchroTask from "../../assets/Works/synchrotask.png";
-import UrbanPilgrim from "../../assets/Works/skillloop.png";
-import SkillLoop from "../../assets/Works/urbanpilgrim.png";
-import TakshilaFm from "../../assets/Works/takshilafm.png";
-import eCommerce from "../../assets/Works/ecommerce.png";
+import Synchrotask from "../../assets/Works/synchrotask.png";
+import SkillLoop from "../../assets/Works/skillloop.png";
+import UrbanPilgrim from "../../assets/Works/urbanpilgrim.png";
+import Ecommerce from "../../assets/Works/ecommerce.png";
+import TakshilaFM from "../../assets/Works/takshilafm.png";
+import Animation1 from "../../assets/Works/Animations/LoadingAnimation.gif";
+import Animation2 from "../../assets/Works/Animations/ButtonAnimation.gif";
+import Animation3 from "../../assets/Works/Animations/SmokyAnimation.gif";
+import Animation4 from "../../assets/Works/Animations/JumpingAnimation.gif";
+import Animation5 from "../../assets/Works/Animations/WaterFillingAnimation.gif";
+import CohesiveMinds from "../../assets/Works/Website/CohesiveMinds.png";
+import Shagun from "../../assets/Works/Website/Shagun.png";
+import ShoeWebsite from "../../assets/Works/Website/ShoeWebsite.png";
+import TravelandTours from "../../assets/Works/Website/TravelandTours.png";
+import WinzInfotech from "../../assets/Works/Website/WinzInfotech.png";
+import ECommerceWebsite1 from "../../assets/Works/Website/ECommerceWebsite-1.png";
+import ECommerceWebsite2 from "../../assets/Works/Website/ECommerceWebsite-2.png";
+import GenLokalApp from "../../assets/Works/App/GenLokalApp.png";
+import GymApp from "../../assets/Works/App/GymApp.png";
+import VicinaCustomerApp from "../../assets/Works/App/VicinaCustomerApp.png";
+import VicinaDeliveryApp from "../../assets/Works/App/VicinaDeliveryApp.png";
+import VicinaShopApp from "../../assets/Works/App/VicinaShopApp.png";
 import curve from "../../assets/Works/curve-glow.png";
 import corner from "../../assets/Works/corner-glow.png";
 import Contact from "../Contact";
@@ -34,41 +51,28 @@ export default function WorkPage() {
     const contactRef = useRef(null);
 
     const workData = [
-        {
-            img: SynchroTask,
-            title: "Synchrotask",
-            subtitle: "AI-Powered Productivity with Human Precision",
-            category: "App Design",
-            type: "large"
-        },
-        {
-            img: SkillLoop,
-            title: "Skill Loop",
-            subtitle: "Future-Proof Your Skills: AI & Finance",
-            category: "Website",
-            type: "large"
-        },
-        {
-            img: UrbanPilgrim,
-            title: "Urban Pilgrim",
-            subtitle: "Urban Wellness Rooted in Indian Wisdom",
-            category: "Development",
-            type: "small"
-        },
-        {
-            img: eCommerce,
-            title: "Ecommerce Website",
-            subtitle: "Modern E-commerce Solution",
-            category: "Website",
-            type: "small"
-        },
-        {
-            img: TakshilaFm,
-            title: "Takshila FM",
-            subtitle: "Audio Streaming Platform",
-            category: "Development",
-            type: "small"
-        },
+        { title: "Synchrotask", subtitle: "AI-Powered Productivity with Human Precision", img: Synchrotask, category: "Website" },
+        { title: "Skill Loop", subtitle: "AI-Powered Productivity with Human Precision", img: UrbanPilgrim, category: "Website" },
+        { title: "Urban Pilgrim", subtitle: "Urban Wellness Rooted in Indian Wisdom", img: SkillLoop, category: "Website" },
+        { title: "Ecommerce Website", subtitle: "AI-Powered Productivity", img: Ecommerce, category: "Website" },
+        { title: "Takshila FM", subtitle: "AI-Powered Productivity", img: TakshilaFM, category: "Website" },
+        { title: "Water filling Animation", subtitle: "Smooth water filling effect", img: Animation5, category: "Animation" },
+        { title: "Smoky Animation", subtitle: "Dynamic smoke effect", img: Animation3, category: "Animation" },
+        { title: "Loading Animation", subtitle: "Engaging loading indicator", img: Animation1, category: "Animation" },
+        { title: "Button animation", subtitle: "Interactive button effects", img: Animation2, category: "Animation" },
+        { title: "Jumping Animation", subtitle: "Playful jumping motion", img: Animation4, category: "Animation" },
+        { title: "ECommerce Store", subtitle: "Modern E-commerce Solution", img: ECommerceWebsite1, category: "Website" },
+        { title: "Cohesive Minds", subtitle: "Corporate website design", img: CohesiveMinds, category: "Website" },
+        { title: "Shagun", subtitle: "Traditional meets digital", img: Shagun, category: "Website" },
+        { title: "Shoe Website", subtitle: "E-commerce footwear store", img: ShoeWebsite, category: "Website" },
+        { title: "Travel and Tours", subtitle: "Travel booking platform", img: TravelandTours, category: "Website" },
+        { title: "Winz Infotech", subtitle: "Tech company portfolio", img: WinzInfotech, category: "Website" },
+        { title: "ECommerce Platform", subtitle: "Online shopping platform", img: ECommerceWebsite2, category: "Website" },
+        { title: "Gen Lokal App", subtitle: "Local community app", img: GenLokalApp, category: "App Design" },
+        { title: "Gym App", subtitle: "Fitness tracking application", img: GymApp, category: "App Design" },
+        { title: "Vicina Customer App", subtitle: "Customer-facing mobile app", img: VicinaCustomerApp, category: "App Design" },
+        { title: "Vicina Delivery App", subtitle: "Delivery management system", img: VicinaDeliveryApp, category: "App Design" },
+        { title: "Vicina Shop App", subtitle: "Shop owner dashboard", img: VicinaShopApp, category: "App Design" },
     ];
 
     const filteredProjects = workData.filter(project => {
@@ -82,8 +86,9 @@ export default function WorkPage() {
         return matchesCategory && matchesSearch;
     });
 
-    const largeProjects = filteredProjects.filter(project => project.type === "large");
-    const smallProjects = filteredProjects.filter(project => project.type === "small");
+    // Dynamic layout: first 2 projects are large, rest are small
+    const largeProjects = filteredProjects.slice(0, 2);
+    const smallProjects = filteredProjects.slice(2);
 
     const frames = [
         frame1,
@@ -332,40 +337,6 @@ export default function WorkPage() {
                             </motion.div>
                         </motion.div>
 
-                        {/* Search Results Counter */}
-                        {(debouncedSearchTerm || activeCategory !== "All") && (
-                            <motion.div 
-                                className="mb-6 flex items-center justify-between"
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: 0.8 }}
-                            >
-                                <div className="text-sm text-gray-600">
-                                    {filteredProjects.length > 0 ? (
-                                        <span>
-                                            Showing <span className="font-semibold text-[#2352A5]">{filteredProjects.length}</span> project{filteredProjects.length !== 1 ? 's' : ''}
-                                            {debouncedSearchTerm && <span> matching "<span className="font-medium">{debouncedSearchTerm}</span>"</span>}
-                                            {activeCategory !== "All" && <span> in {activeCategory}</span>}
-                                        </span>
-                                    ) : (
-                                        <span className="text-gray-500">No projects found</span>
-                                    )}
-                                </div>
-                                {(debouncedSearchTerm || activeCategory !== "All") && (
-                                    <button
-                                        onClick={() => {
-                                            setSearchTerm("");
-                                            setDebouncedSearchTerm("");
-                                            setActiveCategory("All");
-                                        }}
-                                        className="text-xs text-[#2352A5] hover:text-[#1e4694] font-medium transition-colors"
-                                    >
-                                        Clear all filters
-                                    </button>
-                                )}
-                            </motion.div>
-                        )}
-
                         {filteredProjects.length > 0 ? (
                             <>
                                 {largeProjects.length > 0 && (
@@ -377,7 +348,7 @@ export default function WorkPage() {
                                         key={`large-${activeCategory}-${debouncedSearchTerm}`}
                                     >
                             {largeProjects.map(
-                                ({ img, title, subtitle }, idx) => (
+                                ({ img, title, subtitle, category }, idx) => (
                                     <motion.div
                                         key={title}
                                         className="relative bg-white rounded-lg overflow-hidden shadow-md border border-transparent hover:border-[#2352A5] transition"
@@ -390,7 +361,7 @@ export default function WorkPage() {
                                             loading="lazy"
                                             src={img}
                                             alt={title}
-                                            className="w-full h-[200px] md:h-[300px] lg:h-[320px] object-cover rounded-t-lg"
+                                            className={`w-full h-[200px] md:h-[300px] lg:h-[320px] ${category === "App Design" ? "object-fill object-[center_30%]" : "object-cover"} rounded-t-lg`}
                                         />
                                         <div className="p-6 flex items-center justify-between">
                                             <div className="pr-3">
@@ -426,7 +397,7 @@ export default function WorkPage() {
                                         transition={{ staggerChildren: 0.15, delayChildren: 0.4 }}
                                         key={`small-${activeCategory}-${debouncedSearchTerm}`}
                                     >
-                            {smallProjects.map(({ img, title, subtitle }, idx) => (
+                            {smallProjects.map(({ img, title, subtitle, category }, idx) => (
                                 <motion.div
                                     key={title}
                                     className="relative bg-white rounded-lg overflow-hidden shadow-sm border border-transparent hover:border-[#2352A5] transition"
@@ -439,7 +410,7 @@ export default function WorkPage() {
                                         src={img}
                                         alt={title}
                                         loading="lazy"
-                                        className="w-full h-[180px] sm:h-[200px] md:h-[220px] object-cover rounded-t-lg"
+                                        className={`w-full h-[180px] sm:h-[200px] md:h-[220px] ${category === "App Design" ? "object-fill object-[center_30%]" : "object-cover"} rounded-t-lg`}
                                         whileHover={{ scale: 1.1 }}
                                         transition={{ duration: 0.4 }}
                                     />
