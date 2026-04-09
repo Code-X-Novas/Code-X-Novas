@@ -220,7 +220,7 @@ export default function AboutPage() {
                             }}
                         >
                             {[
-                                "Successfully delivered 50+ projects in web, app, AI, and custom solutions.",
+                                "Successfully delivered 100+ projects in web, app, AI, and custom solutions.",
                                 "Trusted by leading brands and startups across India, Dubai, USA, and beyond.",
                                 "Recognized as one of India’s Top 75 Emerging Startups for digital innovation.",
                             ].map((item, i) => (
